@@ -6,45 +6,32 @@
 
 /* Icon */
 
-	.icon {
-		@include icon;
-		border-bottom: none;
-		position: relative;
+.icon {
+  @include icon;
+  border-bottom: none;
+  position: relative;
+  color: _palette(fg);
+  font-size: 2rem;
+  margin: 0 1rem;
 
-		> .label {
-			display: none;
-		}
+  > .label {
+    display: none;
+  }
 
-		&.alt {
-			&:before {
-				background-color: _palette(fg-bold);
-				border-radius: 100%;
-				color: _palette(bg);
-				display: inline-block;
-				height: 2em;
-				line-height: 2em;
-				text-align: center;
-				width: 2em;
-			}
-		}
-	}
+  @include breakpoint(medium) {
+    font-size: 1.5em;
+    margin: 0 0.5em;
+  }
+}
 
-	a.icon {
-		&.alt {
-			&:before {
-				@include vendor('transition', 'background-color #{_duration(transition)} ease-in-out');
-			}
+a.icon {
+  @include vendor('transition', 'color #{_duration(transition)} ease-in-out');
 
-			&:hover {
-				&:before {
-					background-color: _palette(accent1);
-				}
-			}
+  &:hover {
+    color: desaturate(darken(_palette(fg), 25), 5) !important;
+  }
 
-			&:active {
-				&:before {
-					background-color: desaturate(darken(_palette(accent1), 15), 5);
-				}
-			}
-		}
-	}
+  &:active {
+    color: desaturate(darken(_palette(fg), 25), 5) !important;
+  }
+}

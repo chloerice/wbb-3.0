@@ -33,7 +33,7 @@ export default function Contact() {
             <div className="contact-method">
               <span className="icon alt fa-envelope"></span>
               <h3>Email</h3>
-              <a href="#">information@untitled.tld</a>
+              <a href="#">info@webuildblack.com</a>
             </div>
           </section>
           <section>
@@ -48,11 +48,9 @@ export default function Contact() {
               <span className="icon alt fa-home"></span>
               <h3>Address</h3>
               <span>
-                1234 Somewhere Road #5432
+                147 Front Street
                 <br />
-                Nashville, TN 00000
-                <br />
-                United States of America
+                Brooklyn, NY 11201
               </span>
             </div>
           </section>

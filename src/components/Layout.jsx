@@ -28,7 +28,7 @@ export default function Layout({
     <div className={className}>
       <div id="wrapper">
         {headerMarkup}
-        {children}
+        <main>{children}</main>
         {contactMarkup}
         {footerMarkup}
       </div>

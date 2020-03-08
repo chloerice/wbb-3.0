@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <Layout contact>
       <Helmet title="Contact us | We Build Black"></Helmet>
-      <div>
+      <div className="page-heading">
         <h1>Contact us</h1>
       </div>
     </Layout>
