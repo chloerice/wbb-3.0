@@ -8,21 +8,29 @@ import Footer from './Footer'
 
 import '../assets/scss/main.scss'
 
-export default function Layout({ children }) {
+export default function Layout({
+  children,
+  footer = true,
+  header = true,
+  contact,
+}) {
   const [menuVisible, setMenuVisible] = useState(false)
-  const toggleMenu = useCallback(() => {
+  const toggleMenu = useCallback(() =>
     setMenuVisible(menuVisible => !menuVisible)
-  })
+  )
 
   const className = classname('body', menuVisible && 'is-menu-visible')
+  const headerMarkup = header ? <Header onToggleMenu={toggleMenu} /> : null
+  const contactMarkup = contact ? <Contact /> : null
+  const footerMarkup = footer ? <Footer /> : null
 
   return (
     <div className={className}>
       <div id="wrapper">
-        <Header onToggleMenu={toggleMenu} />
+        {headerMarkup}
         {children}
-        <Contact />
-        <Footer />
+        {contactMarkup}
+        {footerMarkup}
       </div>
       <Menu onToggleMenu={toggleMenu} />
     </div>

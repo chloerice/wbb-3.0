@@ -7,22 +7,22 @@ export default function Menu({ onToggleMenu }) {
       <div className="inner">
         <ul className="links">
           <li>
-            <Link onClick={onToggleMenu} to="/">
+            <Link onClick={onToggleMenu} to="/templates/home">
               Home
             </Link>
           </li>
           <li>
-            <Link onClick={onToggleMenu} to="/landing">
+            <Link onClick={onToggleMenu} to="/templates/landing">
               Landing
             </Link>
           </li>
           <li>
-            <Link onClick={onToggleMenu} to="/generic">
+            <Link onClick={onToggleMenu} to="/templates/generic">
               Generic
             </Link>
           </li>
           <li>
-            <Link onClick={onToggleMenu} to="/elements">
+            <Link onClick={onToggleMenu} to="/templates/elements">
               Elements
             </Link>
           </li>
