@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react'
+import classname from 'classnames'
 
 import Header from './Header'
 import Menu from './Menu'
@@ -7,53 +8,23 @@ import Footer from './Footer'
 
 import '../assets/scss/main.scss'
 
-class Layout extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isMenuVisible: false,
-      loading: 'is-loading',
-    }
-    this.handleToggleMenu = this.handleToggleMenu.bind(this)
-  }
+export default function Layout({ children }) {
+  const [menuVisible, setMenuVisible] = useState(false)
+  const toggleMenu = useCallback(() => {
+    setMenuVisible(menuVisible => !menuVisible)
+  })
 
-  componentDidMount() {
-    this.timeoutId = setTimeout(() => {
-      this.setState({ loading: '' })
-    }, 100)
-  }
+  const className = classname('body', menuVisible && 'is-menu-visible')
 
-  componentWillUnmount() {
-    if (this.timeoutId) {
-      clearTimeout(this.timeoutId)
-    }
-  }
-
-  handleToggleMenu() {
-    this.setState({
-      isMenuVisible: !this.state.isMenuVisible,
-    })
-  }
-
-  render() {
-    const { children } = this.props
-
-    return (
-      <div
-        className={`body ${this.state.loading} ${
-          this.state.isMenuVisible ? 'is-menu-visible' : ''
-        }`}
-      >
-        <div id="wrapper">
-          <Header onToggleMenu={this.handleToggleMenu} />
-          {children}
-          <Contact />
-          <Footer />
-        </div>
-        <Menu onToggleMenu={this.handleToggleMenu} />
+  return (
+    <div className={className}>
+      <div id="wrapper">
+        <Header onToggleMenu={toggleMenu} />
+        {children}
+        <Contact />
+        <Footer />
       </div>
-    )
-  }
+      <Menu onToggleMenu={toggleMenu} />
+    </div>
+  )
 }
-
-export default Layout
