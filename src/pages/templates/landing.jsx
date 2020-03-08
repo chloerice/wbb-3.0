@@ -37,7 +37,7 @@ const Landing = props => (
       </section>
       <section id="two" className="spotlights">
         <section>
-          <Link to="/generic" className="image">
+          <Link to="/templates/generic" className="image">
             <img src={pic08} alt="" />
           </Link>
           <div className="content">
@@ -54,7 +54,7 @@ const Landing = props => (
               </p>
               <ul className="actions">
                 <li>
-                  <Link to="/generic" className="button">
+                  <Link to="/templates/generic" className="button">
                     Learn more
                   </Link>
                 </li>
@@ -63,7 +63,7 @@ const Landing = props => (
           </div>
         </section>
         <section>
-          <Link to="/generic" className="image">
+          <Link to="/templates/generic" className="image">
             <img src={pic09} alt="" />
           </Link>
           <div className="content">
@@ -89,7 +89,7 @@ const Landing = props => (
           </div>
         </section>
         <section>
-          <Link to="/generic" className="image">
+          <Link to="/templates/generic" className="image">
             <img src={pic10} alt="" />
           </Link>
           <div className="content">
@@ -106,7 +106,7 @@ const Landing = props => (
               </p>
               <ul className="actions">
                 <li>
-                  <Link to="/generic" className="button">
+                  <Link to="/templates/generic" className="button">
                     Learn more
                   </Link>
                 </li>

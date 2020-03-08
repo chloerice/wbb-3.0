@@ -5,7 +5,7 @@ export default function Header({ onToggleMenu }) {
   return (
     <header id="header" className="alt">
       <Link to="/" className="logo">
-        <strong>Forty</strong> <span>by HTML5 UP</span>
+        <span>We Build Black</span>
       </Link>
       <nav>
         <a className="menu-link" onClick={onToggleMenu} href="javascript:;">
