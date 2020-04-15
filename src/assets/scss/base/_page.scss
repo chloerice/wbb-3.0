@@ -16,6 +16,10 @@ body {
   -ms-overflow-style: scrollbar;
 }
 
+html {
+  height: 100%;
+}
+
 // Ensures page width is always >=320px.
 @include breakpoint(xsmall) {
   html,
