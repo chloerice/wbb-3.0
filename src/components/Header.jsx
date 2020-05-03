@@ -8,9 +8,9 @@ export default function Header({ onToggleMenu }) {
         <span>We Build Black</span>
       </Link>
       <nav>
-        <a className="menu-link" onClick={onToggleMenu} href="javascript:;">
+        <button type="button" className="menu-button" onClick={onToggleMenu}>
           Menu
-        </a>
+        </button>
       </nav>
     </header>
   )

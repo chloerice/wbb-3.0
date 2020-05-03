@@ -1,0 +1,25 @@
+.page-container {
+}
+
+.grid-container {
+  background-color: blue;
+  display: grid;
+  grid-auto-flow: repeat(4, auto);
+  grid-template-columns:
+    'hero hero hero hero'
+    'main main main main'
+    'foot foot foot foot';
+}
+
+.hero-wrapper {
+  height: 110vh;
+}
+
+.hero-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1);
+  transition: 13s;
+}
