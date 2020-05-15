@@ -1,14 +1,9 @@
 import React from 'react'
+import './hero.scss'
 
 const HeroFull = ({ image, children }) => {
   return (
-    <div
-      style={{
-        backgroundImage: `url(${image})`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "cover"
-      }}>
+    <div style={{ backgroundImage: `url(${image})` }} className='hero_full'>
       {children}
     </div>
   )

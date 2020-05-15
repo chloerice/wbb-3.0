@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import Banner from '../components/Banner'
 
 import HeroFull from '../components/hero/HeroFull'
+import HeroAction from '../components/hero/HeroAction'
 
 import pic01 from '../assets/images/pic01.jpg'
 import pic02 from '../assets/images/pic02.jpg'
@@ -22,15 +23,20 @@ class HomeIndex extends React.Component {
 
         <HeroFull image={pic01}>
           <header className="major">
-            <h3 className="m-8">Aliquam</h3>
-            <p>Ipsum dolor sit amet</p>
+            <h1 className="m-8">Empowering</h1>
+            <h1>World Changers & Difference Makers</h1>
           </header>
           <Link to="/templates/landing" className="link primary"></Link>
         </HeroFull>
-        <article style={{ backgroundImage: `url(${pic01})` }}>
 
-        </article>
-
+        <HeroAction
+          image={pic02}
+          title={'We work together.'}
+          caption={'WE LISTEN. WE ADVISE.'}
+          buttonText={'About Us'}>
+          <p>Upstream seeks and builds relationships with individuals who are making a diference in their communities.
+          By finding those who are already creating change, we are deepening impact instead of duplicating it.</p>
+        </HeroAction>
       </Layout>
     )
   }
