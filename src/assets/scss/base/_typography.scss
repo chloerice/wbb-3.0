@@ -11,22 +11,21 @@ input,
 select,
 textarea {
   color: _palette(fg);
-  font-family: _font(family);
-  font-size: 17pt;
-  font-weight: _font(weight);
+  font-family: _font(family-body);
+  font-size: 16px;
   letter-spacing: _font(letter-spacing);
   line-height: 1.65;
 
   @include breakpoint(xlarge) {
-    font-size: 14pt;
+    font-size: 1em;
   }
 
   @include breakpoint(large) {
-    font-size: 12pt;
+    font-size: 1em;
   }
 
   @include breakpoint(xxsmall) {
-    font-size: 11pt;
+    font-size: 1em;
   }
 }
 
@@ -78,7 +77,7 @@ h4,
 h5,
 h6 {
   color: _palette(fg-bold);
-  font-weight: _font(weight-bold);
+  font-family: _font(family-heading);
   line-height: 1.65;
   margin: 0 0 (_size(element-margin) * 0.5) 0;
 
@@ -89,27 +88,27 @@ h6 {
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 3em;
 }
 
 h2 {
-  font-size: 1.75em;
+  font-size: 2.25em;
 }
 
 h3 {
-  font-size: 1.35em;
+  font-size: 1.75em;
 }
 
 h4 {
-  font-size: 1.1em;
+  font-size: 1.35em;
 }
 
 h5 {
-  font-size: 0.9em;
+  font-size: 1.1em;
 }
 
 h6 {
-  font-size: 0.7em;
+  font-size: 0.9em;
 }
 
 @include breakpoint(small) {

@@ -3,9 +3,9 @@ import { Link, Img, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import className from 'classnames'
 
-import { Header, Footer } from '../components'
+import { Nav, Footer } from '../components'
 
-import '../assets/scss/layout.scss'
+import '../assets/scss/detail-layout.scss'
 
 import pic01 from '../assets/images/pic01.jpg'
 import pic02 from '../assets/images/pic02.jpg'
@@ -20,9 +20,13 @@ export default function Page({ data, title }) {
     <PageContainer>
       <div className="grid-container">
         <Helmet title={title}></Helmet>
-        <Header />
-
-        <main className="grid-main"></main>
+        <Hero text="We educate. We empower. We build" />
+        <main className="grid-main">
+          <section className="intro"></section>
+          <section className="separator"></section>
+          <section className="info-grid"></section>
+          <section className="image-grid"></section>
+        </main>
         <Footer />
       </div>
     </PageContainer>
