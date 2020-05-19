@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import classname from 'classnames'
 
-import Header from './Header'
+import Nav from './Nav'
 import Menu from './Menu'
 import Contact from './Contact'
 import Footer from './Footer'
@@ -20,7 +20,7 @@ export default function Layout({
   )
 
   const className = classname('body', menuVisible && 'is-menu-visible')
-  const headerMarkup = header ? <Header onToggleMenu={toggleMenu} /> : null
+  const navMarkup = header ? <Nav onToggleMenu={toggleMenu} /> : null
   const contactMarkup = contact ? <Contact /> : null
   const footerMarkup = footer ? <Footer /> : null
 

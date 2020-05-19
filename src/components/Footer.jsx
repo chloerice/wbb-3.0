@@ -1,6 +1,6 @@
 import React from 'react'
 
-import wbbLogo from '../assets/images/wbb-square-logo.png'
+import wbbLogo from '../assets/images/wbb-logo-no-bg.svg'
 
 export default function Footer() {
   const copyrightMarkup = (
@@ -58,7 +58,7 @@ export default function Footer() {
 
   const footerLeftMarkup = (
     <div className="footer-left">
-      <div className="">
+      <div className="footer-left-content">
         <h3>Make an impact</h3>
         <ul className="footer-links">
           <li>
@@ -80,10 +80,11 @@ export default function Footer() {
 
   const footerRightMarkup = (
     <div className="footer-right">
-      <h3>Get involved</h3>
+      <h3>Get in touch</h3>
       <p className="p-condensed">We Build Black</p>
       <p className="p-condensed">147 Front Street</p>
       <p>Brooklyn, NY 11201</p>
+      <p>info@webuildblack.com</p>
       <h3>Stay in the loop</h3>
       <p>
         Subscribe to be first to know about the latest community news, events,
