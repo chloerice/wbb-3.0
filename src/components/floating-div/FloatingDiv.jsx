@@ -8,7 +8,7 @@ const FloatingDiv = ({ image, top, left, right, children }) => {
       top: `${top}`, 
       left: `${left}`, 
       right: `${right}` }}
-      className="floating-div">
+      className="floating-div shadow-float">
       {children}
     </div>
   )

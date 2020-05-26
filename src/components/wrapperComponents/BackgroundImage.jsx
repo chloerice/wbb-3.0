@@ -5,7 +5,7 @@ const BackgroundImage = ({ image, children }) => {
   return (
     <div
       style={{ backgroundImage: `url(${image})` }}
-      className="bg-no-repeat bg-center bg-cover">
+      className="relative bg-no-repeat bg-center bg-cover">
       {children}
     </div>
   )

@@ -64,7 +64,9 @@ i {
 }
 
 p {
-  margin: 0 0 _size(element-margin) 0;
+  font-family: 'Jura', sans-serif;
+  font-size: 1rem;
+  // margin: 0 0 _size(element-margin) 0;
 }
 
 .p-condensed {
@@ -80,7 +82,8 @@ h6 {
   color: _palette(fg-bold);
   font-weight: _font(weight-bold);
   line-height: 1.65;
-  margin: 0 0 (_size(element-margin) * 0.5) 0;
+  font-family: 'Roboto', sans-serif;
+  // margin: 0 0 (_size(element-margin) * 0.5) 0;
 
   a {
     color: inherit;
@@ -176,6 +179,10 @@ hr {
   &.major {
     margin: (_size(element-margin) * 1.5) 0;
   }
+}
+
+.textShadow {
+  text-shadow: 0px 1px rgba(111, 111, 111, 0.239);
 }
 
 .align-left {

@@ -29,9 +29,10 @@ module.exports = {
         11: '11px',
         12: '12px',
         13: '13px',
-        base: '14px',
+        14: '14px',
         15: '15px',
-        16: '16px',
+        base: '16px',
+        18: '18px',
         24: '24px',
       },
 
@@ -67,14 +68,28 @@ module.exports = {
         '20px': '20px',
         '24px': '24px',
         '26px': '26px',
-        '30px': '30px'
+        '100px': '100px',
+        '150px': '150px',
+        '200px': '200px',
+        '300px': '300px',
       }
     },
 
     fontFamily: {
       jura: ['Jura', 'sans-serif'],
       roboto: ['Roboto', 'sans-serif'],
-    }
+      arial: ['Arial', 'sans-serif'],
+    },
+
+    boxShadow: {
+      focus: 'inset 0px 0px 0px 2px rgba(82,184,191,0.8)',
+      dark: '0px 0px 0px 1px rgba(0,0,0,0.2)',
+      float: '0px 22px 60px rgba(0, 0, 0, 0.2)',
+      soft: '0px 0px 10px rgba(0, 0, 0, 0.15)',
+      img: '0px 5px 10px rgba(0, 0, 0, 0.1)',
+      imgSoft: '0px 1px 2px rgba(0, 0, 0, 0.15)',
+      selected: '0px 5px 10px rgba(0, 0, 0, 0.1)'
+    },
   },
   variants: {
     backgroundColor: ['responsive', 'hover', 'focus', 'odd']

@@ -28,23 +28,23 @@ class HomeIndex extends React.Component {
       <Layout>
         <Helmet title="We Build Black"></Helmet>
         <div className="home-container bg-white">
-          <div className="home section-one container mx-auto">
+          <div className="section-one container mx-auto">
             <ThreeImageGrid images={[man2, hands1, woman1]} />
           </div>
 
           <Banner>
-            <p className="mb-0">We are Black technologists educating and empowering the Black community to achieve socio-economic change.</p>
+            We are Black technologists educating and empowering the Black community to achieve socio-economic change.
           </Banner>
 
-          <div className="home section-two">
-            <HeroAction
-              width={'50%'}
-              image={texture}
-              title={'We believe that in every community.'}>
-              <p className="text-primary text-left">Upstream seeks and builds relationships with individuals who are making a diference in their communities.</p>
-              <p className="text-primary text-left">
-                By finding those who are already creating change, we are deepening impact instead of duplicating it.</p>
-            </HeroAction>
+          <div className="relative">
+            <BackgroundImage image={texture}>
+              <div className="w-full md:w-1/2 py-4r px-8 md:p-6r">
+                <h2 className="mb-4 font-roboto leading-tight textShadow">We believe that in every community, there are individuals with untapped potential ready to make their community a better place.</h2>
+                <p className="mb-2 text-primary text-left">Upstream seeks and builds relationships with individuals who are making a diference in their communities.</p>
+                <p className="text-primary text-left">
+                  By finding those who are already creating change, we are deepening impact instead of duplicating it.</p>
+              </div>
+            </BackgroundImage>
 
             <FloatingDiv top={'50%'} left={'55%'} right={'10%'}>
               <HeroAction
@@ -55,16 +55,15 @@ class HomeIndex extends React.Component {
                 <p className="inner-text center">Upstream seeks and builds relationships with individuals who are making a diference in their communities.</p>
                 <p className="inner-text center">
                   By finding those who are already creating change, we are deepening impact instead of duplicating it.</p>
-                <Button type={'transparent'}>About Us</Button>
+                <Button color={'yellow'}>About Us</Button>
               </HeroAction>
             </FloatingDiv>
           </div>
 
-          <div className="home section-three">
+          <div className="flex">
             <BackgroundImage image={man3} />
             <BackgroundImage
-              image={women1}
-              title={'We believe that in every community.'}>
+              image={women1}>
               <h2 className="title">We believe that in every community.</h2>
               <p className="text-primary text-left">Upstream seeks and builds relationships with individuals who are making a diference in their communities.</p>
               <p className="text-primary text-left">
