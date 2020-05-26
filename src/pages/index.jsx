@@ -11,6 +11,7 @@ import BackgroundImage from '../components/wrapperComponents/BackgroundImage'
 import FloatingDiv from '../components/floating-div/FloatingDiv'
 
 import ThreeImageGrid from '../components/elements/grid/ThreeGrid'
+import Button from '../components/elements/Button'
 
 import '../assets/scss/pages/home.scss'
 
@@ -39,10 +40,9 @@ class HomeIndex extends React.Component {
             <HeroAction
               width={'50%'}
               image={texture}
-              title={'We believe that in every community.'}
-              buttonText={'About Us'}>
-              <p className="inner-text dark">Upstream seeks and builds relationships with individuals who are making a diference in their communities.</p>
-              <p className="inner-text dark">
+              title={'We believe that in every community.'}>
+              <p className="text-primary text-left">Upstream seeks and builds relationships with individuals who are making a diference in their communities.</p>
+              <p className="text-primary text-left">
                 By finding those who are already creating change, we are deepening impact instead of duplicating it.</p>
             </HeroAction>
 
@@ -51,28 +51,25 @@ class HomeIndex extends React.Component {
                 image={woman1}
                 color={'#b58600'}
                 title={'We work together.'}
-                caption={'WE LISTEN. WE ADVISE.'}
-                buttonText={'About Us'}>
+                caption={'WE LISTEN. WE ADVISE.'}>
                 <p className="inner-text center">Upstream seeks and builds relationships with individuals who are making a diference in their communities.</p>
                 <p className="inner-text center">
                   By finding those who are already creating change, we are deepening impact instead of duplicating it.</p>
-                <button className='center'>About Us</button>
+                <Button type={'transparent'}>About Us</Button>
               </HeroAction>
             </FloatingDiv>
           </div>
 
           <div className="home section-three">
-            <HeroAction
-              image={man3} />
-            <HeroAction
-              width={'100%'}
+            <BackgroundImage image={man3} />
+            <BackgroundImage
               image={women1}
-              title={'We believe that in every community.'}
-              buttonText={'About Us'}>
-              <p className="inner-text dark">Upstream seeks and builds relationships with individuals who are making a diference in their communities.</p>
-              <p className="inner-text dark">
+              title={'We believe that in every community.'}>
+              <h2 className="title">We believe that in every community.</h2>
+              <p className="text-primary text-left">Upstream seeks and builds relationships with individuals who are making a diference in their communities.</p>
+              <p className="text-primary text-left">
                 By finding those who are already creating change, we are deepening impact instead of duplicating it.</p>
-            </HeroAction>
+            </BackgroundImage>
           </div>
         </div>
 

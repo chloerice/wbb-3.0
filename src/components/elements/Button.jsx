@@ -1,10 +1,12 @@
 import React from 'react'
 
-const Button = () => {
+const Button = ({type, children}) => {
+  let cssStyle = null
+
   return (
-    <div>
-      
-    </div>
+    <button className="bg-yellow">
+      {children}
+    </button>
   )
 }
 
