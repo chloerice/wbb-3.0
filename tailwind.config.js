@@ -3,10 +3,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#474747',
         yellow: '#F4CF64',
         white: '#FFF',
-        black: '#000',
+        black: {
+          300: '#474747',
+          600: '#232323',
+          900: '#000',
+        },
 
         orange: {
           100: '#B68D56',
@@ -72,7 +75,14 @@ module.exports = {
         '150px': '150px',
         '200px': '200px',
         '300px': '300px',
-      }
+      },
+
+      maxWidth: {
+        sm: '400px',
+        narrow: '550px',
+        med: '600px',
+        wide: '800px'
+      },
     },
 
     fontFamily: {
