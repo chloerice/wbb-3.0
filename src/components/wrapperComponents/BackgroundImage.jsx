@@ -1,17 +1,11 @@
 import React from 'react'
-import './background-wrapper.scss'
 
 const BackgroundImage = ({ image, children }) => {
-  let isImage = null
-
-  if (image) {
-    isImage = image
-  }
 
   return (
     <div
-      style={{ backgroundImage: `url(${isImage})` }}
-      className="background-wrapper">
+      style={{ backgroundImage: `url(${image})` }}
+      className="bg-no-repeat bg-center bg-cover">
       {children}
     </div>
   )
