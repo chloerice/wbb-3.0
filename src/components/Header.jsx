@@ -4,7 +4,7 @@ import Svg from '../components/elements/Svg'
 
 export default function Header({ onToggleMenu }) {
   return (
-    <header id="header" className="alt bg-black-900">
+    <header id="header" className="alt">
       <Link to="/" className="logo">
         <span>We Build Black</span>
       </Link>

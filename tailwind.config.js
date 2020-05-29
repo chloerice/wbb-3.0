@@ -3,8 +3,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        yellow: '#F4CF64',
         white: '#FFF',
+        yellow: {
+          300: '#F4CF64',
+          600: '#E2AF00',
+          900: '#987100',
+        },
         black: {
           300: '#474747',
           600: '#232323',
@@ -22,9 +26,11 @@ module.exports = {
       },
 
       width: {
+        p20: '20%',
         p30: '30%',
         p40: '40%',
         p50: '50%',
+        p90: '90%',
       },
 
       fontSize: {
@@ -57,6 +63,15 @@ module.exports = {
         '5r': '5rem',
         '6r': '6rem',
         '7r': '7rem',
+        '30r': '30rem',
+        '5pc': '5%',
+        '10pc': '10%',
+        '15pc': '15%',
+        '20pc': '20%',
+        '25pc': '25%',
+        '33pc': '33%',
+        '50pc': '50%',
+        '75pc': '75%',
         '1px': '1px',
         '2px': '2px',
         '3px': '3px',
@@ -78,6 +93,7 @@ module.exports = {
       },
 
       maxWidth: {
+        xs: '250px',
         sm: '400px',
         narrow: '550px',
         med: '600px',

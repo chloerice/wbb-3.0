@@ -8,7 +8,7 @@ const FloatingDiv = ({ top, left, right, children }) => {
       left: `${left}`,
       right: `${right}`
     }}
-      className="w-full absolute bg-center bg-cover bg-no-repeat max-w-med flex justify-center items-center shadow-float">
+      className="z-10 absolute bg-center bg-cover bg-no-repeat max-w-med flex justify-center items-center shadow-float">
       {children}
     </div>
   )
