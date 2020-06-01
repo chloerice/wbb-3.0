@@ -27,6 +27,7 @@ module.exports = {
 
       width: {
         150: '150px',
+        150: '150px',
         p20: '20%',
         p30: '30%',
         p40: '40%',
@@ -96,7 +97,7 @@ module.exports = {
       },
 
       maxWidth: {
-        xs: '250px',
+        xs: '100px',
         sm: '400px',
         narrow: '550px',
         med: '600px',

@@ -9,7 +9,7 @@ const BannerContent = ({ data }) => {
             <h2 className="text-black-300 text-3r lg:text-3r lg:mb-4 text-yellow-600">{el.title}</h2>
             : <h2 className="text-black-300 text-3r lg:text-3r lg:mb-4">{el.title}</h2>
           }
-          <p className="text-12 text-black-900 uppercase tracking-widest shadowDeep">{el.text}</p>
+          <p className="text-12 text-black-600 uppercase tracking-widest shadowDark">{el.text}</p>
         </div>
       ))}
     </Fragment>
