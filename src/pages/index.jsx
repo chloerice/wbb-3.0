@@ -92,12 +92,14 @@ class HomeIndex extends React.Component {
                   <div style={{ minWidth: '5vw' }} className="hidden md:block border-l border-gray-400 border-solid">
                     <BackgroundImage image={texture} />
                   </div>
-                  <div className="">
-                    <div className="w-full p-5pc flex justify-between">
+                  <div>
+                    <div className="hidden lg:flex w-full p-5pc justify-between">
                       {
-                        populateIcons().map(icon => {
-                          return <div className="max-w-xs w-full" key={icon.id}><Svg icon={icon.name} /></div>
-                        })
+                        populateIcons().map(icon => (
+                          <div className="max-w-xs w-full" key={icon.id}>
+                            <Svg icon={icon.name} />
+                          </div>
+                        ))
                       }
                     </div>
                     <div className="items-center md:flex md:flex-row-reverse">
