@@ -49,36 +49,42 @@ class HomeIndex extends React.Component {
             <div className="w-full bg-black-900 mt-40 h-40"></div>
             <BackgroundImage image={texture} addlClasses={'w-p90 -mt-30r self-end'}>
               <div className="w-full">
-                <div className="w-full pl-10pc md:flex">
-                  <IconContent icon={'laptop'} title={'Our Story'} color={'text-red-400'} />
-                  <TextContent>
-                    <p>Upstream International is a global Christian non-profit organization that works to bring people together to challenge poverty in creative ways. We believe that in every community, there are individuals who have untapped potential to make their community a better place but lack the necessities (training, structures, financial resources, etc.) to further their work. We partner with them, building relationships that bridge economic, cultural and religious divides, and empower them to lead. It is our dream to further break the cycle of dependence and build bridges for indigenous leaders to rise up and help equip the people around them. In each of us is a deep-seeded need to feel that we are making a difference and that our life counts for something outside of ourselves.</p>
-                    <blockquote className="w-full my-4 px-5pc justify-center border-l-0 lg:w-50pc lg:mt-0 lg:px-2 lg:pl-8 lg:float-right">
-                      <p className="font-roboto text-yellow-900 shadowLight font-semibold">"Being a part of someone’s survival, someone’s empowerment, and making someone else’s dreams a reality is something that's value is innumerable."</p>
-                    </blockquote>
-                    <p>We all have a curiosity about our purpose and how it relates to the world around us and beyond. For those who have the desire to be a part of positive change in the world, we ask you to act and provide you an outlet to do so.</p>
-                  </TextContent>
-                  <div className="w-200 p-5pc border-l border-gray-400 border-solid">
-                    <BackgroundImage image={texture} />
-                  </div>
-                </div>
-                <div className="w-full my-2r py-5r border-t border-b border-gray-400 border-solid">
-                  <div className="w-full">
-                    <BannerContent data={bannerData} />
-                    <div className="w-200 p-5pc border-l border-gray-400 border-solid">
-                      <BackgroundImage image={texture} />
-                    </div>
-                  </div>
-                </div>
-                <div className="w-full pl-10pc md:flex md:flex-row-reverse">
-                  <div className="w-200 p-5pc border-l border-gray-400 border-solid">
-                    <BackgroundImage image={texture} />
-                  </div>
-                  <IconContent isReverse={true} icon={'laptop'} title={'Who We Are'} color={'text-red-400'} />
-                  <TextContent isReverse={true}>
-                    <p>Upstream International is a global Christian non-profit organization that works to bring people together to challenge poverty in creative ways. We believe that in every community, there are individuals who have untapped potential to make their community a better place but lack the necessities (training, structures, financial resources, etc.) to further their work. We partner with them, building relationships that bridge economic, cultural and religious divides, and empower them to lead. It is our dream to further break the cycle of dependence and build bridges for indigenous leaders to rise up and help equip the people around them. In each of us is a deep-seeded need to feel that we are making a difference and that our life counts for something outside of ourselves.</p>
-                  </TextContent>
 
+                <div className="md:flex">
+                  <div className="md:flex">
+                    <IconContent icon={'laptop'} title={'Our Story'} color={'text-red-400'} />
+                    <TextContent>
+                      <p className="text-black-900 shadowDeep">Upstream International is a global Christian non-profit organization that works to bring people together to challenge poverty in creative ways. We believe that in every community, there are individuals who have untapped potential to make their community a better place but lack the necessities (training, structures, financial resources, etc.) to further their work. We partner with them, building relationships that bridge economic, cultural and religious divides, and empower them to lead. It is our dream to further break the cycle of dependence and build bridges for indigenous leaders to rise up and help equip the people around them. In each of us is a deep-seeded need to feel that we are making a difference and that our life counts for something outside of ourselves.</p>
+                      <blockquote className="w-full my-4 px-5pc justify-center border-l-0 lg:w-50pc lg:mt-0 lg:px-2 lg:pl-8 lg:float-right">
+                        <p className="font-roboto text-yellow-900 shadowLight font-semibold">"Being a part of someone’s survival, someone’s empowerment, and making someone else’s dreams a reality is something that's value is innumerable."</p>
+                      </blockquote>
+                      <p className="text-black-900 shadowDeep">We all have a curiosity about our purpose and how it relates to the world around us and beyond. For those who have the desire to be a part of positive change in the world, we ask you to act and provide you an outlet to do so.</p>
+                    </TextContent>
+                  </div>
+                  <div style={{ minWidth: '5vw' }} className="hidden md:block border-l border-gray-400 border-solid">
+                    <BackgroundImage image={texture} />
+                  </div>
+                </div>
+
+                <div className="md:flex border-t border-b border-gray-400 border-solid">
+                  <div className="w-full py-4 lg:flex">
+                    <BannerContent data={bannerData} />
+                  </div>
+                  <div style={{ minWidth: '5vw' }} className="hidden md:block border-l border-gray-400 border-solid">
+                    <BackgroundImage image={texture} />
+                  </div>
+                </div>
+
+                <div className="md:flex md:flex-row-reverse">
+                  <div style={{ minWidth: '5vw' }} className="hidden md:block border-l border-gray-400 border-solid">
+                    <BackgroundImage image={texture} />
+                  </div>
+                  <div className="items-center md:flex md:flex-row-reverse">
+                    <IconContent isReverse={true} icon={'laptop'} title={'Who We Are'} color={'text-red-400'} />
+                    <TextContent isReverse={true}>
+                      <p className="text-black-900 shadowDeep">Upstream International is a global Christian non-profit organization that works to bring people together to challenge poverty in creative ways. We believe that in every community, there are individuals who have untapped potential to make their community a better place but lack the necessities (training, structures, financial resources, etc.) to further their work. We partner with them, building relationships that bridge economic, cultural and religious divides, and empower them to lead. It is our dream to further break the cycle of dependence and build bridges for indigenous leaders to rise up and help equip the people around them. In each of us is a deep-seeded need to feel that we are making a difference and that our life counts for something outside of ourselves.</p>
+                    </TextContent>
+                  </div>
                 </div>
               </div>
             </BackgroundImage>
@@ -90,3 +96,38 @@ class HomeIndex extends React.Component {
 }
 
 export default HomeIndex
+
+// <div className="w-full">
+
+// <div className="w-full pl-10pc md:flex">
+//   <IconContent icon={'laptop'} title={'Our Story'} color={'text-red-400'} />
+//   <TextContent>
+//     <p>Upstream International is a global Christian non-profit organization that works to bring people together to challenge poverty in creative ways. We believe that in every community, there are individuals who have untapped potential to make their community a better place but lack the necessities (training, structures, financial resources, etc.) to further their work. We partner with them, building relationships that bridge economic, cultural and religious divides, and empower them to lead. It is our dream to further break the cycle of dependence and build bridges for indigenous leaders to rise up and help equip the people around them. In each of us is a deep-seeded need to feel that we are making a difference and that our life counts for something outside of ourselves.</p>
+//     <blockquote className="w-full my-4 px-5pc justify-center border-l-0 lg:w-50pc lg:mt-0 lg:px-2 lg:pl-8 lg:float-right">
+//       <p className="font-roboto text-yellow-900 shadowLight font-semibold">"Being a part of someone’s survival, someone’s empowerment, and making someone else’s dreams a reality is something that's value is innumerable."</p>
+//     </blockquote>
+//     <p>We all have a curiosity about our purpose and how it relates to the world around us and beyond. For those who have the desire to be a part of positive change in the world, we ask you to act and provide you an outlet to do so.</p>
+//   </TextContent>
+//   <div className="w-150 p-4 ml-4 border-l border-gray-400 border-solid">
+//     <BackgroundImage image={texture} />
+//   </div>
+// </div>
+
+// <div className="w-full border-t border-b border-gray-400 border-solid flex">
+//     <BannerContent data={bannerData} />
+//   <div className="w-150 p-4 ml-4 border-l border-gray-400 border-solid">
+//     <BackgroundImage image={texture} />
+//   </div>
+// </div>
+
+// <div className="w-full pl-10pc md:flex md:flex-row-reverse">
+//   <div className="w-150 p-4 ml-4 border-l border-gray-400 border-solid">
+//     <BackgroundImage image={texture} />
+//   </div>
+//   <IconContent isReverse={true} icon={'laptop'} title={'Who We Are'} color={'text-red-400'} />
+//   <TextContent isReverse={true}>
+//     <p>Upstream International is a global Christian non-profit organization that works to bring people together to challenge poverty in creative ways. We believe that in every community, there are individuals who have untapped potential to make their community a better place but lack the necessities (training, structures, financial resources, etc.) to further their work. We partner with them, building relationships that bridge economic, cultural and religious divides, and empower them to lead. It is our dream to further break the cycle of dependence and build bridges for indigenous leaders to rise up and help equip the people around them. In each of us is a deep-seeded need to feel that we are making a difference and that our life counts for something outside of ourselves.</p>
+//   </TextContent>
+
+// </div>
+// </div>

@@ -26,7 +26,7 @@ module.exports = {
       },
 
       width: {
-        200: '200px',
+        150: '150px',
         p20: '20%',
         p30: '30%',
         p40: '40%',
@@ -44,6 +44,7 @@ module.exports = {
         base: '16px',
         18: '18px',
         24: '24px',
+        '3r': '3rem',
       },
 
       spacing: {
