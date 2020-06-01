@@ -12,6 +12,10 @@ const BackgroundImage = ({ image, color, addlStyles, addlClasses, children }) =>
       overlayColor = 'rgba(0, 0, 0, .65)'
       break
 
+    case 'blue':
+      overlayColor = 'rgba(24, 65, 99, 0.75)'
+      break
+
     default:
       break
   }
@@ -21,7 +25,7 @@ const BackgroundImage = ({ image, color, addlStyles, addlClasses, children }) =>
       {color ?
         <div
           style={{ backgroundImage: `linear-gradient(${overlayColor}, ${overlayColor}), url(${image})` }}
-          className={`relative bg-no-repeat bg-center flex items-center justify-center ${addlClasses}`}>
+          className={`bg-no-repeat bg-center flex items-center justify-center ${addlClasses}`}>
           {children}
         </div>
         : <div

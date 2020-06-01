@@ -11,6 +11,7 @@ import BannerContent from '../components/wrapperComponents/BannerContent'
 
 import Image from '../components/elements/Image'
 import Button from '../components/elements/Button'
+import ButtonTrans from '../components/elements/ButtonTrans'
 
 import woman1 from '../assets/images/woman1.jpeg'
 import woman9 from '../assets/images/woman9.jpeg'
@@ -19,7 +20,7 @@ import man2 from '../assets/images/man2.jpeg'
 import man3 from '../assets/images/man3.jpeg'
 import men1 from '../assets/images/men1.jpeg'
 import hands1 from '../assets/images/hands1.jpeg'
-import texture from '../assets/images/texture.jpeg'
+import texture from '../assets/images/texture.jpg'
 import Svg from '../components/elements/Svg'
 
 const bannerData = [
@@ -134,10 +135,10 @@ class HomeIndex extends React.Component {
                     <BackgroundImage image={texture} />
                   </div>
                 </div>
-                <div className="flex my-6r">
+                <div className="flex my-6r md:my-0">
                   <div className="flex flex-col-reverse md:block md:grid grid-cols-2 gap-4">
-                    <div className="md:py-6r">
-                      <div className="max-w-xs mx-auto mb-3r md:mx-8">
+                    <div className="md:py-4r">
+                      <div className="max-w-xs mx-auto mb-3r md:mr-8">
                         <Svg icon='laptop' />
                       </div>
                       <div className="mx-8 md:mr-5pc">
@@ -147,9 +148,9 @@ class HomeIndex extends React.Component {
                       </div>
                     </div>
                     <div className="pt-2 pb-4 md:py-6r -mx-2 md:mx-0">
-                      <div className="relative w-full">
-                        <span className="md:absolute z-10">
-                          <Image image={woman9} width={'100%'} height={'100%'} />
+                      <div className="relative md:w-45vw">
+                        <span style={{ left: '12%' }} className="w-full mt-8 -ml-4r md:absolute z-10">
+                          <Image image={man2} width={'100%'} height={'100%'} />
                         </span>
                       </div>
                     </div>
@@ -158,11 +159,44 @@ class HomeIndex extends React.Component {
                     <BackgroundImage image={texture} />
                   </div>
                 </div>
-                <BackgroundImage image={woman1} color={'black'} addlClasses={'px-5pc py-25pc lg:px-20pc lg:py-15pc'}>
-                  <h1 className="pb-56 text-center text-yellow-600 shadowLight">To break the cycle of poverty, we must embrace the will to navigate Upstream</h1>
+                <BackgroundImage image={man3} color={'blue'} addlClasses={'px-5pc py-25pc lg:px-20pc lg:py-15pc'}>
+                  <div className="container py-10r flex flex-col justify-center items-center">
+                    <h1 className="pb-4 text-center text-white shadowDark">Missionaries</h1>
+                    <p className="text-24 text-center text-yellow-600 font-semibold shadowLight">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit dolorum error quam. Dolorem et praesentium quidem culpa ducimus, dicta quisquam temporibus id, nostrum ea, quia fugit pariatur sunt vel nihil!</p>
+                    <div className="mt-8">
+                      <Button color={'teal'} shade={500}>
+                        <p className="text-white text-12 tracking-widest font-bold uppercase">Support</p>
+                      </Button>
+                    </div>
+                  </div>
                 </BackgroundImage>
               </div>
             </BackgroundImage>
+            <BackgroundImage image={texture} addlClasses={'w-full -mt-3r self-end'}>
+              <div className="container pb-5r flex flex-col-reverse lg:flex-row">
+                <div className="lg:my-7r ml-4r mr-0 pr-4r lg:border-r border-gray-400 border-solid">
+                  <div className="hidden lg:block">
+                    <IconContent icon={'laptop'} title={'Our Partners'} color={'text-red-400'} />
+                  </div>
+
+                  <div className="mt-8">
+                    <ButtonTrans color={'teal'} shade={500}>
+                      <p className="text-black-600 text-12 text-right tracking-widest font-bold uppercase hover:font-bold">Joe Rigelsky</p>
+                    </ButtonTrans>
+                    <ButtonTrans color={'teal'} shade={500}>
+                      <p className="text-black-600 text-12 text-right tracking-widest font-bold uppercase hover:font-bold">Joe Rigelsky</p>
+                    </ButtonTrans>
+                  </div>
+                </div>
+                <div className="p-4r pb-0 lg:-mt-7r lg:mb-7r lg:pb-4r">
+                  <h1 className="mb-8 text-red-400 text-center lg:hidden lg:mt-0 shadowDeep">Our Partners</h1>
+                  <Image image={men1} width={'100%'} height={'60%'} />
+                  <h2 className="mt-4 text-yellow-600 text-center lg:text-left lg:my-4">Joe Rigelsky</h2>
+                  <p className="mt-8 text-black-900 md:text-left shadowDeep">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae vel animi totam voluptatum minus maiores? Minima eum quia eaque nisi enim provident corrupti quam doloribus amet ducimus dolorem, adipisci voluptatum? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam in eum sequi earum, unde fuga corporis esse distinctio odio. Blanditiis sint repellendus consequuntur culpa voluptatum harum ea tenetur expedita reprehenderit.</p>
+                </div>
+              </div>
+            </BackgroundImage>
+            <BackgroundImage image={hands1} color={'yellow'} addlClasses={'px-5pc py-25pc lg:px-20pc lg:py-25pc'} />
           </div>
         </div>
       </Layout>

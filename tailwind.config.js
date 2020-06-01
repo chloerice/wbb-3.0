@@ -33,6 +33,7 @@ module.exports = {
         p40: '40%',
         p50: '50%',
         p90: '90%',
+        '45vw': '45vw'
       },
 
       fontSize: {
