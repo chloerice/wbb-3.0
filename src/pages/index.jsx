@@ -10,12 +10,13 @@ import IconContent from '../components/wrapperComponents/IconContent'
 import BannerContent from '../components/wrapperComponents/BannerContent'
 
 import Image from '../components/elements/Image'
+import Input from '../components/elements/Input'
 import Button from '../components/elements/Button'
 import ButtonTrans from '../components/elements/ButtonTrans'
+import ButtonGallery from '../components/elements/ButtonGallery'
 
 import woman1 from '../assets/images/woman1.jpeg'
 import woman9 from '../assets/images/woman9.jpeg'
-import women1 from '../assets/images/women1.jpeg'
 import man2 from '../assets/images/man2.jpeg'
 import man3 from '../assets/images/man3.jpeg'
 import men1 from '../assets/images/men1.jpeg'
@@ -180,12 +181,14 @@ class HomeIndex extends React.Component {
                   </div>
 
                   <div className="mt-8">
-                    <ButtonTrans color={'teal'} shade={500}>
+                    <ButtonGallery color={'teal'} shade={500}>
                       <p className="text-black-600 text-12 text-right tracking-widest font-bold uppercase hover:font-bold">Joe Rigelsky</p>
-                    </ButtonTrans>
-                    <ButtonTrans color={'teal'} shade={500}>
-                      <p className="text-black-600 text-12 text-right tracking-widest font-bold uppercase hover:font-bold">Joe Rigelsky</p>
-                    </ButtonTrans>
+                    </ButtonGallery>
+                    <div className="mt-8">
+                      <ButtonGallery color={'teal'} shade={500}>
+                        <p className="text-black-600 text-12 text-right tracking-widest font-bold uppercase hover:font-bold">Joe Rigelsky</p>
+                      </ButtonGallery>
+                    </div>
                   </div>
                 </div>
                 <div className="p-4r pb-0 lg:-mt-7r lg:mb-7r lg:pb-4r">
@@ -197,6 +200,17 @@ class HomeIndex extends React.Component {
               </div>
             </BackgroundImage>
             <BackgroundImage image={hands1} color={'yellow'} addlClasses={'px-5pc py-25pc lg:px-20pc lg:py-25pc'} />
+            <div className="max-w-wide mx-auto w-full bg-yellow-600 px-3 py-14 flex flex-col md:flex-row justify-center items-center md:justify-between">
+              <h3 className="w-full text-center md:w-33pc mb-6 md:mb-0 font-bold">Subscribe</h3>
+              <div className="w-full md:mx-5pc">
+                <Input placeholder={'Enter Your Email Address'} />
+              </div>
+              <div className="md:w-33pc mt-4 md:mt-0">
+                <ButtonTrans color={'white'} shade={200}>
+                  Submit
+                </ButtonTrans>
+              </div>
+            </div>
           </div>
         </div>
       </Layout>
