@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Svg from '../components/elements/Svg'
 
 export default function Header({ onToggleMenu }) {
   return (
@@ -7,9 +8,9 @@ export default function Header({ onToggleMenu }) {
       <Link to="/" className="logo">
         <span>We Build Black</span>
       </Link>
-      <nav>
+      <nav className="pr-4 sm:pr-6">
         <button type="button" className="menu-button" onClick={onToggleMenu}>
-          Menu
+          <Svg icon='hamburger'/>
         </button>
       </nav>
     </header>

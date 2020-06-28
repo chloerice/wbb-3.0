@@ -40,7 +40,7 @@ export default function Menu({ onToggleMenu }) {
           </li>
         </ul>
       </div>
-      <a className="close" onClick={onToggleMenu} href="javascript:;">
+      <a className="close" onClick={onToggleMenu} href="#!">
         Close
       </a>
     </nav>
