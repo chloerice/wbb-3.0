@@ -1,8 +1,11 @@
 import React from 'react'
 
-const InputContent = ({ children }) => {
+const InputContent = ({ children, addlStyles, addlClasses }) => {
   return (
-    <div className="w-full mb-6 p-3 border border-black-100 border-solid rounded">
+    <div
+      style={{ addlStyles }}
+      className={`border border-black-100 border-solid rounded ${addlClasses}`}
+    >
       {children}
     </div>
   )

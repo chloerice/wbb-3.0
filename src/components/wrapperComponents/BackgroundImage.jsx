@@ -1,6 +1,12 @@
 import React, { Fragment } from 'react'
 
-const BackgroundImage = ({ image, color, addlStyles, addlClasses, children }) => {
+const BackgroundImage = ({
+  image,
+  color,
+  addlStyles,
+  addlClasses,
+  children,
+}) => {
   let overlayColor
 
   switch (color) {
@@ -16,24 +22,33 @@ const BackgroundImage = ({ image, color, addlStyles, addlClasses, children }) =>
       overlayColor = 'rgba(24, 65, 99, 0.75)'
       break
 
+    case 'teal':
+      overlayColor = 'rgba(36, 142, 118, 0.65)'
+      break
+
     default:
       break
   }
 
   return (
     <Fragment>
-      {color ?
+      {color ? (
         <div
-          style={{ backgroundImage: `linear-gradient(${overlayColor}, ${overlayColor}), url(${image})` }}
-          className={`bg-no-repeat bg-center flex items-center justify-center ${addlClasses}`}>
+          style={{
+            backgroundImage: `linear-gradient(${overlayColor}, ${overlayColor}), url(${image})`,
+          }}
+          className={`bg-no-repeat bg-center bg-cover flex items-center justify-center ${addlClasses}`}
+        >
           {children}
         </div>
-        : <div
+      ) : (
+        <div
           style={{ backgroundImage: `url('${image}')`, addlClasses }}
-          className={`relative bg-no-repeat bg-center bg-cover flex items-center justify-center ${addlClasses}`}>
+          className={`relative bg-no-repeat bg-center bg-cover flex items-center justify-center ${addlClasses}`}
+        >
           {children}
         </div>
-      }
+      )}
     </Fragment>
   )
 }
