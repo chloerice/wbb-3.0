@@ -66,6 +66,10 @@
   margin-right: 2em;
   cursor: pointer;
   font-size: 1.35em;
+
+  @include breakpoint(small) {
+    font-size: 1.2em;
+  }
 }
 
 .footer-logo {
@@ -106,6 +110,7 @@
   align-items: center;
   background: _palette(accent3);
   padding: 2em 4em;
+  color: _palette(text-light);
 
   .icons {
     margin: 0;
