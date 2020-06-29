@@ -65,6 +65,9 @@ export default function Footer() {
             <a href="/donate">Donate</a>
           </li>
           <li>
+            <a href="/contact">Hire</a>
+          </li>
+          <li>
             <a href="/contact">Partner</a>
           </li>
           <li>

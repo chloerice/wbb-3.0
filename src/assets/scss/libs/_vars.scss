@@ -20,6 +20,10 @@ $size: (
 
 // Font.
 $font: (
+  family-display: (
+    'Arvo',
+    serif,
+  ),
   family-heading: (
     'Roboto',
     sans-serif,
@@ -36,6 +40,8 @@ $font: (
 
 // Palette.
 $palette: (
+  text-light: #e3e2db,
+  text-dark: #000000,
   bg: #373942,
   bg-alt: #262831,
   fg: #ffffff,

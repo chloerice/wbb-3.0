@@ -3,26 +3,18 @@
 @import 'libs/mixins';
 @import 'libs/skel';
 
-.page-container {
-  background: pink;
+.page__container {
+  background: _palette(highlight);
   overflow-x: hidden;
+  color: _palette(text-dark);
 }
 
-.grid-container {
-  // background-color: blue;
-  display: grid;
-  grid-auto-flow: repeat(4, auto);
-  grid-template-columns:
-    'hero hero hero hero'
-    'main main main main'
-    'foot foot foot foot';
-}
-
-.hero-wrapper {
-  position: relative;
-  top: 0;
+.hero {
   display: flex;
-  min-height: 110vh;
+}
+
+.hero__image {
+  height: calc(100vh + 150px);
   width: 100%;
   background-blend-mode: overlay;
   background-image: url('http://placekitten.com/2880/1800'),
@@ -30,23 +22,152 @@
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
-  animation: zoom 13s ease-in forwards;
+  // animation: zoom-out 13s ease-in forwards;
+
+  @include breakpoint-before('768px') {
+    height: calc(100vh + 75px);
+  }
 }
 
-.hero-text {
+.hero__content-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 2em;
+
+  @include breakpoint-after('768px') {
+    padding: 7em;
+  }
+
+  @include breakpoint-after('1080px') {
+    padding: 12em;
+  }
+}
+
+.hero__content {
+  line-height: 1.25em;
   font-size: 5em;
+  font-family: _font(family-display);
+  margin: 0;
+  color: _palette(text-light);
+
+  @include breakpoint-before('767px') {
+    font-size: 2.5em;
+  }
+}
+
+.page__main {
+  min-height: 100vh;
+}
+
+.page__intro {
+  position: relative;
+  text-align: center;
+  padding: 15% 20% 10%;
+
+  .section__heading-main {
+    margin-bottom: 0;
+  }
+
+  .section__subheading {
+    margin-bottom: 1em;
+  }
+
+  @include breakpoint-before('960px') {
+    padding: 16% 12% 6%;
+  }
+
+  @include breakpoint-before('767px') {
+    padding: 80px 20px 40px;
+  }
+}
+
+.section__heading-main {
+  text-align: center;
+  font-size: 6em;
+  font-family: _font(family-display);
+
+  @include breakpoint-before('767px') {
+    font-size: 3em;
+  }
+}
+
+.section__subheading {
+  font-size: 2em;
   font-family: _font(family-heading);
+  text-transform: uppercase;
+
+  @include breakpoint-before('767px') {
+    font-size: 1.5em;
+  }
 }
 
-.grid-main {
-  display: grid;
+.section__body {
+  font-size: 1.25em;
+
+  @include breakpoint-before('767px') {
+    font-size: 1em;
+  }
 }
 
-@keyframes zoom {
+.page__logo-circle {
+  position: absolute;
+  top: -7.5em;
+  left: calc(50vw - 7.5em);
+  height: 15em;
+  width: 15em;
+  border-radius: 50%;
+  border: double 6px black;
+  padding: 30px;
+  margin: 0 auto;
+  // margin-top: -50%;
+  background: _palette(highlight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include breakpoint-before('767px') {
+    top: -4em;
+    left: calc(50vw - 4em);
+    height: 8em;
+    width: 8em;
+  }
+}
+
+.page__logo-image {
+  margin-top: 1em;
+  width: 9em;
+
+  @include breakpoint-before('767px') {
+    width: 5em;
+  }
+}
+
+.page__separator {
+  text-align: center;
+  padding: 2em;
+  background: _palette(accent6);
+}
+
+.section__heading-minor {
+  font-family: _font(family-display);
+  color: _palette(text-light);
+  font-size: 4em;
+  margin: 0;
+
+  @include breakpoint-before('767px') {
+    font-size: 2em;
+  }
+}
+
+@keyframes zoom-out {
   from {
-    transform: scale(1);
+    transform: scale(1.5);
   }
   to {
-    transform: scale(1.5);
+    transform: scale(1);
   }
 }
