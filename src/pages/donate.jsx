@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import BackgroundImage from '../components/wrapperComponents/BackgroundImage'
 import Input from '../components/elements/input/Input'
 import InputWrap from '../components/wrapperComponents/InputContent'
+import RadioGroup from '../components/elements/radio/RadioGroup'
 import Button from '../components/elements/button/Button'
 
 import man4 from '../assets/images/man4.jpeg'
@@ -16,6 +17,7 @@ const standardBtn =
 
 const Donate = () => {
   const [isRecurring, setIsRecurring] = useState(true)
+  const [donationFrequency, setDonationFrequency] = useState('monthly')
 
   return (
     <Layout>
@@ -68,6 +70,12 @@ const Donate = () => {
                   </InputWrap>
                 </span>
               </div>
+              {isRecurring ? (
+                <RadioGroup
+                  donationFrequency={donationFrequency}
+                  setDonationFrequency={setDonationFrequency}
+                />
+              ) : null}
               <Input
                 input={false}
                 placeholder={
