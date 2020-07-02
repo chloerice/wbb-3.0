@@ -23,13 +23,13 @@ export default function Page({ data, title }) {
         <Helmet title={title}></Helmet>
         <Hero content="We're building the equitable tech industry we wish to see" />
         <main className="page__main">
+          {logoCircle}
           <section className="page__intro">
-            {logoCircle}
             <div className="section__content">
               <h1 className="section__heading-main">What we do</h1>
               <p className="section__subheading">Educate. Empower. Employ.</p>
               <p className="section__body">
-                {`We empower the Black community to achieve socio-economic
+                {`We empower Black communities to achieve socio-economic
               change through technical education and professional development.
               Together with our partners, we create opportunities for Black
               technologists to network, advance their skills, give and receive
@@ -38,11 +38,55 @@ export default function Page({ data, title }) {
             </div>
           </section>
           <section className="page__separator">
+            <button className="page__carousel-grid--nav-left">
+              <span className="fa fa-2x fa-caret-left" />
+            </button>
+
             <h2 className="section__heading-minor">Join our community</h2>
+            <button className="page__carousel-grid--nav-right">
+              <span className="fa fa-2x fa-caret-right" />
+            </button>
           </section>
-          <section className="page__info"></section>
-          <section className="page__images">
-            <Img fluid={data.file.childImageSharp.fluid} />
+          <section className="page__carousel-grid">
+            <div className="page__carousel-grid--menu"></div>
+            <div className="page__carousel-grid--image-wrapper">
+              <img
+                className="page__carousel-grid--image"
+                src="http://placekitten.com/1800/3200"
+                alt=""
+              />
+            </div>
+            <div className="page__carousel-grid--content"></div>
+          </section>
+          <section className="page__callout-grid">
+            <div className="page__callout-grid--callout1">
+              <p className="page__callout-grid--text-large">{`Diversity isn't a nice-to-have, it's imperative.`}</p>
+            </div>
+            <div className="page__callout-grid--image1">
+              <img
+                className="page__callout-grid--image"
+                src="http://placekitten.com/1800/3200"
+                alt=""
+              />
+            </div>
+
+            <div className="page__callout-grid--image2">
+              <img
+                className="page__callout-grid--image"
+                src="http://placekitten.com/1800/3200"
+                alt=""
+              />
+            </div>
+            <div className="page__callout-grid--callout2">
+              <p className="page__callout-grid--text-medium"></p>
+            </div>
+
+            <div className="page__callout-grid--image3">
+              <Img
+                className="page__callout-grid--image"
+                fluid={data.file.childImageSharp.fluid}
+              />
+            </div>
           </section>
         </main>
         <Footer />
