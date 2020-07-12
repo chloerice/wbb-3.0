@@ -27,7 +27,7 @@ export default function Layout({
   return (
     <div className={className}>
       <div id="wrapper" className="bg-black-900">
-        {headerMarkup}
+        {navMarkup}
         <main>{children}</main>
         {contactMarkup}
         {footerMarkup}

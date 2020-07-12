@@ -1,15 +1,15 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import Layout from '../components/Layout'
-import BackgroundImage from '../components/wrapperComponents/BackgroundImage'
-import Input from '../components/elements/input/Input'
-import InputWrap from '../components/wrapperComponents/InputContent'
-import Button from '../components/elements/button/Button'
-import Svg from '../components/elements/Svg'
+import Layout from '../../components/Layout'
+import BackgroundImage from '../../components/wrapperComponents/BackgroundImage'
+import Input from '../../components/elements/input/Input'
+import InputWrap from '../../components/wrapperComponents/InputContent'
+import Button from '../../components/elements/button/Button'
+import Svg from '../../components/elements/Svg'
 
-import man4 from '../assets/images/man4.jpeg'
-import texture from '../assets/images/texture.jpg'
+import man4 from '../../assets/images/man4.jpeg'
+import texture from '../../assets/images/texture.jpg'
 
 export default function Contact() {
   return (
