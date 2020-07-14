@@ -40,6 +40,10 @@
   width: 100%;
   padding: 2em;
 
+  @include breakpoint-before('768px') {
+    text-align: center;
+  }
+
   @include breakpoint-after('768px') {
     padding: 7em;
   }
@@ -56,7 +60,7 @@
   margin: 0;
   color: _palette(text-light);
 
-  @include breakpoint-before('767px') {
+  @include breakpoint-before('768px') {
     font-size: 2.5em;
   }
 }
@@ -83,7 +87,7 @@
   justify-content: center;
   z-index: 100;
 
-  @include breakpoint-before('767px') {
+  @include breakpoint-before('768px') {
     top: 91vh;
     left: calc(50vw - 4em);
     height: 8em;
@@ -95,7 +99,7 @@
   margin-top: 1em;
   width: 9em;
 
-  @include breakpoint-before('767px') {
+  @include breakpoint-before('768px') {
     width: 5em;
   }
 }
@@ -118,11 +122,12 @@
   }
 
   @include breakpoint-before('960px') {
-    padding: 80px 20px 40px;
+    padding: 16% 12% 6%;
   }
 
-  @include breakpoint-after('960px') {
-    padding: 16% 12% 6%;
+  @include breakpoint-before('768px') {
+    padding: 80px 32px 40px;
+    margin: -10vh 0 0;
   }
 }
 
@@ -131,7 +136,7 @@
   font-size: 6em;
   font-family: _font(family-display);
 
-  @include breakpoint-before('767px') {
+  @include breakpoint-before('960px') {
     font-size: 3em;
   }
 }
@@ -157,7 +162,7 @@
 .page__separator {
   position: relative;
   text-align: center;
-  padding: 2em 0;
+  padding: 0;
   background: _palette(accent6);
   height: 100%;
   display: grid;
@@ -176,12 +181,17 @@
   margin: 0;
   color: _palette(text-light);
 
-  @include breakpoint-before('767px') {
-    font-size: 2em;
-  }
-
   @include breakpoint-after('960px') {
     grid-column: span 3;
+  }
+
+  @include breakpoint-before('960px') {
+    font-size: 3em;
+  }
+
+  @include breakpoint-before('768px') {
+    font-size: 2em;
+    padding: 0.5em;
   }
 }
 
@@ -192,7 +202,7 @@
 .page__carousel-grid {
   display: grid;
   grid-template-columns: 2fr 3fr 4fr;
-  min-height: 100vh;
+  min-height: 75vh;
 
   @include breakpoint-before('960px') {
     display: block;
@@ -204,7 +214,8 @@
   display: flex;
   align-items: center;
   box-shadow: none;
-  padding: 100% 20px;
+  color: _palette(text-light);
+  padding: 50%;
 
   @include breakpoint-after('960px') {
     display: none;
@@ -232,10 +243,11 @@
 
 .page__carousel-grid--image-wrapper {
   background: gray;
-  height: 100vh;
+  min-height: 75vh;
 
   @include breakpoint-before('960px') {
     height: 50vh;
+    min-height: 0;
   }
 }
 
@@ -247,8 +259,28 @@
 }
 
 .page__carousel-grid--content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
   background: _palette(accent4);
-  min-height: 70vh;
+  min-height: 75vh;
+  padding: 4em;
+  color: _palette(text-light);
+
+  p {
+    margin: 0;
+  }
+
+  @include breakpoint-before('960px') {
+    padding: 3em;
+    min-height: auto;
+  }
+
+  @include breakpoint-before('600px') {
+    padding: 2em;
+    min-height: auto;
+  }
 }
 
 /* --- end carousel styles --- */
@@ -258,13 +290,16 @@
 .page__callout-grid {
   display: grid;
   grid-template-columns: 1fr 4fr 4fr;
-  // grid-template-rows: repeat(3, 3fr);
   grid-template-areas:
     'callout1 callout1 image1'
     '. image2 callout2'
     'image3 image3 image3';
   min-height: 75vh;
   background: _palette(accent6);
+
+  @include breakpoint-before('768px') {
+    display: block;
+  }
 }
 
 .page__callout-grid--callout1 {
@@ -279,21 +314,32 @@
   justify-content: center;
   padding: 1em 4em;
 
-  p {
-    margin: 0 auto;
+  @include breakpoint-before('768px') {
+    font-size: 2em;
+    padding: 2em;
+    height: auto;
   }
 }
 
 .page__callout-grid--image1 {
   grid-area: image1;
   height: 75vh;
+  box-shadow: 4px 30px 40px 0 rgba(0, 0, 0, 0.46);
+
+  @include breakpoint-before('768px') {
+    height: 50vh;
+  }
 }
 
 .page__callout-grid--image2 {
   grid-area: image2;
   height: 75vh;
-  box-shadow: 4px 30px 40px 0 rgba(0, 0, 0, 0.46);
+  box-shadow: 4px 30px 40px -30px rgba(0, 0, 0, 0.46);
   z-index: 100;
+
+  @include breakpoint-before('768px') {
+    height: 50vh;
+  }
 }
 
 .page__callout-grid--callout2 {
@@ -302,6 +348,25 @@
   box-shadow: 4px 30px 40px 0 rgba(0, 0, 0, 0.46);
   background: _palette(highlight-dark);
   z-index: 100;
+  padding: 1em 3em;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
+  line-height: 1.35em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include breakpoint-before('900px') {
+    padding: 1em 2em;
+  }
+
+  @include breakpoint-before('768px') {
+    text-align: left;
+    font-size: 1.25em;
+    padding: 2em;
+    height: auto;
+  }
 }
 
 .page__callout-grid--image3 {
@@ -309,6 +374,10 @@
   height: 75vh;
   margin-top: -10vh;
   filter: grayscale(100%);
+
+  @include breakpoint-before('768px') {
+    display: none;
+  }
 }
 
 .page__callout-grid--image {
@@ -316,6 +385,11 @@
   object-position: center;
   width: 100%;
   height: 100%;
+}
+
+.page__callout-grid--text-large,
+.page__callout-grid--text-medium {
+  margin: 0 auto;
 }
 
 /* --- end carousel styles --- */

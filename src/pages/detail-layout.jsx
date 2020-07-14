@@ -56,7 +56,23 @@ export default function Page({ data, title }) {
                 alt=""
               />
             </div>
-            <div className="page__carousel-grid--content"></div>
+            <div className="page__carousel-grid--content">
+              <h2>Program or event name</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl
+                nisi scelerisque eu ultrices vitae auctor. Orci nulla
+                pellentesque dignissim enim sit amet venenatis. Lacus sed turpis
+                tincidunt id aliquet risus feugiat. Et pharetra pharetra massa
+                massa ultricies. Suscipit adipiscing bibendum est ultricies
+                integer quis auctor elit. Velit egestas dui id ornare arcu odio
+                ut sem. Curabitur vitae nunc sed velit dignissim. Sit amet
+                commodo nulla facilisi nullam vehicula. Eget dolor morbi non
+                arcu risus quis varius. Nec ullamcorper sit amet risus nullam
+                eget. Facilisis gravida neque convallis a cras semper auctor
+                neque vitae.
+              </p>
+            </div>
           </section>
           <section className="page__callout-grid">
             <div className="page__callout-grid--callout1">
@@ -70,15 +86,18 @@ export default function Page({ data, title }) {
               />
             </div>
 
+            <div className="page__callout-grid--callout2">
+              <p className="page__callout-grid--text-medium">
+                This is some other longer quote with medium sized text that will
+                really just, you know, bring it home or whatever.
+              </p>
+            </div>
             <div className="page__callout-grid--image2">
               <img
                 className="page__callout-grid--image"
                 src="http://placekitten.com/1800/3200"
                 alt=""
               />
-            </div>
-            <div className="page__callout-grid--callout2">
-              <p className="page__callout-grid--text-medium"></p>
             </div>
 
             <div className="page__callout-grid--image3">
