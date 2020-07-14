@@ -34,7 +34,7 @@ export default function Menu({ onToggleMenu }) {
         </ul>
         <ul className="actions vertical">
           <li>
-            <a href="#" className="button special fit">
+            <a href="/donate" className="button special fit">
               Donate
             </a>
           </li>

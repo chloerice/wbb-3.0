@@ -11,11 +11,15 @@ const IconContent = ({ icon, title, color, isReverse }) => {
   }
 
   return (
-    <div className={`py-5pc flex flex-col justify-center items-center md:mb-0 ${divStyles}`}>
-      <div className="w-p20 md:w-p50">
+    <div
+      className={`py-5pc flex flex-col justify-center items-center md:mb-0 ${divStyles}`}
+    >
+      <div className="w-p20 md:w-1/2">
         <Svg icon={icon} />
       </div>
-      <h1 className={`${color} text-center md:mt-0 ${textStyles} shadowDeep`}>{title}</h1>
+      <h1 className={`${color} text-center md:mt-0 ${textStyles} shadowDeep`}>
+        {title}
+      </h1>
     </div>
   )
 }
