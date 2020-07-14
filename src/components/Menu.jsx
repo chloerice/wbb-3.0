@@ -27,7 +27,7 @@ export default function Menu({ onToggleMenu }) {
             </Link>
           </li>
           <li>
-            <Link onClick={onToggleMenu} to="/contact">
+            <Link onClick={onToggleMenu} to="/contact-us">
               Contact
             </Link>
           </li>

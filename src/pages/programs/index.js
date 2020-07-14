@@ -1,11 +1,11 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import Layout from '../components/Layout'
+import Layout from '../../components/Layout'
 
 export default function Programs() {
   return (
-    <Layout>
+    <Layout header footer>
       <Helmet title="Programs | We Build Black"></Helmet>
       <div>
         <h1>Programs</h1>

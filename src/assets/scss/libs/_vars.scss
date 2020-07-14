@@ -20,14 +20,17 @@ $size: (
 
 // Font.
 $font: (
-  family: (
-    'Source Sans Pro',
-    Helvetica,
+  family-display: (
+    'Arvo',
+    serif,
+  ),
+  family-heading: (
+    'Roboto',
     sans-serif,
   ),
-  family-fixed: (
-    'Courier New',
-    monospace,
+  family-body: (
+    'Jura',
+    sans-serif,
   ),
   weight: 300,
   weight-bold: 600,
@@ -37,14 +40,17 @@ $font: (
 
 // Palette.
 $palette: (
+  text-light: #e3e2db,
+  text-dark: #000000,
   bg: #373942,
   bg-alt: #262831,
   fg: #ffffff,
   fg-bold: #ffffff,
-  fg-light: rgba(229, 229, 229, 0.8),
+  fg-light: darken(rgb(229, 229, 229), 20%),
   border: rgba(56, 53, 49, 0.3),
   border-bg: rgba(39, 37, 34, 0.15),
   highlight: #f4cf64,
+  highlight-dark: darken(#f4cf64, 15%),
   accent1: #b68d56,
   accent2: #886542,
   accent3: #442c13,
