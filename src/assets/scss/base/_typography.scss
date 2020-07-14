@@ -63,10 +63,7 @@ i {
 }
 
 p {
-  font-family: 'Jura', sans-serif;
-  font-size: 1rem;
-  color: #232323;
-  // margin: 0 0 _size(element-margin) 0;
+  margin: 0 0 _size(element-margin) 0;
 }
 
 .p-condensed {
@@ -82,8 +79,7 @@ h6 {
   // color: _palette(fg-bold);
   font-family: _font(family-heading);
   line-height: 1.65;
-  font-family: 'Roboto', sans-serif;
-  // margin: 0 0 (_size(element-margin) * 0.5) 0;
+  margin: 0 0 (_size(element-margin) * 0.5) 0;
 
   a {
     color: inherit;
@@ -115,20 +111,13 @@ h6 {
   font-size: 0.9em;
 }
 
-caption {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-}
-
 @include breakpoint(small) {
   h1 {
-    font-size: 2.5em;
-    line-height: 4.25rem;
+    font-size: 2em;
   }
 
   h2 {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 
   h3 {
@@ -186,18 +175,6 @@ hr {
   &.major {
     margin: (_size(element-margin) * 1.5) 0;
   }
-}
-
-.shadowDeep {
-  text-shadow: 0px 1px rgba(111, 111, 111, 0.24);
-}
-
-.shadowDark {
-  text-shadow: 0px 1px rgba(111, 111, 111, 0.84);
-}
-
-.shadowLight {
-  text-shadow: 0px 1px rgba(255, 255, 255, 0.4);
 }
 
 .align-left {
