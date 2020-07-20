@@ -23,18 +23,54 @@ export default function Page({ data, title }) {
         <Helmet title={title}></Helmet>
         <Hero content="We're building the equitable tech industry we wish to see" />
         <main className="page__main">
-          {logoCircle}
           <section className="page__intro">
+            {logoCircle}
             <div className="section__content">
-              <h1 className="section__heading-main">What we do</h1>
+              <h1 className="section__heading-main">We Build Black</h1>
               <p className="section__subheading">Educate. Empower. Employ.</p>
               <p className="section__body">
-                {`We empower Black communities to achieve socio-economic
-              change through technical education and professional development.
-              Together with our partners, we create opportunities for Black
-              technologists to network, advance their skills, give and receive
-              mentorship, and discover their next employer.`}
+                {`Our mission is to empower the Black community to achieve
+                socio-economic change through technical education and
+                professional development. We Build Black creates opportunities
+                for Black technologists to network, share skills, give and receive mentorship, and discover their next employer. By nurturing the existing community of Black technologists and
+                creating pathways into tech, we're building a
+                more equitable tech industry for ourselves and the next
+                generation.`}
               </p>
+            </div>
+          </section>
+          <section className="page__callout-grid">
+            <div className="page__callout-grid--callout1">
+              <p className="page__callout-grid--text-large">{`Making the tech industry OUR industry.`}</p>
+            </div>
+            <div className="page__callout-grid--image1">
+              <img
+                className="page__callout-grid--image"
+                src="http://placekitten.com/1800/3200"
+                alt=""
+              />
+            </div>
+
+            <div className="page__callout-grid--callout2">
+              <p className="page__callout-grid--text-medium">
+                We Build Black is on a journey to redefine what it means to
+                belong in the tech industry. The path forward is uncharted, but
+                we don’t shy away from uncertainty.
+              </p>
+            </div>
+            <div className="page__callout-grid--image2">
+              <img
+                className="page__callout-grid--image"
+                src="http://placekitten.com/1800/3200"
+                alt=""
+              />
+            </div>
+
+            <div className="page__callout-grid--image3">
+              <Img
+                className="page__callout-grid--image"
+                fluid={data.file.childImageSharp.fluid}
+              />
             </div>
           </section>
           <section className="page__separator">
@@ -42,7 +78,7 @@ export default function Page({ data, title }) {
               <span className="fa fa-2x fa-caret-left" />
             </button>
 
-            <h2 className="section__heading-minor">Join our community</h2>
+            <h2 className="section__heading-minor">Get involved</h2>
             <button className="page__carousel-grid--nav-right">
               <span className="fa fa-2x fa-caret-right" />
             </button>
@@ -72,39 +108,6 @@ export default function Page({ data, title }) {
                 eget. Facilisis gravida neque convallis a cras semper auctor
                 neque vitae.
               </p>
-            </div>
-          </section>
-          <section className="page__callout-grid">
-            <div className="page__callout-grid--callout1">
-              <p className="page__callout-grid--text-large">{`Diversity isn't a nice-to-have, it's imperative.`}</p>
-            </div>
-            <div className="page__callout-grid--image1">
-              <img
-                className="page__callout-grid--image"
-                src="http://placekitten.com/1800/3200"
-                alt=""
-              />
-            </div>
-
-            <div className="page__callout-grid--callout2">
-              <p className="page__callout-grid--text-medium">
-                This is some other longer quote with medium sized text that will
-                really just, you know, bring it home or whatever.
-              </p>
-            </div>
-            <div className="page__callout-grid--image2">
-              <img
-                className="page__callout-grid--image"
-                src="http://placekitten.com/1800/3200"
-                alt=""
-              />
-            </div>
-
-            <div className="page__callout-grid--image3">
-              <Img
-                className="page__callout-grid--image"
-                fluid={data.file.childImageSharp.fluid}
-              />
             </div>
           </section>
         </main>

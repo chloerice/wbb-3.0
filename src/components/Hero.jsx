@@ -1,4 +1,5 @@
 import React from 'react'
+import Img from 'gatsby-image'
 
 export default function Hero({ src, content }) {
   const heroContent = content ? (
@@ -7,9 +8,15 @@ export default function Hero({ src, content }) {
     </div>
   ) : null
 
+  const imageMarkup = src ? (
+    <Img className="hero__image" fluid={src} />
+  ) : (
+    <div className="hero__image" />
+  )
+
   return (
     <div className="hero">
-      <div className="hero__image" />
+      {imageMarkup}
       {heroContent}
     </div>
   )
