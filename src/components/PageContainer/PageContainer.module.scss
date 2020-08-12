@@ -1,0 +1,10 @@
+@import '../../assets/scss/libs/vars';
+@import '../../assets/scss/libs/functions';
+@import '../../assets/scss/libs/mixins';
+@import '../../assets/scss/libs/skel';
+
+.PageContainer {
+  background: _palette(highlight);
+  overflow-x: hidden;
+  color: _palette(text-dark);
+}

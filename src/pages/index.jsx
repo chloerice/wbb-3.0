@@ -2,15 +2,15 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
-import className from 'classnames'
+import classNames from 'classnames'
 
 import { Nav, Footer, PageContainer, Hero } from '../components'
 
 import wbbLogo from '../assets/images/wbb-logo-no-bg.svg'
 
-import '../assets/scss/detail-layout.scss'
+import '../assets/scss/home.scss'
 
-export default function Page({ data, title }) {
+export default function Home({ data }) {
   const logoCircle = (
     <div className="page__logo-circle">
       <img className="page__logo-image" src={wbbLogo} alt="" />
@@ -24,8 +24,12 @@ export default function Page({ data, title }) {
   return (
     <PageContainer>
       <div>
-        <Helmet title={title} />
-        <Hero content="We're building the equitable tech industry we wish to see" />
+        <Helmet title="Home | We Build Black" />
+        <Hero
+          imageSrc={fullWidthImage}
+          attached
+          content="We're building the equitable tech industry we wish to see"
+        />
         <main className="page__main">
           <section className="page__intro">
             {logoCircle}
