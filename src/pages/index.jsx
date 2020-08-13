@@ -6,7 +6,7 @@ import classNames from 'classnames'
 
 import { Nav, Footer, PageContainer, Hero } from '../components'
 
-import wbbLogo from '../assets/images/wbb-logo-no-bg.svg'
+import wbbLogo from '../assets/images/wbb-logo-square-no-bg.svg'
 
 import '../assets/scss/home.scss'
 
@@ -25,9 +25,10 @@ export default function Home({ data }) {
     <PageContainer>
       <div>
         <Helmet title="Home | We Build Black" />
+
         <Hero
-          imageSrc={fullWidthImage}
           attached
+          imageSrc={fullWidthImage}
           content="We're building the equitable tech industry we wish to see"
         />
         <main className="page__main">

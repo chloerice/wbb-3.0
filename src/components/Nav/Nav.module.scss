@@ -1,0 +1,128 @@
+@import '../../assets/scss/libs/vars';
+@import '../../assets/scss/libs/functions';
+@import '../../assets/scss/libs/mixins';
+@import '../../assets/scss/libs/skel';
+
+.Nav {
+  background: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 2em;
+  width: 100%;
+  z-index: 120;
+
+  @include breakpoint-before('768px') {
+    padding: 0;
+  }
+}
+
+.MenuDesktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  @include breakpoint-before('768px') {
+    display: none;
+  }
+}
+
+.BrandWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.BrandLink {
+  text-decoration: none;
+  border: 0;
+}
+
+.Logo {
+  width: 14em;
+  padding: 1em;
+
+  @include breakpoint-before('768px') {
+    width: 12em;
+  }
+}
+
+.LinkWrapper {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1em;
+
+  @include breakpoint-before('768px') {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.Link {
+  padding: 1em;
+  color: _palette(text-light);
+  text-transform: uppercase;
+
+  a {
+    border: 0;
+  }
+
+  @include breakpoint-before('768px') {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.NavButton {
+  margin: 1em;
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.CloseButton {
+  height: auto;
+  box-shadow: none !important;
+  padding: 0 1em !important;
+}
+
+.Menu {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 150;
+  transition: display height ease-in-out 0.2s;
+
+  .LinkWrapper {
+    flex-direction: column;
+    align-items: space-between;
+    display: none;
+    transition: display ease-in-out 0.2s;
+  }
+
+  &.open {
+    height: 100vh;
+
+    .LinkWrapper {
+      display: flex;
+    }
+  }
+
+  @include breakpoint-before('768px') {
+    display: flex;
+  }
+}

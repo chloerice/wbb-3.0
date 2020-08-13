@@ -12,10 +12,10 @@ module.exports = {
         name: 'gatsby-starter-default',
         short_name: 'starter',
         start_url: '/',
-        background_color: '#FED136',
-        theme_color: '#FED136',
+        background_color: '#f4cf64',
+        theme_color: '#f4cf64',
         display: 'minimal-ui',
-        icon: 'src/assets/images/wbb-square-logo.png', // This path is relative to the root of the site.
+        icon: 'src/assets/images/wbb-logo-square-no-bg.svg', // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-sass',

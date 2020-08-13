@@ -18,13 +18,8 @@ export default function Hero({
     </div>
   ) : null
 
-  const imageClassName = classNames(
-    styles.Image,
-    attached && styles['Image-attached']
-  )
-
   const imageMarkup = imageSrc ? (
-    <Img className={imageClassName} fluid={imageSrc} />
+    <Img className={styles.Image} fluid={imageSrc} />
   ) : null
 
   const videoClassName = classNames(styles.Video)
