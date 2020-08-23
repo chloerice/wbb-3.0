@@ -25,8 +25,8 @@
   z-index: 100;
 
   @include breakpoint-before('960px') {
-    height: 8em;
-    width: 8em;
+    height: 10em;
+    width: 10em;
     margin: -64px auto 50px;
   }
 }
@@ -198,7 +198,6 @@
 
 .page__carousel-grid--image-wrapper {
   background: gray;
-  min-height: 75vh;
 
   @include breakpoint-before('960px') {
     height: 50vh;

@@ -49,14 +49,13 @@
   }
 }
 
-.LinkWrapper {
-  margin: 0;
+.Menu {
+  margin: 1em;
   padding: 0;
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 1em;
 
   @include breakpoint-before('768px') {
     width: 100%;
@@ -64,14 +63,13 @@
   }
 }
 
-.Link {
-  padding: 1em;
-  color: _palette(text-light);
+.MenuItem,
+.DropdownItem {
+  cursor: pointer;
+  margin-left: 1em;
+  padding-left: 0 !important;
+  text-align: center;
   text-transform: uppercase;
-
-  a {
-    border: 0;
-  }
 
   @include breakpoint-before('768px') {
     width: 100%;
@@ -80,13 +78,106 @@
   }
 }
 
+.MenuLink {
+  color: _palette(text-light);
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0.75em 1em;
+  border: none;
+
+  &:hover,
+  &:focus {
+    color: _palette(highlight) !important;
+  }
+}
+
+.DropdownItem {
+  position: relative;
+}
+
+.DropdownLink {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.75em 1em;
+  color: _palette(text-light);
+  border: 0;
+
+  &:hover,
+  &:focus {
+    background: _palette(highlight);
+    color: _palette(text-dark) !important;
+  }
+}
+
+.DropdownMenu {
+  display: block;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: black;
+  border: 2px solid _palette(text-light);
+  z-index: 105;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  list-style: none;
+  transition: border-color 0.1s ease-in, color 0.1s ease-in,
+    background 0.1s ease-in, display 0.1s ease-in;
+}
+
+.DropdownMenuItem {
+  padding-left: 0 !important;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  text-transform: uppercase;
+
+  @include breakpoint-before('768px') {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &:hover,
+  &:focus {
+    color: _palette(highlight) !important;
+    font-weight: 600;
+  }
+}
+
+.DropdownMenuLink {
+  padding: 0.75em 1em;
+  color: _palette(text-light);
+  position: relative;
+  border: 2px solid transparent;
+  border: 0;
+  width: 100%;
+  display: block;
+}
+
 .NavButton {
-  margin: 1em;
+  padding: 0.75em 1em !important;
+  margin-left: 2em;
+  height: auto !important;
+  line-height: 1em !important;
+  letter-spacing: unset !important;
+  font-weight: unset !important;
+  font-size: 1em !important;
+  box-shadow: none !important;
+  border: 2px solid _palette(text-light) !important;
 
   span {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  &:hover,
+  &:focus {
+    border: 2px solid _palette(highlight) !important;
   }
 }
 
@@ -96,7 +187,7 @@
   padding: 0 1em !important;
 }
 
-.Menu {
+.MenuMobile {
   display: none;
   flex-direction: column;
   align-items: center;
@@ -117,7 +208,7 @@
   &.open {
     height: 100vh;
 
-    .LinkWrapper {
+    .Menu {
       display: flex;
     }
   }
