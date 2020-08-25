@@ -2,8 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import Layout from '../../components/Layout'
-import Banner from '../../components/Banner'
+import { Layout, Banner } from '../../components'
 
 import pic01 from '../../assets/images/pic01.jpg'
 import pic02 from '../../assets/images/pic02.jpg'
