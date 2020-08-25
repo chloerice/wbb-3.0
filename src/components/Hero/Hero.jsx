@@ -2,7 +2,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 import classNames from 'classnames'
 
-import styles from './hero.module.scss'
+import styles from './Hero.module.scss'
 
 export default function Hero({
   imageSrc,

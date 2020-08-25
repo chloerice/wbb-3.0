@@ -20,7 +20,9 @@ export default function Nav() {
   const getInvolvedRefs = [eventsRef, programsRef, slackRef]
   const makeAnImpactRefs = [hireRef, partnerRef, volunteerRef]
 
-  const isMobile = window.matchMedia('(max-width: 767px)').matches
+  const isMobile = window
+    ? window.matchMedia('(max-width: 767px)').matches
+    : false
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const toggleMobileMenu = useCallback(() => {
     setMobileMenuOpen(mobileMenuOpen => !mobileMenuOpen)
