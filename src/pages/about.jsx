@@ -20,8 +20,6 @@ export default function About({ data }) {
     node.childImageSharp.fluid.src.includes('woman1')
   )
 
-  console.log(data.allFile.nodes)
-
   return (
     <PageContainer>
       <div>
