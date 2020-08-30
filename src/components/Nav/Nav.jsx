@@ -78,6 +78,7 @@ export default function Nav() {
     styles.DonateButton,
     'button'
   )
+
   const closeButtonClassName = classNames(
     styles.NavButton,
     styles.CloseButton,
@@ -100,15 +101,14 @@ export default function Nav() {
         nextItemIndex = currentItemIndex === 2 ? 0 : currentItemIndex + 1
       }
 
-      if (refList[nextItemIndex].current) {
-        console.log(
-          'Focusing sub-menuitem',
-          currentItemIndex,
-          nextItemIndex,
-          refList[nextItemIndex].current
-        )
-        refList[nextItemIndex].current.focus()
-      }
+      refList[nextItemIndex].current.focus()
+
+      console.log(
+        'Focusing sub-menuitem',
+        currentItemIndex,
+        nextItemIndex,
+        refList[nextItemIndex].current
+      )
     }
   )
 
@@ -139,10 +139,14 @@ export default function Nav() {
       case 'Enter':
       case 'Space':
         if (event.target['data-href']) {
+          event.preventDefault()
           return handleNavigate(event.target['data-href'])
         }
 
-        if (isDropdown(name)) return toggleDropdownMenu(name)
+        if (isDropdown(name)) {
+          toggleDropdownMenu(name)
+          return focusNextSubMenuItem(name, 'down', 2)
+        }
       case 'Escape':
         return closeDropdown()
       case 'ArrowLeft':
@@ -239,8 +243,9 @@ export default function Nav() {
             <button
               type="button"
               role="menuitem"
-              className={styles.DropdownMenuLink}
+              className={styles.DropdownMenuButton}
               data-navItem="Get involved"
+              data-menuItem="Events"
               tabIndex={-1}
               ref={eventsRef}
               data-href="/events"
@@ -253,9 +258,10 @@ export default function Nav() {
             <button
               type="button"
               role="menuitem"
-              className={styles.DropdownMenuLink}
+              className={styles.DropdownMenuButton}
               onClick={handleNavigate('/programs')}
               data-navItem="Get involved"
+              data-menuItem="Programs"
               tabIndex={-1}
               ref={programsRef}
               data-href="/programs"
@@ -268,8 +274,9 @@ export default function Nav() {
             <button
               type="button"
               role="menuitem"
-              className={styles.DropdownMenuLink}
+              className={styles.DropdownMenuButton}
               data-navItem="Get involved"
+              data-menuItem="Slack"
               ref={slackRef}
               data-href="/slack"
               onKeyDown={handleKeyPress('Get involved', 2, true)}
@@ -302,18 +309,15 @@ export default function Nav() {
           id="make-an-impact-dropdown"
           role="menu"
         >
-          <li
-            role="none"
-            className={styles.DropdownMenuItem}
-            data-navItem="Make an impact"
-          >
+          <li role="none" className={styles.DropdownMenuItem}>
             <button
               type="button"
-              className={styles.DropdownMenuLink}
+              className={styles.DropdownMenuButton}
               tabIndex={-1}
               role="menuitem"
               ref={hireRef}
               data-href="/hire"
+              data-navItem="Make an impact"
               onClick={handleNavigate('/hire')}
               onKeyDown={handleKeyPress('Make an impact', 0, true)}
             >
@@ -327,7 +331,7 @@ export default function Nav() {
           >
             <button
               type="button"
-              className={styles.DropdownMenuLink}
+              className={styles.DropdownMenuButton}
               tabIndex={-1}
               role="menuitem"
               ref={partnerRef}
@@ -345,7 +349,7 @@ export default function Nav() {
           >
             <button
               type="button"
-              className={styles.DropdownMenuLink}
+              className={styles.DropdownMenuButton}
               tabIndex={-1}
               role="menuitem"
               ref={volunteerRef}
@@ -374,8 +378,6 @@ export default function Nav() {
       </li>
     </ul>
   )
-
-  console.log('active item: ', document.activeElement)
 
   return (
     <nav className={styles.Nav} aria-label="We Build Black">

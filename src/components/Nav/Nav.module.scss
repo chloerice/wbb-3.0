@@ -186,8 +186,6 @@
   padding-left: 0 !important;
   width: 100%;
   cursor: pointer;
-  text-align: left;
-  text-transform: uppercase;
 
   @include breakpoint-before('768px') {
     width: 100%;
@@ -195,15 +193,9 @@
     justify-content: center;
     text-align: center;
   }
-
-  &:hover,
-  &:focus {
-    color: _palette(highlight) !important;
-    font-weight: 600;
-  }
 }
 
-.DropdownMenuLink {
+.DropdownMenuButton {
   padding: 0.75em 1em;
   color: _palette(text-light);
   position: relative;
@@ -211,6 +203,14 @@
   border: 0;
   width: 100%;
   display: block;
+  text-align: left;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    color: _palette(highlight) !important;
+    font-weight: 600;
+  }
 }
 
 .NavButton {
