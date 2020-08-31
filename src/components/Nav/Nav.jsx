@@ -3,6 +3,7 @@ import { Link, navigate } from 'gatsby'
 import classNames from 'classnames'
 
 import wbbWordmark from '../../assets/images/wbb-wordmark-white-no-bg.svg'
+
 import styles from './Nav.module.scss'
 
 export default function Nav() {
@@ -19,10 +20,6 @@ export default function Nav() {
   const navItemRefs = [aboutRef, getInvolvedRef, makeAnImpactRef, donateRef]
   const getInvolvedRefs = [eventsRef, programsRef, slackRef]
   const makeAnImpactRefs = [hireRef, partnerRef, volunteerRef]
-
-  const isMobile = window
-    ? window.matchMedia('(max-width: 767px)').matches
-    : false
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const toggleMobileMenu = useCallback(() => {
     setMobileMenuOpen(mobileMenuOpen => !mobileMenuOpen)
@@ -67,12 +64,12 @@ export default function Nav() {
     activeDropdown === 'Make an impact' && dropdownOpen && styles.active
   )
 
-  const menuClassName = classNames(
-    styles.Menu,
-    isMobile && styles.MenuMobile,
-    isMobile && mobileMenuOpen && styles.open
+  const menuClassName = classNames(styles.Menu, mobileMenuOpen && styles.open)
+  const mobileMenuButtonClassName = classNames(
+    styles.MobileMenuToggle,
+    styles.NavButton,
+    'button'
   )
-  const navButtonClassName = classNames(styles.NavButton, 'button')
   const donateButtonClassName = classNames(
     styles.NavButton,
     styles.DonateButton,
@@ -187,19 +184,17 @@ export default function Nav() {
     navigate(url)
   })
 
-  const menuOpenTrigger =
-    isMobile && !mobileMenuOpen ? (
-      <button className={navButtonClassName} onClick={toggleMobileMenu}>
-        Menu
-      </button>
-    ) : null
+  const menuOpenTrigger = !mobileMenuOpen ? (
+    <button className={mobileMenuButtonClassName} onClick={toggleMobileMenu}>
+      Menu
+    </button>
+  ) : null
 
-  const menuCloseTrigger =
-    isMobile && mobileMenuOpen ? (
-      <button className={closeButtonClassName} onClick={toggleMobileMenu}>
-        <span className="fa fa-2x fa-close" />
-      </button>
-    ) : null
+  const menuCloseTrigger = mobileMenuOpen ? (
+    <button className={closeButtonClassName} onClick={toggleMobileMenu}>
+      <span className="fa fa-2x fa-close" />
+    </button>
+  ) : null
 
   const menuMarkup = (
     <ul className={menuClassName} role="menubar" aria-label="Site navigation">
@@ -248,7 +243,7 @@ export default function Nav() {
               data-menuItem="Events"
               tabIndex={-1}
               ref={eventsRef}
-              data-href="/events"
+              data-href="/get-involved/events"
               onKeyDown={handleKeyPress('Get involved', 0, true)}
             >
               Events
@@ -259,7 +254,7 @@ export default function Nav() {
               type="button"
               role="menuitem"
               className={styles.DropdownMenuButton}
-              onClick={handleNavigate('/programs')}
+              onClick={handleNavigate('/get-involved/programs')}
               data-navItem="Get involved"
               data-menuItem="Programs"
               tabIndex={-1}
@@ -318,7 +313,7 @@ export default function Nav() {
               ref={hireRef}
               data-href="/hire"
               data-navItem="Make an impact"
-              onClick={handleNavigate('/hire')}
+              onClick={handleNavigate('/make-an-impact/hire')}
               onKeyDown={handleKeyPress('Make an impact', 0, true)}
             >
               Hire
@@ -336,7 +331,7 @@ export default function Nav() {
               role="menuitem"
               ref={partnerRef}
               data-href="/partner"
-              onClick={handleNavigate('/partner')}
+              onClick={handleNavigate('/make-an-impact/partner')}
               onKeyDown={handleKeyPress('Make an impact', 1, true)}
             >
               Partner
@@ -354,7 +349,7 @@ export default function Nav() {
               role="menuitem"
               ref={volunteerRef}
               data-href="/volunteer"
-              onClick={handleNavigate('/volunteer')}
+              onClick={handleNavigate('/make-an-impact/volunteer')}
               onKeyDown={handleKeyPress('Make an impact', 2, true)}
             >
               Volunteer

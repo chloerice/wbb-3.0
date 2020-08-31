@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { Layout } from '../../components'
+import { PageContainer } from '../../components'
 
 import pic03 from '../../assets/images/pic03.jpg'
 import pic08 from '../../assets/images/pic08.jpg'
@@ -10,7 +10,7 @@ import pic10 from '../../assets/images/pic10.jpg'
 
 export default function Elements() {
   return (
-    <Layout>
+    <PageContainer>
       <Helmet>
         <title>Elements - Forty by HTML5 UP</title>
         <meta name="description" content="Elements Page" />
@@ -786,6 +786,6 @@ export default function Elements() {
           </div>
         </section>
       </div>
-    </Layout>
+    </PageContainer>
   )
 }

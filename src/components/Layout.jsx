@@ -20,7 +20,7 @@ export default function Layout({
   )
 
   const className = classname('body', menuVisible && 'is-menu-visible')
-  const navMarkup = header ? <Nav onToggleMenu={toggleMenu} /> : null
+  const navMarkup = header ? <Nav /> : null
   const contactMarkup = contact ? <Contact /> : null
   const footerMarkup = footer ? <Footer /> : null
 
@@ -32,7 +32,6 @@ export default function Layout({
         {contactMarkup}
         {footerMarkup}
       </div>
-      <Menu onToggleMenu={toggleMenu} />
     </div>
   )
 }

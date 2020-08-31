@@ -19,6 +19,7 @@
   width: 100%;
   z-index: 150;
   transition: display height ease-in-out 0.2s;
+  font-family: _font(family-body);
 
   @include breakpoint-before('768px') {
     flex-direction: column;
@@ -106,6 +107,10 @@
   padding: 0.75em 1em;
   border: none;
   display: block;
+  font-family: _font(family-body);
+  font-size: 1em !important;
+  background: none;
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -139,6 +144,7 @@
 }
 
 .DropdownButton {
+  background: none;
   position: relative;
   padding: 0.75em 1em;
   color: _palette(text-light);
@@ -148,6 +154,9 @@
   text-transform: uppercase;
   transition: border 0.1s ease-in-out, color 0.1s ease-in-out,
     background 0.1s ease-in-out;
+  font-family: _font(family-body);
+  font-size: 1em !important;
+  cursor: pointer;
 
   &:hover,
   &:focus,
@@ -185,7 +194,6 @@
 .DropdownMenuItem {
   padding-left: 0 !important;
   width: 100%;
-  cursor: pointer;
 
   @include breakpoint-before('768px') {
     width: 100%;
@@ -196,6 +204,7 @@
 }
 
 .DropdownMenuButton {
+  background: none;
   padding: 0.75em 1em;
   color: _palette(text-light);
   position: relative;
@@ -205,11 +214,18 @@
   display: block;
   text-align: left;
   text-transform: uppercase;
+  font-family: _font(family-body);
+  font-size: 1em !important;
+  cursor: pointer;
 
   &:hover,
   &:focus {
     color: _palette(highlight) !important;
     font-weight: 600;
+  }
+
+  @include breakpoint-before('768px') {
+    text-align: center;
   }
 }
 
@@ -223,6 +239,7 @@
   font-size: 1em !important;
   box-shadow: none !important;
   border: 2px solid _palette(text-light) !important;
+  font-family: _font(family-body);
 
   span {
     display: flex;
@@ -241,14 +258,26 @@
     margin: 0;
 
     &.DonateButton {
+      font-family: _font(family-body);
       width: 100%;
       margin-top: 1em;
     }
   }
 }
 
+.MobileMenuToggle {
+  background: none;
+  font-family: _font(family-body);
+
+  @include breakpoint-after('768px') {
+    display: none !important;
+  }
+}
+
 .CloseButton {
+  background: none;
   height: auto;
   box-shadow: none !important;
   padding: 0.25em 1.5em !important;
+  font-family: _font(family-body);
 }

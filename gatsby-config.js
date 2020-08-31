@@ -19,7 +19,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-sass',
-    'gatsby-plugin-postcss',
     'gatsby-plugin-offline',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',

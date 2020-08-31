@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import { Layout, Banner } from '../../components'
+import { Banner, PageContainer } from '../../components'
 
 import pic01 from '../../assets/images/pic01.jpg'
 import pic02 from '../../assets/images/pic02.jpg'
@@ -14,7 +14,7 @@ import pic06 from '../../assets/images/pic06.jpg'
 class HomeIndex extends React.Component {
   render() {
     return (
-      <Layout contact>
+      <PageContainer>
         <Helmet title="We Build Black"></Helmet>
 
         <Banner />
@@ -88,7 +88,7 @@ class HomeIndex extends React.Component {
             </div>
           </section>
         </div>
-      </Layout>
+      </PageContainer>
     )
   }
 }

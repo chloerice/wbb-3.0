@@ -3,13 +3,11 @@ import Helmet from 'react-helmet'
 
 import { Layout } from '../../../components'
 
-export default function TheBuildUp() {
+export default function Events() {
   return (
     <Layout header footer>
-      <Helmet title="The Build Up | We Build Black"></Helmet>
-      <div>
-        <h1>The Build Up</h1>
-      </div>
+      <Helmet title="Events | We Build Black"></Helmet>
+      <h1>Events</h1>
     </Layout>
   )
 }
