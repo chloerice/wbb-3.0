@@ -198,6 +198,7 @@
 
 .page__carousel-grid--image-wrapper {
   background: gray;
+  height: 100%;
 
   @include breakpoint-before('960px') {
     height: 50vh;
