@@ -21,22 +21,12 @@
   transition: display height ease-in-out 0.2s;
   font-family: _font(family-body);
 
-  @include breakpoint-before('768px') {
+  @include breakpoint-before('960px') {
     flex-direction: column;
-    justify-content: flex-start;
-
-    .Menu {
-      display: none;
-
-      &.open {
-        justify-content: flex-start;
-        height: 100vh;
-        display: flex;
-      }
-    }
+    justify-content: space-between;
   }
 
-  @include breakpoint-before('768px') {
+  @include breakpoint-before('960px') {
     padding: 0;
   }
 }
@@ -47,7 +37,7 @@
   align-items: center;
   width: 100%;
 
-  @include breakpoint-before('768px') {
+  @include breakpoint-before('960px') {
     padding: 0.5em 1em 0.5em 0;
   }
 }
@@ -61,7 +51,7 @@
   width: 14em;
   padding: 1em;
 
-  @include breakpoint-before('768px') {
+  @include breakpoint-before('960px') {
     width: 12em;
   }
 }
@@ -74,12 +64,18 @@
   align-items: center;
   justify-content: center;
 
-  @include breakpoint-before('768px') {
+  @include breakpoint-before('960px') {
+    display: none;
     width: 100%;
     margin: 0;
-    flex-direction: column;
     padding: 1em;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &.open {
+      height: 100vh;
+      display: flex;
+    }
   }
 }
 
@@ -91,7 +87,7 @@
   text-align: center;
   text-transform: uppercase;
 
-  @include breakpoint-before('768px') {
+  @include breakpoint-before('960px') {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -117,7 +113,7 @@
     color: _palette(highlight) !important;
   }
 
-  @include breakpoint-before('768px') {
+  @include breakpoint-before('960px') {
     width: 100%;
   }
 }
@@ -136,7 +132,7 @@
       display: block;
     }
 
-    @include breakpoint-before('768px') {
+    @include breakpoint-before('960px') {
       flex-direction: column;
       justify-content: center;
     }
@@ -166,7 +162,7 @@
     border: 2px solid _palette(highlight);
   }
 
-  @include breakpoint-before('768px') {
+  @include breakpoint-before('960px') {
     width: 100%;
   }
 }
@@ -185,7 +181,7 @@
   transition: display 0.1s ease-in;
   width: 100%;
 
-  @include breakpoint-before('768px') {
+  @include breakpoint-before('960px') {
     position: relative;
     top: 0;
   }
@@ -195,7 +191,7 @@
   padding-left: 0 !important;
   width: 100%;
 
-  @include breakpoint-before('768px') {
+  @include breakpoint-before('960px') {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -224,7 +220,7 @@
     font-weight: 600;
   }
 
-  @include breakpoint-before('768px') {
+  @include breakpoint-before('960px') {
     text-align: center;
   }
 }
@@ -247,14 +243,14 @@
     align-items: center;
   }
 
-  @include breakpoint-after('768px') {
+  @include breakpoint-after('960px') {
     &:hover,
     &:focus {
       border: 2px solid _palette(highlight) !important;
     }
   }
 
-  @include breakpoint-before('768px') {
+  @include breakpoint-before('960px') {
     margin: 0;
 
     &.DonateButton {
@@ -269,7 +265,7 @@
   background: none;
   font-family: _font(family-body);
 
-  @include breakpoint-after('768px') {
+  @include breakpoint-after('960px') {
     display: none !important;
   }
 }

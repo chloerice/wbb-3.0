@@ -28,7 +28,14 @@ export default function Partner({ data }) {
                 dismantle the status quo.
               </p>
             </div>
-            <div className={styles.HeroImage} />
+            <div className={styles.HeroImageWrapper}>
+              <div className={styles.HeroImageOverlay}></div>
+              <Img
+                className={styles.HeroImage}
+                fluid={fullWidthImage.childImageSharp.fluid}
+                alt="Mavens I/O Black Women in Tech Conference Swag bags"
+              />
+            </div>
           </div>
         </section>
         <section></section>
