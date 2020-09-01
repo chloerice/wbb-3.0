@@ -124,6 +124,16 @@
   width: 100%;
 }
 
+.VideoThumbnailWrapper {
+}
+
+.VideoThumbnail {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* --- end intro styles --- */
 
 /* TEAM GRID SECTION */

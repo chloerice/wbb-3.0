@@ -71,6 +71,7 @@
 
   @include breakpoint-before('1024px') {
     margin-top: -1px;
+    margin-left: 0;
     background-image: linear-gradient(to bottom, #000000, transparent);
   }
 }

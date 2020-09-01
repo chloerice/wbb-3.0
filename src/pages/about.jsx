@@ -9,7 +9,7 @@ import styles from '../assets/scss/about.module.scss'
 
 export default function About({ data }) {
   const fullWidthImage = data.allFile.nodes.find(node =>
-    node.childImageSharp.fluid.src.includes('codenmix')
+    node.childImageSharp.fluid.src.includes('group-pic')
   )
 
   const defaultHeadshotMan = data.allFile.nodes.find(node =>
@@ -18,6 +18,15 @@ export default function About({ data }) {
 
   const defaultHeadshotWoman = data.allFile.nodes.find(node =>
     node.childImageSharp.fluid.src.includes('woman1')
+  )
+
+  const videoPlayerMarkup = (
+    <iframe
+      className={styles.Video}
+      src="https://www.youtube.com/embed/-aOPtTK6GlM"
+      frameBorder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; allowfullscreen"
+    ></iframe>
   )
 
   return (
@@ -40,12 +49,10 @@ export default function About({ data }) {
               </p>
             </div>
             <div className={styles.VideoContainer}>
-              <iframe
-                className={styles.Video}
-                src="https://www.youtube.com/embed/-aOPtTK6GlM"
-                frameBorder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; allowfullscreen"
-              ></iframe>
+              <Img
+                className={styles.VideoThumbnail}
+                fluid={fullWidthImage.childImageSharp.fluid}
+              />
             </div>
           </div>
         </section>
