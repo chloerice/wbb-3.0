@@ -1,10 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import classname from 'classnames'
 
-import Nav from './Nav'
-import Menu from './Menu'
-import Contact from './Contact'
-import Footer from './Footer'
+import { Nav, Footer, Contact } from '../components'
 
 import '../assets/scss/main.scss'
 
