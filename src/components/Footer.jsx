@@ -1,6 +1,6 @@
 import React from 'react'
 
-import wbbLogo from '../assets/images/wbb-logo-no-bg.svg'
+import wbbLogo from '../assets/images/wbb-logo-square-no-bg.svg'
 
 export default function Footer() {
   const copyrightMarkup = (

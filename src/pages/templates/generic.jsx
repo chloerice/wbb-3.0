@@ -1,12 +1,12 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import Layout from '../../components/layout'
+import { PageContainer } from '../../components'
 
 import pic11 from '../../assets/images/pic11.jpg'
 
 const Generic = props => (
-  <Layout>
+  <PageContainer>
     <Helmet>
       <title>Generic - Forty by HTML5 UP</title>
       <meta name="description" content="Generic Page" />
@@ -55,7 +55,7 @@ const Generic = props => (
         </div>
       </section>
     </div>
-  </Layout>
+  </PageContainer>
 )
 
 export default Generic
