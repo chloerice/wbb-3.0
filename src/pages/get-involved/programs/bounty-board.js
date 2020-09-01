@@ -1,15 +1,15 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { Layout } from '../../../components'
+import { PageContainer } from '../../../components'
 
 export default function BountyBoard() {
   return (
-    <Layout header footer>
+    <PageContainer>
       <Helmet title="Bounty Board | We Build Black"></Helmet>
       <div>
         <h1>Bounty Board</h1>
       </div>
-    </Layout>
+    </PageContainer>
   )
 }
