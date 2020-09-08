@@ -358,18 +358,34 @@ export default function Nav() {
         </ul>
       </li>
       <li className={styles.MenuItem} role="none">
-        <button
-          type="button"
-          className={donateButtonClassName}
-          data-navItem="Donate"
-          onKeyDown={handleKeyPress('Donate', 3, false)}
-          ref={donateRef}
-          data-href="/donate"
-          tabIndex={-1}
-          role="menuitem"
+        <form
+          className={styles.DonateForm}
+          action="https://www.paypal.com/cgi-bin/webscr"
+          method="post"
+          target="_blank"
         >
-          Donate
-        </button>
+          <input type="hidden" name="cmd" value="_s-xclick" />
+          <input type="hidden" name="hosted_button_id" value="RZWPA5VWQSV3U" />
+          <button
+            type="submit"
+            className={donateButtonClassName}
+            data-navItem="Donate"
+            onKeyDown={handleKeyPress('Donate', 3, false)}
+            ref={donateRef}
+            data-href="/donate"
+            tabIndex={-1}
+            role="menuitem"
+          >
+            Donate
+          </button>
+          <img
+            alt=""
+            border="0"
+            src="https://www.paypal.com/en_US/i/scr/pixel.gif"
+            width="1"
+            height="1"
+          />
+        </form>
       </li>
     </ul>
   )
