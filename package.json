@@ -19,6 +19,9 @@
     "react-dom": "^16.13.0",
     "react-helmet": "^5.2.1"
   },
+  "resolutions": {
+    "gatsby-react-router-scroll": "3.0.3"
+  },
   "keywords": [
     "gatsby",
     "tinacms",
