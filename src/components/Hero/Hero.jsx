@@ -6,6 +6,7 @@ import styles from './Hero.module.scss'
 
 export default function Hero({
   imageSrc,
+  imageAltText,
   videoSrc,
   videoTitle,
   attached = false,
@@ -19,7 +20,10 @@ export default function Hero({
   ) : null
 
   const imageMarkup = imageSrc ? (
-    <Img className={styles.Image} fluid={imageSrc} />
+    <div className={styles.ImageWrapper}>
+      <div className={styles.ImageOverlay} />
+      <Img className={styles.Image} fluid={imageSrc} alt={imageAltText} />
+    </div>
   ) : null
 
   const videoClassName = classNames(styles.Video)

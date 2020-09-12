@@ -24,12 +24,12 @@ export default function Home({ data }) {
   return (
     <PageContainer>
       <Helmet title="Home | We Build Black" />
-      <Hero
-        attached
-        imageSrc={fullWidthImage}
-        content="We're building the equitable tech industry we wish to see"
-      />
+
       <main className="page__main">
+        <Hero
+          imageSrc={fullWidthImage.childImageSharp.fluid}
+          content="We're building the equitable tech industry we wish to see"
+        />
         <section className="page__intro">
           {logoCircle}
           <div className="section__content">
