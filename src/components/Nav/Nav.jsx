@@ -20,6 +20,8 @@ export default function Nav() {
   const navItemRefs = [aboutRef, getInvolvedRef, makeAnImpactRef, donateRef]
   const getInvolvedRefs = [eventsRef, programsRef, slackRef]
   const makeAnImpactRefs = [hireRef, partnerRef, volunteerRef]
+  const [activeMenuItemIndex, setActiveMenuItemIndex] = useState(-1)
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const toggleMobileMenu = useCallback(() => {
     setMobileMenuOpen(mobileMenuOpen => !mobileMenuOpen)
@@ -131,7 +133,16 @@ export default function Nav() {
     }
   })
 
-  const handleKeyPress = useCallback((name, index, isSubMenuItem) => event => {
+  const handleKeyPress = useCallback(event => {
+    console.log(
+      event.key,
+      event.currentTarget,
+      event.target['data-href'],
+      event.target['data-index']
+    )
+
+    const index = event.target['data-index']
+
     switch (event.key) {
       case 'Enter':
       case 'Space':
@@ -140,9 +151,36 @@ export default function Nav() {
           return handleNavigate(event.target['data-href'])
         }
 
-        if (isDropdown(name)) {
-          toggleDropdownMenu(name)
-          return focusNextSubMenuItem(name, 'down', 2)
+        if (isDropdown(event.target['data-navItem'])) {
+          toggleDropdownMenu(event.target['data-navItem'])
+          return focusNextSubMenuItem(event.target['data-navItem'], 'down', 2)
+        }
+      case 'Escape':
+        return closeDropdown()
+      case 'ArrowLeft':
+        event.preventDefault()
+        return focusNextMenuItem('left', index)
+      case 'ArrowRight':
+        event.preventDefault()
+        return focusNextMenuItem('right', index)
+    }
+  })
+
+  const handleDropdownKeyPress = useCallback(event => {
+    const isSubMenuItem = event.target['data-menuItem'] !== undefined
+    const index = event.target['data-index']
+
+    switch (event.key) {
+      case 'Enter':
+      case 'Space':
+        if (event.target['data-href']) {
+          event.preventDefault()
+          return handleNavigate(event.target['data-href'])
+        }
+
+        if (isDropdown(event.target['data-navItem'])) {
+          toggleDropdownMenu(event.target['data-navItem'])
+          return focusNextSubMenuItem(event.target['data-navItem'], 'down', 2)
         }
       case 'Escape':
         return closeDropdown()
@@ -154,28 +192,40 @@ export default function Nav() {
         return focusNextMenuItem('right', index)
       case 'ArrowDown':
         event.preventDefault()
-        if (!dropdownOpen && isDropdown(name) && !isSubMenuItem) {
-          openDropdown(name)
+        if (
+          !dropdownOpen &&
+          isDropdown(event.target['data-navItem']) &&
+          !isSubMenuItem
+        ) {
+          openDropdown(event.target['data-navItem'])
           console.log('arrow down to open')
-          return focusNextSubMenuItem(name, 'down', 2)
+          return focusNextSubMenuItem(event.target['data-navItem'], 'down', 2)
         }
 
         if (isSubMenuItem) {
           console.log('arrow down sub menu item')
-          return focusNextSubMenuItem(name, 'down', index)
+          return focusNextSubMenuItem(
+            event.target['data-navItem'],
+            'down',
+            index
+          )
         }
 
       case 'ArrowUp':
         event.preventDefault()
-        if (!dropdownOpen && isDropdown(name) && !isSubMenuItem) {
-          openDropdown(name)
+        if (
+          !dropdownOpen &&
+          isDropdown(event.target['data-navItem']) &&
+          !isSubMenuItem
+        ) {
+          openDropdown(event.target['data-navItem'])
           console.log('arrow up to open')
-          return focusNextSubMenuItem(name, 'up', 0)
+          return focusNextSubMenuItem(event.target['data-navItem'], 'up', 0)
         }
 
         if (isSubMenuItem) {
           console.log('arrow up sub menu item')
-          return focusNextSubMenuItem(name, 'up', index)
+          return focusNextSubMenuItem(event.target['data-navItem'], 'up', index)
         }
     }
   })
@@ -203,10 +253,10 @@ export default function Nav() {
           type="button"
           className={styles.MenuLink}
           data-navItem="About"
+          data-index={0}
           role="menuitem"
           tabIndex={0}
           onClick={handleNavigate('/about')}
-          onKeyDown={handleKeyPress('About', 0, false)}
           ref={aboutRef}
           data-href="/about"
         >
@@ -219,11 +269,11 @@ export default function Nav() {
           type="button"
           tabIndex={-1}
           data-navItem="Get involved"
+          data-index={1}
           className={styles.DropdownButton}
           aria-controls="get-involved-dropdown"
           aria-expanded={activeDropdown === 'Get involved' && dropdownOpen}
           onClick={toggleDropdownMenu('Get involved')}
-          onKeyDown={handleKeyPress('Get involved', 1, false)}
           onFocus={handleFocus('Get involved')}
           ref={getInvolvedRef}
         >
@@ -244,7 +294,6 @@ export default function Nav() {
               tabIndex={-1}
               ref={eventsRef}
               data-href="/get-involved/events"
-              onKeyDown={handleKeyPress('Get involved', 0, true)}
             >
               Events
             </button>
@@ -260,7 +309,6 @@ export default function Nav() {
               tabIndex={-1}
               ref={programsRef}
               data-href="/programs"
-              onKeyDown={handleKeyPress('Get involved', 1, true)}
             >
               Programs
             </button>
@@ -274,7 +322,6 @@ export default function Nav() {
               data-menuItem="Slack"
               ref={slackRef}
               data-href="/slack"
-              onKeyDown={handleKeyPress('Get involved', 2, true)}
               tabIndex={-1}
             >
               Slack
@@ -291,7 +338,6 @@ export default function Nav() {
           aria-controls="make-an-impact-dropdown"
           aria-expanded={activeDropdown === 'Make an impact' && dropdownOpen}
           onClick={toggleDropdownMenu('Make an impact')}
-          onKeyDown={handleKeyPress('Make an impact', 2, false)}
           onFocus={handleFocus('Make an impact')}
           ref={makeAnImpactRef}
           tabIndex={-1}
@@ -313,8 +359,8 @@ export default function Nav() {
               ref={hireRef}
               data-href="/hire"
               data-navItem="Make an impact"
+              data-index={2}
               onClick={handleNavigate('/make-an-impact/hire')}
-              onKeyDown={handleKeyPress('Make an impact', 0, true)}
             >
               Hire
             </button>
@@ -332,7 +378,6 @@ export default function Nav() {
               ref={partnerRef}
               data-href="/partner"
               onClick={handleNavigate('/make-an-impact/partner')}
-              onKeyDown={handleKeyPress('Make an impact', 1, true)}
             >
               Partner
             </button>
@@ -350,7 +395,6 @@ export default function Nav() {
               ref={volunteerRef}
               data-href="/volunteer"
               onClick={handleNavigate('/make-an-impact/volunteer')}
-              onKeyDown={handleKeyPress('Make an impact', 2, true)}
             >
               Volunteer
             </button>
@@ -370,9 +414,9 @@ export default function Nav() {
             type="submit"
             className={donateButtonClassName}
             data-navItem="Donate"
-            onKeyDown={handleKeyPress('Donate', 3, false)}
             ref={donateRef}
             data-href="/donate"
+            data-index={3}
             tabIndex={-1}
             role="menuitem"
           >
@@ -399,7 +443,7 @@ export default function Nav() {
         {menuOpenTrigger}
         {menuCloseTrigger}
       </div>
-      {menuMarkup}
+      <div onKeyDown={handleKeyPress}>{menuMarkup}</div>
     </nav>
   )
 }

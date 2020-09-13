@@ -9,12 +9,8 @@
   top: 0;
   left: 0;
   padding: 0 2em;
-  width: 100%;
-  z-index: 120;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  display: flex;
   align-items: center;
   width: 100%;
   z-index: 150;
@@ -35,6 +31,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 75px;
   width: 100%;
 
   @include breakpoint-before('960px') {
@@ -63,6 +60,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: height 0.2s ease-in-out;
 
   @include breakpoint-before('960px') {
     display: none;
@@ -73,7 +71,7 @@
     justify-content: flex-start;
 
     &.open {
-      height: 100vh;
+      height: calc(100vh - 75px);
       display: flex;
     }
   }

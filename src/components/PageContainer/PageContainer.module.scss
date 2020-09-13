@@ -5,6 +5,13 @@
 
 .PageContainer {
   background: _palette(highlight);
-  // overflow-x: hidden;
   color: _palette(text-dark);
+  padding-top: 75px;
+  height: 100vh;
+}
+
+.PageContent {
+  height: 100%;
+  width: 100%;
+  overflow: hidden auto;
 }
