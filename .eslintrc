@@ -1,0 +1,57 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "settings": {
+    "react": {
+      "version": "16.8"
+    }
+  },
+  "rules": {
+    "no-shadow": "off",
+    "func-style": "off",
+    "no-process-env": "off",
+    "no-warning-comments": "off",
+    "no-negated-condition": "off",
+    "no-console": "off",
+    "consistent-return": "off",
+    "match-default-export-name": "off",
+    "jsx-use-translation-function": "off",
+    "react/jsx-no-comment-textnodes": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "react/prop-types": "off",
+    "lines-around-comment": [
+      "error",
+      {
+        "beforeBlockComment": false,
+        "allowBlockStart": false
+      }
+    ],
+    "babel/no-unused-expressions": "off",
+    "import/named": "off",
+    "import/no-default-export": ["off"],
+    "react/button-has-type": "off",
+    "react/no-array-index-key": "off",
+    "react/no-unsafe": [
+      "error",
+      {
+        "checkAliases": true
+      }
+    ],
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        },
+        "allowChildren": false
+      }
+    ],
+    "jsx-a11y/no-autofocus": "off",
+    "jsx-a11y/anchor-has-content": "off",
+    "jsx-a11y/control-has-associated-label": "off",
+    "jsx-a11y/role-supports-aria-props": "off",
+    "jsx-a11y/mouse-events-have-key-events": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/no-noninteractive-element-to-interactive-role": "off"
+  }
+}

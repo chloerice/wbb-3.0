@@ -20,7 +20,8 @@ export default function Nav() {
   const navItemRefs = [aboutRef, getInvolvedRef, makeAnImpactRef, donateRef]
   const getInvolvedRefs = [eventsRef, programsRef, slackRef]
   const makeAnImpactRefs = [hireRef, partnerRef, volunteerRef]
-  const [activeMenuItemIndex, setActiveMenuItemIndex] = useState(-1)
+  const [activeMenuItemIndex, setActiveMenuItemIndex] = useState(null)
+  const [activeSubMenuItemIndex, setActiveSubMenuItemIndex] = useState(null)
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const toggleMobileMenu = useCallback(() => {
@@ -29,21 +30,12 @@ export default function Nav() {
 
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState('')
-  const toggleDropdownMenu = useCallback(
-    name => event => {
-      event.preventDefault()
-      const nextActiveDropdown = activeDropdown === name ? '' : name
-      setActiveDropdown(nextActiveDropdown)
-
-      return !nextActiveDropdown
-        ? setDropdownOpen(false)
-        : setDropdownOpen(true)
-    },
-    [activeDropdown]
-  )
 
   const closeDropdown = useCallback(() => {
+    console.log('closing dropdown')
+
     setActiveDropdown('')
+    setActiveSubMenuItemIndex(null)
     setDropdownOpen(false)
   })
   const openDropdown = useCallback(name => {
@@ -51,10 +43,25 @@ export default function Nav() {
     setDropdownOpen(true)
   })
 
-  const handleFocus = useCallback(name => () => {
-    if (!dropdownOpen) return
-    openDropdown(name)
-  })
+  const toggleDropdownMenu = useCallback(
+    name => {
+      if (activeDropdown === name) {
+        return closeDropdown()
+      }
+      if (activeDropdown !== name) {
+        return openDropdown(name)
+      }
+    },
+    [dropdownOpen, activeDropdown]
+  )
+
+  const handleFocusMenuItem = useCallback(
+    event => {
+      const index = event.target.getAttribute('data-index')
+      setActiveMenuItemIndex(Number(index))
+    },
+    [setActiveMenuItemIndex, activeMenuItemIndex]
+  )
 
   const getInvolvedClassName = classNames(
     styles.DropdownItem,
@@ -84,153 +91,195 @@ export default function Nav() {
     'button'
   )
 
-  const isDropdown = useCallback(name => {
-    return name === 'Get involved' || name === 'Make an impact'
+  const isDropdown = useCallback(
+    name => name === 'Get involved' || name === 'Make an impact',
+    []
+  )
+
+  const getIndexToFocus = useCallback(
+    direction => (direction === 'up' ? 2 : 0),
+    []
+  )
+
+  const handleFocusSubNavItem = useCallback(event => {
+    const index = event.target.getAttribute('data-index')
+    setActiveSubMenuItemIndex(Number(index))
+  })
+
+  const focusFirstSubNavItem = useCallback(name => {
+    const refList = name === 'Get involved' ? getInvolvedRefs : makeAnImpactRefs
+    const menuItem = refList[0]
+    if (menuItem && menuItem.current) menuItem.current.focus()
+    setActiveSubMenuItemIndex(0)
+  })
+
+  const focusLastSubNavItem = useCallback(name => {
+    const refList = name === 'Get involved' ? getInvolvedRefs : makeAnImpactRefs
+    const menuItem = refList[2]
+    if (menuItem && menuItem.current) {
+      console.log('FOCUSING SUBNAV ITEM', menuItem.current)
+      menuItem.current.focus()
+      setActiveSubMenuItemIndex(2)
+    }
+  })
+
+  const handleMouseOver = useCallback(event => {
+    const name = event.target.getAttribute('data-navItem')
+    openDropdown(name)
+  })
+
+  const handleMouseLeave = useCallback(() => {
+    closeDropdown()
   })
 
   const focusNextSubMenuItem = useCallback(
-    (name, direction, currentItemIndex) => {
-      let nextItemIndex
+    (name, direction) => {
       const refList =
         name === 'Get involved' ? getInvolvedRefs : makeAnImpactRefs
 
-      if (direction === 'up') {
-        nextItemIndex = currentItemIndex === 0 ? 2 : currentItemIndex - 1
+      let nextItemIndex = activeSubMenuItemIndex
+
+      if (nextItemIndex === null) {
+        nextItemIndex = getIndexToFocus(direction)
+      } else if (direction === 'up') {
+        nextItemIndex =
+          activeSubMenuItemIndex === 0 ? 2 : activeSubMenuItemIndex - 1
       } else if (direction === 'down') {
-        nextItemIndex = currentItemIndex === 2 ? 0 : currentItemIndex + 1
+        nextItemIndex =
+          activeSubMenuItemIndex === 2 ? 0 : activeSubMenuItemIndex + 1
       }
 
-      refList[nextItemIndex].current.focus()
+      const nextItem = refList[nextItemIndex]
 
-      console.log(
-        'Focusing sub-menuitem',
-        currentItemIndex,
-        nextItemIndex,
-        refList[nextItemIndex].current
-      )
-    }
+      if (nextItem && nextItem.current) {
+        console.log(
+          'Focusing sub-menuitem',
+          activeSubMenuItemIndex,
+          nextItemIndex,
+          nextItem.current
+        )
+        nextItem.current.focus()
+        setActiveSubMenuItemIndex(nextItemIndex)
+      }
+    },
+    [activeSubMenuItemIndex, dropdownOpen]
   )
 
-  const focusNextMenuItem = useCallback((direction, currentItemIndex) => {
-    let nextItemIndex
+  const handleDropdownKeyPress = useCallback(
+    event => {
+      const navItem = event.target.getAttribute('data-navItem')
+      const isSubMenuItem = event.target.getAttribute('data-menuItem') !== null
 
-    if (direction === 'left') {
-      nextItemIndex =
-        currentItemIndex === 0 ? navItemRefs.length - 1 : currentItemIndex - 1
-    } else if (direction === 'right') {
-      nextItemIndex =
-        currentItemIndex === navItemRefs.length - 1 ? 0 : currentItemIndex + 1
-    }
+      switch (event.key) {
+        case 'Enter':
+        case 'Space':
+          event.preventDefault()
+          event.stopPropagation()
+          console.log('in dropdown div')
+          return toggleDropdownMenu(navItem)
 
-    const nextItem = navItemRefs[nextItemIndex]
+        case 'ArrowDown':
+          event.stopPropagation()
+          event.preventDefault()
+          if (!dropdownOpen && isDropdown(navItem) && !isSubMenuItem) {
+            console.log('arrow down to open')
+            openDropdown(navItem)
+            return focusFirstSubNavItem(navItem)
+          }
 
-    if (nextItem.current) {
-      if (dropdownOpen && !isDropdown(nextItem.current.innerHTML)) {
-        closeDropdown()
+          if (isSubMenuItem) {
+            console.log('arrow down sub menu item')
+            return focusNextSubMenuItem(navItem, 'down')
+          }
+
+          break
+
+        case 'ArrowUp':
+          event.stopPropagation()
+          event.preventDefault()
+          if (!dropdownOpen && isDropdown(navItem) && !isSubMenuItem) {
+            console.log('arrow up to open')
+            openDropdown(navItem)
+            return focusLastSubNavItem(navItem)
+          }
+
+          if (isSubMenuItem) {
+            console.log('arrow up sub menu item')
+            return focusNextSubMenuItem(navItem, 'up')
+          }
+
+          break
+
+        default:
+          break
+      }
+    },
+    [dropdownOpen]
+  )
+
+  const focusNextMenuItem = useCallback(
+    direction => {
+      let nextItemIndex = activeMenuItemIndex
+
+      if (direction === 'left') {
+        nextItemIndex =
+          activeMenuItemIndex === 0
+            ? navItemRefs.length - 1
+            : activeMenuItemIndex - 1
+      } else if (direction === 'right') {
+        nextItemIndex =
+          activeMenuItemIndex === navItemRefs.length - 1
+            ? 0
+            : activeMenuItemIndex + 1
       }
 
-      nextItem.current.focus()
-    }
-  })
+      const nextItem = navItemRefs[nextItemIndex]
+      const name = nextItem.current.getAttribute('data-navItem')
 
-  const handleKeyPress = useCallback(event => {
-    console.log(
-      event.key,
-      event.currentTarget,
-      event.target['data-href'],
-      event.target['data-index']
-    )
+      if (nextItem.current) {
+        nextItem.current.focus()
+        setActiveMenuItemIndex(nextItemIndex)
 
-    const index = event.target['data-index']
+        if (
+          dropdownOpen &&
+          !isDropdown(nextItem.current.getAttribute('data-navItem'))
+        ) {
+          closeDropdown()
+        } else if (dropdownOpen && isDropdown(name)) {
+          toggleDropdownMenu(name)
+        }
+      }
+    },
+    [activeMenuItemIndex, dropdownOpen]
+  )
+
+  const handleMenuKeyPress = useCallback(event => {
+    const navItem = event.target.getAttribute('data-navItem')
 
     switch (event.key) {
-      case 'Enter':
-      case 'Space':
-        if (event.target['data-href']) {
-          event.preventDefault()
-          return handleNavigate(event.target['data-href'])
-        }
+      case 'Tab':
+        // Because only the first nav item, 'About' in this case, has a tabindex, we know if we didn't tab to 'About' we've tabbed outside of the menu and should close any open dropdown.
+        if (navItem !== 'About') return closeDropdown()
+        return
 
-        if (isDropdown(event.target['data-navItem'])) {
-          toggleDropdownMenu(event.target['data-navItem'])
-          return focusNextSubMenuItem(event.target['data-navItem'], 'down', 2)
-        }
       case 'Escape':
         return closeDropdown()
+
       case 'ArrowLeft':
         event.preventDefault()
-        return focusNextMenuItem('left', index)
+        return focusNextMenuItem('left')
+
       case 'ArrowRight':
         event.preventDefault()
-        return focusNextMenuItem('right', index)
+        return focusNextMenuItem('right')
+
+      default:
+        break
     }
   })
 
-  const handleDropdownKeyPress = useCallback(event => {
-    const isSubMenuItem = event.target['data-menuItem'] !== undefined
-    const index = event.target['data-index']
-
-    switch (event.key) {
-      case 'Enter':
-      case 'Space':
-        if (event.target['data-href']) {
-          event.preventDefault()
-          return handleNavigate(event.target['data-href'])
-        }
-
-        if (isDropdown(event.target['data-navItem'])) {
-          toggleDropdownMenu(event.target['data-navItem'])
-          return focusNextSubMenuItem(event.target['data-navItem'], 'down', 2)
-        }
-      case 'Escape':
-        return closeDropdown()
-      case 'ArrowLeft':
-        event.preventDefault()
-        return focusNextMenuItem('left', index)
-      case 'ArrowRight':
-        event.preventDefault()
-        return focusNextMenuItem('right', index)
-      case 'ArrowDown':
-        event.preventDefault()
-        if (
-          !dropdownOpen &&
-          isDropdown(event.target['data-navItem']) &&
-          !isSubMenuItem
-        ) {
-          openDropdown(event.target['data-navItem'])
-          console.log('arrow down to open')
-          return focusNextSubMenuItem(event.target['data-navItem'], 'down', 2)
-        }
-
-        if (isSubMenuItem) {
-          console.log('arrow down sub menu item')
-          return focusNextSubMenuItem(
-            event.target['data-navItem'],
-            'down',
-            index
-          )
-        }
-
-      case 'ArrowUp':
-        event.preventDefault()
-        if (
-          !dropdownOpen &&
-          isDropdown(event.target['data-navItem']) &&
-          !isSubMenuItem
-        ) {
-          openDropdown(event.target['data-navItem'])
-          console.log('arrow up to open')
-          return focusNextSubMenuItem(event.target['data-navItem'], 'up', 0)
-        }
-
-        if (isSubMenuItem) {
-          console.log('arrow up sub menu item')
-          return focusNextSubMenuItem(event.target['data-navItem'], 'up', index)
-        }
-    }
-  })
-
-  const handleNavigate = useCallback(url => () => {
+  const handleNavigate = useCallback(event => {
+    const url = event.target.getAttribute('data-href')
     navigate(url)
   })
 
@@ -254,152 +303,247 @@ export default function Nav() {
           className={styles.MenuLink}
           data-navItem="About"
           data-index={0}
+          data-href="/about"
           role="menuitem"
           tabIndex={0}
-          onClick={handleNavigate('/about')}
+          onClick={handleNavigate}
+          onTouchStart={handleNavigate}
+          onFocus={handleFocusMenuItem}
           ref={aboutRef}
-          data-href="/about"
         >
           About
         </button>
       </li>
       <li role="none" className={getInvolvedClassName}>
-        <button
-          role="menuitem"
-          type="button"
-          tabIndex={-1}
-          data-navItem="Get involved"
-          data-index={1}
-          className={styles.DropdownButton}
-          aria-controls="get-involved-dropdown"
-          aria-expanded={activeDropdown === 'Get involved' && dropdownOpen}
-          onClick={toggleDropdownMenu('Get involved')}
-          onFocus={handleFocus('Get involved')}
-          ref={getInvolvedRef}
+        <div
+          className={styles.DropdownWrapper}
+          onKeyUp={handleDropdownKeyPress}
+          onMouseEnter={handleMouseOver}
+          onMouseLeave={handleMouseLeave}
         >
-          Get involved
-        </button>
-        <ul
-          className={styles.DropdownMenu}
-          id="get-involved-dropdown"
-          role="menu"
-        >
-          <li role="none" className={styles.DropdownMenuItem}>
-            <button
-              type="button"
-              role="menuitem"
-              className={styles.DropdownMenuButton}
-              data-navItem="Get involved"
-              data-menuItem="Events"
-              tabIndex={-1}
-              ref={eventsRef}
-              data-href="/get-involved/events"
-            >
-              Events
-            </button>
-          </li>
-          <li role="none" className={styles.DropdownMenuItem}>
-            <button
-              type="button"
-              role="menuitem"
-              className={styles.DropdownMenuButton}
-              onClick={handleNavigate('/get-involved/programs')}
-              data-navItem="Get involved"
-              data-menuItem="Programs"
-              tabIndex={-1}
-              ref={programsRef}
-              data-href="/programs"
-            >
-              Programs
-            </button>
-          </li>
-          <li role="none" className={styles.DropdownMenuItem}>
-            <button
-              type="button"
-              role="menuitem"
-              className={styles.DropdownMenuButton}
-              data-navItem="Get involved"
-              data-menuItem="Slack"
-              ref={slackRef}
-              data-href="/slack"
-              tabIndex={-1}
-            >
-              Slack
-            </button>
-          </li>
-        </ul>
+          <button
+            role="menuitem"
+            type="button"
+            tabIndex={-1}
+            data-navItem="Get involved"
+            data-index={1}
+            className={styles.DropdownButton}
+            aria-controls="get-involved-dropdown"
+            aria-expanded={activeDropdown === 'Get involved' && dropdownOpen}
+            onFocus={handleFocusMenuItem}
+            ref={getInvolvedRef}
+          >
+            Get involved
+          </button>
+          <ul
+            className={styles.DropdownMenu}
+            id="get-involved-dropdown"
+            role="menu"
+          >
+            <li role="none" className={styles.DropdownMenuItem}>
+              <div className={styles.SubDropdownWrapper}>
+                <button
+                  type="button"
+                  role="menuitem"
+                  className={styles.DropdownMenuButton}
+                  data-navItem="Get involved"
+                  data-menuItem="Events"
+                  data-index={0}
+                  tabIndex={-1}
+                  ref={eventsRef}
+                  data-href="/get-involved/events"
+                  onFocus={handleFocusSubNavItem}
+                >
+                  Events
+                </button>
+                <ul
+                  className={classNames(
+                    styles.DropdownMenu,
+                    styles.SubDropdownMenu
+                  )}
+                  id="get-involved-dropdown"
+                  role="menu"
+                >
+                  <li role="none" className={styles.DropdownMenuItem}>
+                    <button
+                      type="button"
+                      role="menuitem"
+                      className={styles.DropdownMenuButton}
+                      data-navItem="Get involved"
+                      data-menuItem="Events"
+                      data-index={0}
+                      tabIndex={-1}
+                      ref={eventsRef}
+                      data-href="/get-involved/events/mavens-conference"
+                      onFocus={handleFocusSubNavItem}
+                    >
+                      Mavens I/O
+                    </button>
+                  </li>
+                  <li role="none" className={styles.DropdownMenuItem}>
+                    <button
+                      type="button"
+                      role="menuitem"
+                      className={styles.DropdownMenuButton}
+                      data-navItem="Get involved"
+                      data-menuItem="Events"
+                      data-index={1}
+                      tabIndex={-1}
+                      ref={eventsRef}
+                      data-href="/get-involved/events/meetups"
+                      onFocus={handleFocusSubNavItem}
+                    >
+                      Meetups
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li role="none" className={styles.DropdownMenuItem}>
+              <div className={styles.SubDropdownWrapper}>
+                <button
+                  type="button"
+                  role="menuitem"
+                  className={classNames(
+                    styles.DropdownMenuButton,
+                    styles.hasSubMenu
+                  )}
+                  onClick={handleNavigate}
+                  data-navItem="Get involved"
+                  data-menuItem="Programs"
+                  data-href="/get-involved/programs"
+                  data-index={1}
+                  tabIndex={-1}
+                  ref={programsRef}
+                  onFocus={handleFocusSubNavItem}
+                >
+                  Programs
+                </button>
+                <ul
+                  className={classNames(
+                    styles.DropdownMenu,
+                    styles.SubDropdownMenu
+                  )}
+                  id="get-involved-dropdown"
+                  role="menu"
+                >
+                  <li role="none" className={styles.DropdownMenuItem}>
+                    <button
+                      type="button"
+                      role="menuitem"
+                      className={styles.DropdownMenuButton}
+                      data-navItem="Get involved"
+                      data-menuItem="Events"
+                      data-index={0}
+                      tabIndex={-1}
+                      ref={eventsRef}
+                      data-href="/get-involved/events"
+                      onFocus={handleFocusSubNavItem}
+                    >
+                      Bounty Board
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li role="none" className={styles.DropdownMenuItem}>
+              <button
+                type="button"
+                role="menuitem"
+                className={styles.DropdownMenuButton}
+                data-navItem="Get involved"
+                data-menuItem="Slack"
+                data-href="/slack"
+                data-index={2}
+                ref={slackRef}
+                tabIndex={-1}
+                onFocus={handleFocusSubNavItem}
+              >
+                Slack
+              </button>
+            </li>
+          </ul>
+        </div>
       </li>
       <li role="none" className={makeAnImpactClassName}>
-        <button
-          type="button"
-          role="menuitem"
-          data-navItem="Make an impact"
-          className={styles.DropdownButton}
-          aria-controls="make-an-impact-dropdown"
-          aria-expanded={activeDropdown === 'Make an impact' && dropdownOpen}
-          onClick={toggleDropdownMenu('Make an impact')}
-          onFocus={handleFocus('Make an impact')}
-          ref={makeAnImpactRef}
-          tabIndex={-1}
+        <div
+          className={styles.DropdownWrapper}
+          onKeyUp={handleDropdownKeyPress}
+          onMouseEnter={handleMouseOver}
+          onMouseLeave={handleMouseLeave}
         >
-          Make an impact
-        </button>
-
-        <ul
-          className={styles.DropdownMenu}
-          id="make-an-impact-dropdown"
-          role="menu"
-        >
-          <li role="none" className={styles.DropdownMenuItem}>
-            <button
-              type="button"
-              className={styles.DropdownMenuButton}
-              tabIndex={-1}
-              role="menuitem"
-              ref={hireRef}
-              data-href="/hire"
-              data-navItem="Make an impact"
-              data-index={2}
-              onClick={handleNavigate('/make-an-impact/hire')}
-            >
-              Hire
-            </button>
-          </li>
-          <li
-            role="none"
-            className={styles.DropdownMenuItem}
+          <button
+            type="button"
+            role="menuitem"
             data-navItem="Make an impact"
+            data-index={2}
+            className={styles.DropdownButton}
+            aria-controls="make-an-impact-dropdown"
+            aria-expanded={activeDropdown === 'Make an impact' && dropdownOpen}
+            onFocus={handleFocusMenuItem}
+            ref={makeAnImpactRef}
+            tabIndex={-1}
           >
-            <button
-              type="button"
-              className={styles.DropdownMenuButton}
-              tabIndex={-1}
-              role="menuitem"
-              ref={partnerRef}
-              data-href="/partner"
-              onClick={handleNavigate('/make-an-impact/partner')}
-            >
-              Partner
-            </button>
-          </li>
-          <li
-            role="none"
-            className={styles.DropdownMenuItem}
-            data-navItem="Make an impact"
+            Make an impact
+          </button>
+          <ul
+            className={styles.DropdownMenu}
+            id="make-an-impact-dropdown"
+            role="menu"
           >
-            <button
-              type="button"
-              className={styles.DropdownMenuButton}
-              tabIndex={-1}
-              role="menuitem"
-              ref={volunteerRef}
-              data-href="/volunteer"
-              onClick={handleNavigate('/make-an-impact/volunteer')}
-            >
-              Volunteer
-            </button>
-          </li>
-        </ul>
+            <li role="none" className={styles.DropdownMenuItem}>
+              <button
+                type="button"
+                className={styles.DropdownMenuButton}
+                tabIndex={-1}
+                role="menuitem"
+                ref={hireRef}
+                data-href="/make-an-impact/hire"
+                data-navItem="Make an impact"
+                data-menuItem="Hire"
+                data-index={0}
+                onClick={handleNavigate}
+                onFocus={handleFocusSubNavItem}
+              >
+                Hire
+              </button>
+            </li>
+            <li role="none" className={styles.DropdownMenuItem}>
+              <button
+                type="button"
+                className={styles.DropdownMenuButton}
+                tabIndex={-1}
+                role="menuitem"
+                ref={partnerRef}
+                data-navItem="Make an impact"
+                data-menuItem="Partner"
+                data-href="/make-an-impact/partner"
+                data-index={1}
+                onClick={handleNavigate}
+                onFocus={handleFocusSubNavItem}
+              >
+                Partner
+              </button>
+            </li>
+            <li role="none" className={styles.DropdownMenuItem}>
+              <button
+                type="button"
+                className={styles.DropdownMenuButton}
+                tabIndex={-1}
+                role="menuitem"
+                ref={volunteerRef}
+                data-navItem="Make an impact"
+                data-menuItem="Volunteer"
+                data-href="/make-an-impact/volunteer"
+                data-index={2}
+                onClick={handleNavigate}
+                onFocus={handleFocusSubNavItem}
+              >
+                Volunteer
+              </button>
+            </li>
+          </ul>
+        </div>
       </li>
       <li className={styles.MenuItem} role="none">
         <form
@@ -414,9 +558,9 @@ export default function Nav() {
             type="submit"
             className={donateButtonClassName}
             data-navItem="Donate"
-            ref={donateRef}
-            data-href="/donate"
             data-index={3}
+            ref={donateRef}
+            onFocus={handleFocusMenuItem}
             tabIndex={-1}
             role="menuitem"
           >
@@ -443,7 +587,7 @@ export default function Nav() {
         {menuOpenTrigger}
         {menuCloseTrigger}
       </div>
-      <div onKeyDown={handleKeyPress}>{menuMarkup}</div>
+      <div onKeyDown={handleMenuKeyPress}>{menuMarkup}</div>
     </nav>
   )
 }

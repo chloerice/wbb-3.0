@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 
-import { Nav, Footer, PageContainer } from '../components'
+import { PageContainer } from '../components'
 
 import styles from '../assets/scss/about.module.scss'
 

@@ -168,6 +168,8 @@
   display: flex;
   align-items: center;
   box-shadow: none;
+  background: none;
+  border: none;
   color: _palette(text-light);
   padding: 50%;
 
@@ -232,7 +234,7 @@
   }
 
   @include breakpoint-before('600px') {
-    padding: 2em;
+    padding: 2em 20px;
     min-height: auto;
   }
 }
