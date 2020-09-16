@@ -9,12 +9,8 @@
   top: 0;
   left: 0;
   padding: 0 2em;
-  width: 100%;
-  z-index: 120;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  display: flex;
   align-items: center;
   width: 100%;
   z-index: 150;
@@ -35,6 +31,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 75px;
   width: 100%;
 
   @include breakpoint-before('960px') {
@@ -63,6 +60,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: height 0.2s ease-in-out;
 
   @include breakpoint-before('960px') {
     display: none;
@@ -73,7 +71,7 @@
     justify-content: flex-start;
 
     &.open {
-      height: 100vh;
+      height: calc(100vh - 75px);
       display: flex;
     }
   }
@@ -108,9 +106,14 @@
   background: none;
   cursor: pointer;
 
-  &:hover,
   &:focus {
     color: _palette(highlight) !important;
+  }
+
+  @include breakpoint-after('960px') {
+    &:hover {
+      color: _palette(highlight) !important;
+    }
   }
 
   @include breakpoint-before('960px') {
@@ -128,7 +131,7 @@
       border: 2px solid _palette(highlight);
     }
 
-    .DropdownMenu {
+    .DropdownMenu:not(.SubDropdownMenu) {
       display: block;
     }
 
@@ -154,12 +157,18 @@
   font-size: 1em !important;
   cursor: pointer;
 
-  &:hover,
-  &:focus,
-  &:active {
+  &:focus {
     background: _palette(highlight);
     color: _palette(text-dark) !important;
     border: 2px solid _palette(highlight);
+  }
+
+  @include breakpoint-after('960px') {
+    &:hover {
+      background: _palette(highlight);
+      color: _palette(text-dark) !important;
+      border: 2px solid _palette(highlight);
+    }
   }
 
   @include breakpoint-before('960px') {
@@ -199,6 +208,75 @@
   }
 }
 
+.DropdownWrapper {
+  &:focus {
+    .DropdownButton {
+      background: _palette(highlight);
+      color: _palette(text-dark) !important;
+      border: 2px solid _palette(highlight);
+    }
+
+    .DropdownMenu:not(.SubDropdownMenu) {
+      display: block;
+    }
+
+    @include breakpoint-before('960px') {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  @include breakpoint-after('960px') {
+    &:hover {
+      .DropdownButton {
+        background: _palette(highlight);
+        color: _palette(text-dark) !important;
+        border: 2px solid _palette(highlight);
+      }
+
+      .DropdownMenu:not(.SubDropdownMenu) {
+        display: block;
+      }
+
+      @include breakpoint-before('960px') {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.SubDropdownMenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+
+.SubDropdownWrapper {
+  position: relative;
+
+  &:focus {
+    .SubDropdownMenu {
+      display: block;
+    }
+  }
+
+  @include breakpoint-after('960px') {
+    &:hover {
+      .SubDropdownMenu {
+        display: block;
+      }
+    }
+  }
+
+  &.active {
+    .SubDropdownMenu {
+      display: block;
+    }
+  }
+}
+
 .DropdownMenuButton {
   background: none;
   padding: 0.75em 1em;
@@ -207,17 +285,22 @@
   border: 2px solid transparent;
   border: 0;
   width: 100%;
-  display: block;
   text-align: left;
   text-transform: uppercase;
   font-family: _font(family-body);
   font-size: 1em !important;
   cursor: pointer;
 
-  &:hover,
   &:focus {
     color: _palette(highlight) !important;
     font-weight: 600;
+  }
+
+  @include breakpoint-after('960px') {
+    &:hover {
+      color: _palette(highlight) !important;
+      font-weight: 600;
+    }
   }
 
   @include breakpoint-before('960px') {
@@ -243,9 +326,12 @@
     align-items: center;
   }
 
+  &:focus {
+    border: 2px solid _palette(highlight) !important;
+  }
+
   @include breakpoint-after('960px') {
-    &:hover,
-    &:focus {
+    &:hover {
       border: 2px solid _palette(highlight) !important;
     }
   }

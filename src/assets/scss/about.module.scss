@@ -11,7 +11,7 @@
 
 .IntroSection {
   text-align: right;
-  padding: 8em 6em 4em;
+  padding: 4em 6em;
   background: _palette(highlight);
 
   @include breakpoint-before('960px') {
@@ -19,7 +19,7 @@
   }
 
   @include breakpoint-before('768px') {
-    padding: 8em 40px 32px;
+    padding: 3em 40px;
     text-align: left;
 
     .IntroHeading {
@@ -28,7 +28,7 @@
   }
 
   @include breakpoint-before('600px') {
-    padding: 6em 32px 20px;
+    padding: 2em 20px;
   }
 }
 
@@ -147,7 +147,7 @@
     padding: 6%;
   }
 
-  @include breakpoint-before('600x') {
+  @include breakpoint-before('600px') {
     padding: 40px 20px;
   }
 }

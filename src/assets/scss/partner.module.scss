@@ -33,6 +33,7 @@
 
   @include breakpoint-before('1024px') {
     width: 100%;
+    max-width: unset;
     padding: 32px 20px;
   }
 }
@@ -91,12 +92,15 @@
 
 .Body {
   position: relative;
-  padding: 2em 9em;
+  padding: 2em 6%;
   background: _palette(text-light);
   color: _palette(text-dark);
   display: grid;
   grid-template-areas: 'nav' 'content';
-  grid-template-columns: 1fr 3fr;
+
+  @include breakpoint-after('768px') {
+    grid-template-columns: 1fr 3fr;
+  }
 
   @include breakpoint-before('1024px') {
     padding: 32px 20px;
@@ -109,10 +113,23 @@
 
 .BodyIntro {
   font-size: 1.5em;
+
+  @include breakpoint-before('768px') {
+    font-size: 1.25em;
+  }
 }
 
 .BodyNav {
   padding-top: 0.5em;
+
+  @include breakpoint-after('768px') {
+    position: sticky;
+    top: 70px;
+  }
+
+  @include breakpoint-before('768px') {
+    display: none;
+  }
 }
 
 .SectionList {
@@ -146,6 +163,10 @@
 
 .SectionAnchor {
   padding: 2em;
+
+  @include breakpoint-before('768px') {
+    display: none;
+  }
 }
 
 .BodyContent {
@@ -153,6 +174,10 @@
 
 .BodySection {
   padding-top: 4em;
+
+  @include breakpoint-before('600px') {
+    padding-top: 2em;
+  }
 }
 
 /* Benchmark section */
@@ -216,6 +241,14 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @include breakpoint-before('768px') {
+    padding: 3em;
+  }
+
+  @include breakpoint-before('600px') {
+    padding: 2em;
+  }
 }
 
 .PartnerFormLink {
