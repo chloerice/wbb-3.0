@@ -1,0 +1,19 @@
+[[redirects]]
+  from = "/get-involved/slack"
+  to = "https://t.co/Tyqbn7FNyv?amp=1"
+  status = 200
+
+[[redirects]]
+  from = "/make-an-impact/hire"
+  to = "https://forms.gle/oyrHZRy15A4sQYgK8"
+  status = 200
+
+[[redirects]]
+  from = "/make-an-impact/partner/apply"
+  to = "https://forms.gle/2qnrc8EWatZKH6xJ9"
+  status = 200
+
+[[redirects]]
+  from = "/make-an-impact/volunteer"
+  to = "https://forms.gle/fPr33dk5V9YJzGxr8"
+  status = 200
