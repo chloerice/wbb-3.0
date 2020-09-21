@@ -351,7 +351,6 @@ export default function Nav() {
                   data-index={0}
                   tabIndex={-1}
                   ref={eventsRef}
-                  data-href="/get-involved/events"
                   onFocus={handleFocusSubNavItem}
                 >
                   Events
@@ -375,6 +374,7 @@ export default function Nav() {
                       tabIndex={-1}
                       ref={eventsRef}
                       data-href="/get-involved/events/mavens-conference"
+                      onClick={handleNavigate}
                       onFocus={handleFocusSubNavItem}
                     >
                       Mavens I/O
@@ -392,6 +392,7 @@ export default function Nav() {
                       ref={eventsRef}
                       data-href="/get-involved/events/meetups"
                       onFocus={handleFocusSubNavItem}
+                      onClick={handleNavigate}
                     >
                       Meetups
                     </button>
@@ -411,7 +412,6 @@ export default function Nav() {
                   onClick={handleNavigate}
                   data-navItem="Get involved"
                   data-menuItem="Programs"
-                  data-href="/get-involved/programs"
                   data-index={1}
                   tabIndex={-1}
                   ref={programsRef}
@@ -453,7 +453,7 @@ export default function Nav() {
                 className={styles.DropdownMenuButton}
                 data-navItem="Get involved"
                 data-menuItem="Slack"
-                data-href="/slack"
+                data-href="https://t.co/Tyqbn7FNyv?amp=1"
                 data-index={2}
                 ref={slackRef}
                 tabIndex={-1}

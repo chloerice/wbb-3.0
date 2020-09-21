@@ -16,16 +16,35 @@ export default function Partner({ data }) {
   const partnerLogos = data.allFile.nodes.filter(node =>
     node.childImageSharp.fluid.src.includes('logo')
   )
+  console.log(partnerLogos)
+  const logoMarkup = partnerLogos
+    .sort((a, b) => {
+      const img1 = a.childImageSharp.fluid.originalName.toUpperCase()
+      const img2 = b.childImageSharp.fluid.originalName.toUpperCase()
 
-  const logoMarkup = partnerLogos.map(logo => (
-    <div className={styles.LogoWrapper}>
-      <Img className={styles.Logo} fluid={logo.childImageSharp.fluid} alt="" />
-    </div>
-  ))
+      if (img1 < img2) {
+        return -1
+      }
+      if (img1 > img2) {
+        return 1
+      }
+
+      // names must be equal
+      return 0
+    })
+    .map(logo => (
+      <div className={styles.LogoWrapper}>
+        <Img
+          className={styles.Logo}
+          fluid={logo.childImageSharp.fluid}
+          alt=""
+        />
+      </div>
+    ))
 
   return (
     <PageContainer>
-      <Helmet title="Partner | We Build Black"></Helmet>
+      <Helmet title="Partner | We Build Black" />
       <header className={styles.Hero}>
         <div className={styles.HeroContent}>
           <h1 className={styles.HeroHeading}>
@@ -38,7 +57,7 @@ export default function Partner({ data }) {
           </p>
         </div>
         <div className={styles.HeroImageWrapper}>
-          <div className={styles.HeroImageOverlay}></div>
+          <div className={styles.HeroImageOverlay} />
           <Img
             className={styles.HeroImage}
             fluid={fullWidthImage.childImageSharp.fluid}
@@ -55,9 +74,6 @@ export default function Partner({ data }) {
               </li>
               <li className={styles.SectionListItem}>
                 <a href="#our-partners">Our partners</a>
-              </li>
-              <li className={styles.SectionListItem}>
-                <a href=""></a>
               </li>
             </ul>
           </div>
@@ -116,14 +132,13 @@ export default function Partner({ data }) {
                 <dt className={styles.BenchmarkName}>
                   Internship/Apprenticeship Program
                 </dt>
-                <dd
-                  className={styles.BenchmarkDescription}
-                >{`While an internship may not be specific to helping those of the Black community it definitely affects us. A large number of the Black community coming into tech are coming in at the ground level. Having an internship for these kinds of applicants shows you're willing to put in the time/resources to bring our community up to speed.`}</dd>
-
+                <dd className={styles.BenchmarkDescription}>
+                  {`While an internship may not be specific to helping those of the Black community it definitely affects us. A large number of the Black community coming into tech are coming in at the ground level. Having an internship for these kinds of applicants shows you're willing to put in the time/resources to bring our community up to speed.`}
+                </dd>
                 <dt className={styles.BenchmarkName}>Mentorship Program</dt>
-                <dd
-                  className={styles.BenchmarkDescription}
-                >{`A big aspect of diversity is not only hiring but retaining that diverse talent. Mentorship programs give diverse employees a guiding hand in their new career. Being in the tech field takes practice and assistance. Having a mentor will give them the latter.`}</dd>
+                <dd className={styles.BenchmarkDescription}>
+                  {`A big aspect of diversity is not only hiring but retaining that diverse talent. Mentorship programs give diverse employees a guiding hand in their new career. Being in the tech field takes practice and assistance. Having a mentor will give them the latter.`}
+                </dd>
               </dl>
             </section>
             <div id="our-partners" className={styles.SectionAnchor} />
@@ -137,7 +152,10 @@ export default function Partner({ data }) {
           <h2 className={styles.BodyHeading}>
             {`Let's make the tech industry better together`}
           </h2>
-          <a className={className('button', styles.PartnerFormLink)} href="">
+          <a
+            className={className('button', styles.PartnerFormLink)}
+            href="/make-an-impact/partner/apply"
+          >
             Learn more
           </a>
         </div>
@@ -152,6 +170,7 @@ export const query = graphql`
       nodes {
         childImageSharp {
           fluid {
+            originalName
             ...GatsbyImageSharpFluid
           }
         }
