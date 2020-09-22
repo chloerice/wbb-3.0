@@ -25,7 +25,7 @@
 
 .HeroContent {
   max-width: 60%;
-  padding: 12em 9em 9em;
+  padding: 10em 9em 9em;
   background: _palette(text-dark);
   color: _palette(text-light);
   position: relative;
@@ -219,7 +219,7 @@
 
 .LogoWrapper {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
@@ -228,6 +228,8 @@
 .Logo {
   height: auto;
   width: 100%;
+  object-position: center;
+  object-fit: contain;
 }
 
 /* Call to action block */
