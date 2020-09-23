@@ -437,7 +437,7 @@ export default function Nav() {
                       data-index={0}
                       tabIndex={-1}
                       ref={eventsRef}
-                      data-href="/get-involved/events"
+                      data-href="/get-involved/programs/bounty-board"
                       onFocus={handleFocusSubNavItem}
                     >
                       Bounty Board
@@ -453,7 +453,7 @@ export default function Nav() {
                 className={styles.DropdownMenuButton}
                 data-navItem="Get involved"
                 data-menuItem="Slack"
-                data-href="https://t.co/Tyqbn7FNyv?amp=1"
+                data-href="/get-involved/slack"
                 data-index={2}
                 ref={slackRef}
                 tabIndex={-1}

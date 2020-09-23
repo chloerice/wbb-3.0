@@ -1,4 +1,9 @@
 [[redirects]]
+  from = "/get-involved/programs/bounty-board"
+  to = "https://forms.gle/DpLFYmSGTJPDWbuJ7"
+  status = 200
+
+[[redirects]]
   from = "/get-involved/slack"
   to = "https://t.co/Tyqbn7FNyv?amp=1"
   status = 200
