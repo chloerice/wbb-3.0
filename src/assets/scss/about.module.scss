@@ -7,6 +7,29 @@
   min-height: 100vh;
 }
 
+.SectionHeading {
+  font-family: _font(family-display);
+  font-size: 3em;
+
+  @include breakpoint-before('960px') {
+    font-size: 2em;
+  }
+}
+
+.Section {
+  color: _palette(text-light);
+  background: _palette(accent6);
+  padding: 6em;
+
+  @include breakpoint-before('768px') {
+    padding: 6%;
+  }
+
+  @include breakpoint-before('600px') {
+    padding: 40px 20px;
+  }
+}
+
 /* INTRO SECTION */
 
 .IntroSection {
@@ -134,7 +157,12 @@
   object-position: center;
 }
 
-/* --- end intro styles --- */
+/* WHERE WE'RE HEADED */
+
+.WhereWereHeadedSection {
+  color: _palette(text-light);
+  background: _palette(accent3);
+}
 
 /* TEAM GRID SECTION */
 
@@ -152,19 +180,10 @@
   }
 }
 
-.TeamHeading {
-  font-family: _font(family-display);
-  font-size: 4em;
-
-  @include breakpoint-before('960px') {
-    font-size: 2.5em;
-  }
-}
-
 .TeamList {
   display: grid;
   grid-auto-rows: auto;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
   grid-gap: 3rem;
   margin: 0;
   padding: 0;

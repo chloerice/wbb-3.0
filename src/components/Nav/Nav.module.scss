@@ -317,7 +317,6 @@
   font-weight: unset !important;
   font-size: 1em !important;
   box-shadow: none !important;
-  border: 2px solid _palette(text-light) !important;
   font-family: _font(family-body);
 
   span {
@@ -343,6 +342,8 @@
       font-family: _font(family-body);
       width: 100%;
       margin-top: 1em;
+      color: _palette(text-light) !important;
+      border: solid 2px _palette(text-light) !important;
     }
   }
 }
@@ -352,7 +353,14 @@
   display: flex;
 }
 
+.DonateButton {
+  color: _palette(text-light) !important;
+  border: solid 2px _palette(text-light) !important;
+}
+
 .MobileMenuToggle {
+  color: _palette(text-light) !important;
+  border: solid 2px _palette(text-light) !important;
   background: none;
   font-family: _font(family-body);
 
@@ -367,4 +375,6 @@
   box-shadow: none !important;
   padding: 0.25em 1.5em !important;
   font-family: _font(family-body);
+  color: _palette(text-light) !important;
+  border: solid 2px _palette(text-light) !important;
 }

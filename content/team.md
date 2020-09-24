@@ -16,8 +16,4 @@ teamMembers:
     role: Co-founder
     headshotPath:
     bio: Nigga nigga nigga nigga nigga, nigga nigga nigga nigga. Nigga nigga nigga nigga nigga, nigga.
-  - name: Yamah Akbar
-    role: Program Coordinator
-    headshotPath:
-    bio: Nigga nigga nigga nigga nigga, nigga nigga nigga nigga. Nigga nigga nigga nigga nigga, nigga.
 ---

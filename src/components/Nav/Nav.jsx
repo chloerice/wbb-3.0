@@ -280,6 +280,7 @@ export default function Nav() {
 
   const handleNavigate = useCallback(event => {
     const url = event.target.getAttribute('data-href')
+    console.log(url)
     navigate(url)
   })
 
@@ -439,6 +440,7 @@ export default function Nav() {
                       ref={eventsRef}
                       data-href="/get-involved/programs/bounty-board"
                       onFocus={handleFocusSubNavItem}
+                      onClick={handleNavigate}
                     >
                       Bounty Board
                     </button>
@@ -457,6 +459,7 @@ export default function Nav() {
                 data-index={2}
                 ref={slackRef}
                 tabIndex={-1}
+                onClick={handleNavigate}
                 onFocus={handleFocusSubNavItem}
               >
                 Slack

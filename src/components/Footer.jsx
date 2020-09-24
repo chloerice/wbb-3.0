@@ -125,8 +125,8 @@ export default function Footer() {
       <p>info@webuildblack.com</p>
       <h3>Stay in the loop</h3>
       <p>
-        Subscribe to be first to know about the latest community news, events,
-        and job opportunities.
+        Be first to know about the latest community news, events, and job
+        opportunities.
       </p>
       <div className="field half">
         <button

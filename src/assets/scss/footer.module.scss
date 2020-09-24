@@ -47,4 +47,8 @@
   font-family: _font(family-body);
   font-weight: 700 !important;
   font-size: 1em !important;
+
+  &:not(:hover) {
+    background: _palette(bg-light) !important;
+  }
 }
