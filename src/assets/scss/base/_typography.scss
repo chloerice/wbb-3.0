@@ -29,7 +29,8 @@ textarea {
   }
 }
 
-a {
+a,
+button.link {
   @include vendor(
     'transition',
     (

@@ -2,6 +2,8 @@ import React from 'react'
 
 import wbbLogo from '../assets/images/wbb-logo-square-no-bg.svg'
 
+import styles from '../assets/scss/footer.module.scss'
+
 export default function Footer() {
   const copyrightMarkup = (
     <p className="copyright">
@@ -61,8 +63,30 @@ export default function Footer() {
       <div className="footer-left-content">
         <h3>Make an impact</h3>
         <ul className="footer-links">
-          <li>
-            <a href="/donate">Donate</a>
+          <li className={styles.DonateListItem}>
+            <form
+              className={styles.DonateForm}
+              action="https://www.paypal.com/cgi-bin/webscr"
+              method="post"
+              target="_blank"
+            >
+              <input type="hidden" name="cmd" value="_s-xclick" />
+              <input
+                type="hidden"
+                name="hosted_button_id"
+                value="RZWPA5VWQSV3U"
+              />
+              <button className={styles.DonateButton} type="submit">
+                Donate
+              </button>
+              <img
+                alt=""
+                border="0"
+                src="https://www.paypal.com/en_US/i/scr/pixel.gif"
+                width="1"
+                height="1"
+              />
+            </form>
           </li>
           <li>
             <a href="/contact">Hire</a>
