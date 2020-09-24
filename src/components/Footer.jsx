@@ -91,13 +91,13 @@ export default function Footer() {
             </form>
           </li>
           <li>
-            <a href="/contact">Hire</a>
+            <a href="/make-an-impact/hire">Hire</a>
           </li>
           <li>
-            <a href="/contact">Partner</a>
+            <a href="/make-an-impact/partner">Partner</a>
           </li>
           <li>
-            <a href="/contact">Volunteer</a>
+            <a href="/make-an-impact/volunteer">Volunteer</a>
           </li>
         </ul>
       </div>
