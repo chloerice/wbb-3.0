@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
+import className from 'classnames'
 
 import { PageContainer } from '../components'
 
@@ -20,18 +21,25 @@ export default function About({ data }) {
     node.childImageSharp.fluid.src.includes('woman1')
   )
 
-  const videoPlayerMarkup = (
-    <iframe
-      className={styles.Video}
-      src="https://www.youtube.com/embed/-aOPtTK6GlM"
-      frameBorder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; allowfullscreen"
-    ></iframe>
+  const wwhSectionClassName = className(
+    styles.Section,
+    styles.WhereWereHeadedSection
   )
+
+  // Video will replace image in hero in v2
+
+  // const videoPlayerMarkup = (
+  //   <iframe
+  //     className={styles.Video}
+  //     src="https://www.youtube.com/embed/-aOPtTK6GlM"
+  //     frameBorder="0"
+  //     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; allowfullscreen"
+  //   ></iframe>
+  // )
 
   return (
     <PageContainer>
-      <Helmet title="About | We Build Black"></Helmet>
+      <Helmet title="About | We Build Black" />
       <main className={styles.About}>
         <section className={styles.IntroSection}>
           <div className={styles.IntroHeadingWrapper}>
@@ -57,8 +65,27 @@ export default function About({ data }) {
           </div>
         </section>
 
+        <section className={wwhSectionClassName}>
+          <h2 className={styles.SectionHeading}>{`Where we're headed`}</h2>
+          <p className={styles.WhereWereHeadedHeading}>
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui
+            blanditiis praesentium voluptatum deleniti atque corrupti quos
+            dolores et quas molestias excepturi sint occaecati cupiditate non
+            provident, similique sunt in culpa qui officia deserunt mollitia
+            animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
+            est et expedita distinctio. Nam libero tempore, cum soluta nobis est
+            eligendi optio cumque nihil impedit quo minus id quod maxime placeat
+            facere possimus, omnis voluptas assumenda est, omnis dolor
+            repellendus. Temporibus autem quibusdam et aut officiis debitis aut
+            rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
+            et molestiae non recusandae. Itaque earum rerum hic tenetur a
+            sapiente delectus, ut aut reiciendis voluptatibus maiores alias
+            consequatur aut perferendis doloribus asperiores repellat.
+          </p>
+        </section>
+
         <section className={styles.TeamSection}>
-          <h2 className={styles.TeamHeading}>Meet the squad</h2>
+          <h2 className={styles.SectionHeading}>Meet the squad</h2>
           <ul className={styles.TeamList}>
             <li className={styles.TeamMember}>
               <div className={styles.HeadshotWrapper}>
@@ -126,24 +153,6 @@ export default function About({ data }) {
                 <p className={styles.Name}>Kris Lee</p>
                 <p className={styles.Role}>Co-founder</p>
 
-                <p className={styles.Bio}>
-                  Nigga nigga nigga nigga nigga, nigga nigga nigga nigga. Nigga
-                  nigga nigga nigga nigga, nigga.
-                </p>
-              </div>
-            </li>
-
-            <li className={styles.TeamMember}>
-              <div className={styles.HeadshotWrapper}>
-                <Img
-                  className={styles.Headshot}
-                  fluid={defaultHeadshotWoman.childImageSharp.fluid}
-                  alt="Headshot of Yamah Akbar"
-                />
-              </div>
-              <div className={styles.Info}>
-                <p className={styles.Name}>Yamah Akbar</p>
-                <p className={styles.Role}>Program Coordinator</p>
                 <p className={styles.Bio}>
                   Nigga nigga nigga nigga nigga, nigga nigga nigga nigga. Nigga
                   nigga nigga nigga nigga, nigga.

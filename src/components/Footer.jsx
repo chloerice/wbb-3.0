@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import className from 'classnames'
+import { navigate } from 'gatsby'
 
 import wbbLogo from '../assets/images/wbb-logo-square-no-bg.svg'
+
+import styles from '../assets/scss/footer.module.scss'
 
 export default function Footer() {
   const copyrightMarkup = (
@@ -61,8 +65,30 @@ export default function Footer() {
       <div className="footer-left-content">
         <h3>Make an impact</h3>
         <ul className="footer-links">
-          <li>
-            <a href="/donate">Donate</a>
+          <li className={styles.DonateListItem}>
+            <form
+              className={styles.DonateForm}
+              action="https://www.paypal.com/cgi-bin/webscr"
+              method="post"
+              target="_blank"
+            >
+              <input type="hidden" name="cmd" value="_s-xclick" />
+              <input
+                type="hidden"
+                name="hosted_button_id"
+                value="RZWPA5VWQSV3U"
+              />
+              <button className={styles.DonateButton} type="submit">
+                Donate
+              </button>
+              <img
+                alt=""
+                border="0"
+                src="https://www.paypal.com/en_US/i/scr/pixel.gif"
+                width="1"
+                height="1"
+              />
+            </form>
           </li>
           <li>
             <a href="/contact">Hire</a>
@@ -81,6 +107,15 @@ export default function Footer() {
     </div>
   )
 
+  const subscribeButtonClassName = className(
+    'button fit special',
+    styles.SubscribeButton
+  )
+
+  const handleSubscribe = useCallback(() => {
+    navigate('/subscribe')
+  })
+
   const footerRightMarkup = (
     <div className="footer-right">
       <h3>Get in touch</h3>
@@ -90,14 +125,17 @@ export default function Footer() {
       <p>info@webuildblack.com</p>
       <h3>Stay in the loop</h3>
       <p>
-        Subscribe to be first to know about the latest community news, events,
-        and job opportunities.
+        Be first to know about the latest community news, events, and job
+        opportunities.
       </p>
       <div className="field half">
-        <label className="label-hidden" htmlFor="email">
-          Email
-        </label>
-        <input type="text" name="email" id="email" placeholder="Email" />
+        <button
+          type="button"
+          className={subscribeButtonClassName}
+          onClick={handleSubscribe}
+        >
+          Subscribe
+        </button>
       </div>
     </div>
   )
