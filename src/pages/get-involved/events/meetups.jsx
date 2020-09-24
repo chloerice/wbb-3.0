@@ -27,7 +27,9 @@ export default function Meetups({ data }) {
       <header className={styles.Hero}>
         <div className={styles.HeroContentBlock}>
           <h1 className={styles.HeroHeading}>Find your people</h1>
-          <p className={styles.HeroText}></p>
+          <p
+            className={styles.HeroText}
+          >{`Looking for someone to pair with, a co-founder, a mentor, or some techie friends? Bring your whole authentic self and connect with the We Build Black community at a meetup event.`}</p>
         </div>
         <div className={styles.HeroImageBlock}>
           <div className={styles.HeroImageOverlay} />
@@ -45,11 +47,14 @@ export default function Meetups({ data }) {
           <div className={styles.Meetup}>
             <div className={styles.MeetupContent}>
               <p>
-                <span className={styles.MeetupContentHighlight}>
+                <a
+                  href="https://www.meetup.com/She-Builds-Black"
+                  className={styles.MeetupContentHighlight}
+                >
                   She Builds Black
-                </span>{' '}
-                is a network of Black women technologists who come together to
-                support and advance each other's careers.
+                </a>{' '}
+                {`is a network of Black women technologists who come together to
+                support and advance each other's careers.`}
               </p>
             </div>
             <div className={styles.MeetupImageWrapper}>
@@ -64,9 +69,12 @@ export default function Meetups({ data }) {
           <div className={styles.Meetup}>
             <div className={styles.MeetupContent}>
               <p>
-                <span className={styles.MeetupContentHighlight}>
+                <a
+                  href="https://www.meetup.com/black-software-engineers-of-nyc"
+                  className={styles.MeetupContentHighlight}
+                >
                   Black Software Engineers of NYC
-                </span>{' '}
+                </a>{' '}
                 is a space to mix ideas, work on code, get help on projects, and
                 discuss the industry. Anyone is welcome, but the aim and hope of
                 this group is to facilitate the growth of Black developers.
