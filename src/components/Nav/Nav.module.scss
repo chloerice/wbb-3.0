@@ -342,8 +342,6 @@
       font-family: _font(family-body);
       width: 100%;
       margin-top: 1em;
-      color: _palette(text-light) !important;
-      border: solid 2px _palette(text-light) !important;
     }
   }
 }
@@ -354,8 +352,10 @@
 }
 
 .DonateButton {
-  color: _palette(text-light) !important;
-  border: solid 2px _palette(text-light) !important;
+  &:not(:hover) {
+    color: _palette(text-light) !important;
+    border: solid 2px _palette(text-light) !important;
+  }
 }
 
 .MobileMenuToggle {
