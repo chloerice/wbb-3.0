@@ -5,7 +5,7 @@
 
 .DonateListItem {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -41,4 +41,10 @@
   &:active {
     color: desaturate(darken(_palette(highlight), 15), 5) !important;
   }
+}
+
+.SubscribeButton {
+  font-family: _font(family-body);
+  font-weight: 700 !important;
+  font-size: 1em !important;
 }

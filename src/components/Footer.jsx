@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import className from 'classnames'
+import { navigate } from 'gatsby'
 
 import wbbLogo from '../assets/images/wbb-logo-square-no-bg.svg'
 
@@ -105,6 +107,15 @@ export default function Footer() {
     </div>
   )
 
+  const subscribeButtonClassName = className(
+    'button fit special',
+    styles.SubscribeButton
+  )
+
+  const handleSubscribe = useCallback(() => {
+    navigate('/subscribe')
+  })
+
   const footerRightMarkup = (
     <div className="footer-right">
       <h3>Get in touch</h3>
@@ -118,10 +129,13 @@ export default function Footer() {
         and job opportunities.
       </p>
       <div className="field half">
-        <label className="label-hidden" htmlFor="email">
-          Email
-        </label>
-        <input type="text" name="email" id="email" placeholder="Email" />
+        <button
+          type="button"
+          className={subscribeButtonClassName}
+          onClick={handleSubscribe}
+        >
+          Subscribe
+        </button>
       </div>
     </div>
   )
