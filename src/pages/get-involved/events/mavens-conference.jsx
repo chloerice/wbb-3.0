@@ -55,9 +55,10 @@ export default function Mavens({ data }) {
             <div className={styles.GoalContent}>
               <p>
                 <span className={styles.GoalContentHighlight}>
-                  Amplify the voices of women of color
-                </span>
-                , both up and coming and those at the top of their fields.
+                  Creating a platform for Black women to create opportunity amongst each other 
+                </span> is central to our mission when hosting Mavens I/O. Every year tech professionals from all levels 
+                come to this event to meet like-mided women with the intention of uplifting 
+              and learning.
               </p>
             </div>
             <div className={styles.GoalImageWrapper}>
@@ -73,11 +74,15 @@ export default function Mavens({ data }) {
             <div className={styles.GoalContent}>
               <p>
                 <span className={styles.GoalContentHighlight}>
-                  Provide a safe, liberating space
+                  A safe and liberating space
                 </span>{' '}
-                for women to engage each other in honest, meaningful discussions
-                around their experiences navigating education and careers in
-                tech at the intersections of race, gender, and sexuality.
+                for engaging in honest and meaningful discussions.
+                A Black women's experience navigating education and careers in
+                tech can be something that's uncomfortable to talk about. Being able
+                to share your stories in a judge-free environment gives these women
+                the sense of a shared understanding. This also initiates pathways for
+                attendees to create the change they want by forming relationships that
+                 last after the event.
               </p>
             </div>
             <div className={styles.GoalImageWrapper}>
@@ -93,10 +98,11 @@ export default function Mavens({ data }) {
             <div className={styles.GoalContent}>
               <p>
                 <span className={styles.GoalContentHighlight}>
-                  Afford opportunities for networking and mentorship
+                  Learn valuable skills from talented mavens 
                 </span>{' '}
-                with companies committed to cultivating an equitable tech
-                industry.
+                who come from all different walks of life. From the hottest JavaScript 
+                library to the best tips on how to crush an interview, our workshop instructors
+                will make sure you've left here having learned something new.
               </p>
             </div>
             <div className={styles.GoalImageWrapper}>
