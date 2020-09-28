@@ -92,52 +92,45 @@ export default function Partner({ data }) {
                   Employee Resource Group
                 </dt>
                 <dd className={styles.BenchmarkDescription}>
-                  {`Having an internal ERG gives employees of targeted identities a safe space to be heard and take action on the change they would like to see in and out of the workplace and are key to creating a culture of belonging.`}
+                  {`Having ERGs gives employees of targeted identities a safe space to be heard and take action on the change they would like to see in and out of the workplace and are key to creating a culture of belonging.`}
                 </dd>
 
                 <dt className={styles.BenchmarkName}>
                   Dedicated D&I Leader or Team
                 </dt>
                 <dd className={styles.BenchmarkDescription}>
-                  {`As a Black person in the workspace, it can be tiring to do two
-                jobs. One being the one you were hired for and then the
-                diversity committee you're a part of. A dedicated D&I leader or
-                team in place that is hired to take the load off of your diverse
-                employees creates for a better and more productive safe space as
-                you don't feel like you HAVE to do this diversity work.`}
+                  {`No person should ever be paid for one job and have to do another on top of it. Having a dedicated D&I leader or team ensures that employees can remain focused on their craft. D&I is important work that needs to have a dedicated professional pushing for progress.`}
                 </dd>
 
                 <dt className={styles.BenchmarkName}>Black Owned</dt>
                 <dd className={styles.BenchmarkDescription}>
-                  {`Being Black owned is self explanatory Simply said it lets us know that you probably come from a place of shared struggle and understanding.`}
+                  {`Building Black is at the core of our mission. We support Black businesses by hiring and highlighting them. D&I doesn't stop with recruitment. The vendors and services you use every day are also opportunities for change.`}
                 </dd>
 
                 <dt className={styles.BenchmarkName}>Transparent Data</dt>
                 <dd className={styles.BenchmarkDescription}>
-                  {`Data that is public is one of the best ways to let the people know that you care, have nothing to hide, and are actively working through company issues in a way that can be critiqued instead of looking like you're trying to hide behind closed doors.`}
+                  {`Publishing diversity statistics is a signal that you recognize there is a problem. It lets the public know you're working toward a solution and have a reference for your progress.`}
                 </dd>
 
                 <dt className={styles.BenchmarkName}>External Activism</dt>
                 <dd className={styles.BenchmarkDescription}>
-                  {`When we see companies being proactive concerning issues they
-                care about, it gives us an idea of where their values are. It
-                says "this company isn't just contributing for personal gain".`}
+                  {`Your commitment to inclusion shouldn't only be internal. Investment in community organizations is key to building a diverse pipeline.  Donate resources to organizations and schools that provide access to technical education. Support programs that broaden exposure to technical career paths.`}
                 </dd>
 
                 <dt className={styles.BenchmarkName}>Black Executives</dt>
                 <dd className={styles.BenchmarkDescription}>
-                  {`Having Black employees is one thing but Black executives is another. It's a sign that this company is willing to share the power dynamic that exists within a business. It gives Black people a feeling like they have someone on top who understands them. Someone that they can voice themselves to.`}
+                  {`From executives to individual contributors, Black people need to have a seat at the table. It's a sign that this company is willing to share the power dynamic that exists within a business. A company's leadership is indicative of its broader diversity perspective. Diverse leadership lends itself to inclusive decision making.`}
                 </dd>
 
                 <dt className={styles.BenchmarkName}>
                   Internship/Apprenticeship Program
                 </dt>
                 <dd className={styles.BenchmarkDescription}>
-                  {`While an internship may not be specific to helping those of the Black community it definitely affects us. A large number of the Black community coming into tech are coming in at the ground level. Having an internship for these kinds of applicants shows you're willing to put in the time/resources to bring our community up to speed.`}
+                  {`A large number of the Black community coming into tech are coming in at the ground level. Historically, entry-level job opportunities have been reserved for those with a CS degree. Internships bridge the experience gap for less traditional candidates.`}
                 </dd>
                 <dt className={styles.BenchmarkName}>Mentorship Program</dt>
                 <dd className={styles.BenchmarkDescription}>
-                  {`A big aspect of diversity is not only hiring but retaining that diverse talent. Mentorship programs give diverse employees a guiding hand in their new career. Being in the tech field takes practice and assistance. Having a mentor will give them the latter.`}
+                  {`A big aspect of D&I work is not only hiring but retaining that diverse talent. Mentorship programs give diverse employees a guiding hand in their careers. Successful mentorship leads to promotions, increased morale, and leadership development. Mastering your discipline in the tech field takes practice and support.`}
                 </dd>
               </dl>
             </section>
