@@ -119,7 +119,7 @@ export default function Partner({ data }) {
 
                 <dt className={styles.BenchmarkName}>Black Executives</dt>
                 <dd className={styles.BenchmarkDescription}>
-                  {`From executives to individual contributors, Black people need to have a seat at the table. It's a sign that this company is willing to share the power dynamic that exists within a business. A company's leadership is indicative of its broader diversity perspective. Diverse leadership lends itself to inclusive decision making.`}
+                  {`From executives to individual contributors, Black people need to have a seat at the table. A company's leadership is indicative of its broader diversity perspective. Diverse leadership lends itself to inclusive decision making.`}
                 </dd>
 
                 <dt className={styles.BenchmarkName}>
