@@ -53,7 +53,7 @@ export default function About({ data }) {
                 {`In November of 2016, Devin Jackson was the only Black software engineer at his job. Sick of feeling isolated, he scoured the web for a local community of other devs like him. None existed, so he created the Black Software Engineers of NYC Meetup. He hosted the group every Saturday afternoon in a small office in Williamsburg. The group's numbers exploded, hitting the 1,000 member mark in its first 6 months. A core crew of members became fast friends, and after a year of building together they wanted to build something bigger.`}
               </p>
               <p className={styles.IntroBody}>
-                {`In November of 2017, We Build Black was founded as a 501(c)(3) non-profit organization. Since then, WBB has created the Mavens I/O: Black Women in Tech Conference, taught coding programs in schools, executed recidivism programs, and connected members to hiring opportunities. In the process, we’ve garnered sponsorship from Google, JP Morgan Chase, Birchbox, The New York Times, and many more.`}
+                {`In November of 2017, We Build Black was founded as a 501(c)(3) non-profit organization. Since then, WBB has created the Mavens I/O: Black Women in Tech Conference, taught coding programs in schools, piloted a recidivism program, and connected members to hiring opportunities. In the process, we’ve garnered sponsorship from Google, JP Morgan Chase, Birchbox, The New York Times, and many more.`}
               </p>
             </div>
             <div className={styles.VideoContainer}>
