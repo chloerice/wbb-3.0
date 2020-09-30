@@ -11,7 +11,7 @@ teamMembers:
   - name: Devin Jackson
     role: CEO and Co-founder
     headshotPath:
-    bio: Nigga nigga nigga nigga nigga, nigga nigga nigga nigga. Nigga nigga nigga nigga nigga, nigga.
+    bio: Devin is a Full Stack Engineer with 5 years of  experience building products with meaning. He loves finding people's hidden potential. His hobbies include debating Hip Hop, riding his bike, and sipping maple whiskey.
   - name: Kris lee
     role: Co-founder
     headshotPath:
