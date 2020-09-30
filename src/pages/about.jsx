@@ -68,13 +68,7 @@ export default function About({ data }) {
         <section className={wwhSectionClassName}>
           <h2 className={styles.SectionHeading}>{`Where we're headed`}</h2>
           <p className={styles.WhereWereHeadedHeading}>
-            We Build Black has piloted a number of programs ranging from entrepreneurship, 
-            after-school coding, criminal justice reformation, and community mentorship.
-            Through these we've had successes but also learned from our failures. We've
-            learned to focus on providing hiring opportunities, organic community mentorship,
-            and professional skilling. This means continuing to foster our Slack community,
-            offer remote coding programs to youth, and hosting events like our Black women
-             in tech conference.
+            We Build Black has piloted a number of programs ranging from entrepreneurship, after-school coding, criminal justice reformation, and community mentorship. Through these we've had successes but also learned from our failures. We've learned to focus on providing hiring opportunities, organic community mentorship, and professional skilling. This means continuing to foster our Slack community, offer remote coding programs to youth, and hosting events like our Black women in tech conference.
           </p>
         </section>
 
