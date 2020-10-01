@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import className from 'classnames'
-import { navigate } from 'gatsby'
+import { navigate, Link } from 'gatsby'
 
 import wbbLogo from '../assets/images/wbb-logo-square-no-bg.svg'
 
@@ -19,12 +19,19 @@ export default function Footer() {
         <a
           href="https://instagram.com/webuildblack"
           className="icon fa-instagram"
+          target="_blank"
+          rel="noreferrer"
         >
           <span className="label">Instagram</span>
         </a>
       </li>
       <li>
-        <a href="https://youtube.com/webuildblack" className="icon fa-youtube">
+        <a
+          href="https://youtube.com/webuildblack"
+          className="icon fa-youtube"
+          target="_blank"
+          rel="noreferrer"
+        >
           <span className="label">LinkedIn</span>
         </a>
       </li>
@@ -32,6 +39,8 @@ export default function Footer() {
         <a
           href="https://linkedin.com/company/we-build-black"
           className="icon fa-linkedin"
+          target="_blank"
+          rel="noreferrer"
         >
           <span className="label">LinkedIn</span>
         </a>
@@ -40,6 +49,8 @@ export default function Footer() {
         <a
           href="https://twitter.com/webuildblack"
           className="icon alt fa-twitter"
+          target="_blank"
+          rel="noreferrer"
         >
           <span className="label">Twitter</span>
         </a>
@@ -48,12 +59,19 @@ export default function Footer() {
         <a
           href="https://facebook.com/WeBuildBlackOfficial"
           className="icon fa-facebook"
+          target="_blank"
+          rel="noreferrer"
         >
           <span className="label">Facebook</span>
         </a>
       </li>
       <li>
-        <a href="https://github.com/WeBuildBlack" className="icon fa-github">
+        <a
+          href="https://github.com/WeBuildBlack"
+          className="icon fa-github"
+          target="_blank"
+          rel="noreferrer"
+        >
           <span className="label">GitHub</span>
         </a>
       </li>
@@ -91,13 +109,21 @@ export default function Footer() {
             </form>
           </li>
           <li>
-            <a href="/make-an-impact/hire">Hire</a>
+            <Link to="/make-an-impact/hire" target="_blank" rel="noreferrer">
+              Hire
+            </Link>
           </li>
           <li>
-            <a href="/make-an-impact/partner">Partner</a>
+            <Link to="/make-an-impact/partner">Partner</Link>
           </li>
           <li>
-            <a href="/make-an-impact/volunteer">Volunteer</a>
+            <a
+              href="/make-an-impact/volunteer"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Volunteer
+            </a>
           </li>
         </ul>
       </div>

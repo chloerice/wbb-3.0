@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 import className from 'classnames'
@@ -122,9 +122,9 @@ export default function About({ data }) {
           </h2>
           <p className={styles.ActionContent}>
             {`We're a volunteer run organization and are always looking to grow the team. Get in touch today about`}{' '}
-            <a className={styles.Action} href="/make-an-impact/volunteer">
+            <Link className={styles.Action} href="/make-an-impact/volunteer">
               volunteering
-            </a>
+            </Link>
             !
           </p>
         </section>

@@ -157,6 +157,8 @@ export default function Partner({ data }) {
           <a
             className={className('button', styles.PartnerFormLink)}
             href="/make-an-impact/partner/apply"
+            target="_blank"
+            rel="noreferrer"
           >
             Learn more
           </a>

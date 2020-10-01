@@ -137,7 +137,11 @@ export default function Home({ data }) {
             </Link>
           </div>
           <div className={styles.GridImageWrapper}>
-            <Link to="/get-involved/programs/bounty-board">
+            <Link
+              to="/get-involved/programs/bounty-board"
+              target="_blank"
+              rel="noreferrer"
+            >
               <div className={styles.GridImageOverlay}>Bounty Board</div>
               <Img
                 className={styles.GridImage}
@@ -147,7 +151,7 @@ export default function Home({ data }) {
             </Link>
           </div>
           <div className={styles.GridImageWrapper}>
-            <Link to="/get-involved/slack">
+            <Link to="/get-involved/slack" target="_blank" rel="noreferrer">
               <div className={styles.GridImageOverlay}>Slack</div>
               <Img
                 className={styles.GridImage}

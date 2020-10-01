@@ -310,8 +310,7 @@ export default function Nav() {
             role="menu"
           >
             <li role="none" className={styles.DropdownMenuItem}>
-              <button
-                type="button"
+              <Link
                 role="menuitem"
                 className={styles.DropdownMenuButton}
                 data-navItem="Get involved"
@@ -319,15 +318,13 @@ export default function Nav() {
                 tabIndex={-1}
                 ref={mavensRef}
                 data-href="/get-involved/events/mavens-conference"
-                onClick={handleNavigate}
-                // onFocus={handleFocusSubNavItem}
+                to="/get-involved/events/mavens-conference"
               >
                 Mavens I/O
-              </button>
+              </Link>
             </li>
             <li role="none" className={styles.DropdownMenuItem}>
-              <button
-                type="button"
+              <Link
                 role="menuitem"
                 className={styles.DropdownMenuButton}
                 data-navItem="Get involved"
@@ -335,11 +332,10 @@ export default function Nav() {
                 tabIndex={-1}
                 ref={meetupsRef}
                 data-href="/get-involved/events/meetups"
-                // onFocus={handleFocusSubNavItem}
-                onClick={handleNavigate}
+                to="/get-involved/events/meetups"
               >
                 Meetups
-              </button>
+              </Link>
             </li>
             <li role="none" className={styles.DropdownMenuItem}>
               <a
@@ -352,6 +348,8 @@ export default function Nav() {
                 data-href="/get-involved/programs/bounty-board"
                 href="/get-involved/programs/bounty-board"
                 onClick={handleNavigate}
+                target="_blank"
+                rel="noreferrer"
               >
                 Bounty Board
               </a>
@@ -419,7 +417,7 @@ export default function Nav() {
               </a>
             </li>
             <li role="none" className={styles.DropdownMenuItem}>
-              <a
+              <Link
                 className={styles.DropdownMenuButton}
                 tabIndex={-1}
                 role="menuitem"
@@ -428,12 +426,10 @@ export default function Nav() {
                 data-menuItem="Partner"
                 data-href="/make-an-impact/partner"
                 data-index={1}
-                href="/make-an-impact/partner"
-                target="_blank"
-                rel="noreferrer"
+                to="/make-an-impact/partner"
               >
                 Partner
-              </a>
+              </Link>
             </li>
             <li role="none" className={styles.DropdownMenuItem}>
               <a
