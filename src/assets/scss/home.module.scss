@@ -275,7 +275,7 @@
   width: auto;
 
   @include breakpoint-before('768px') {
-    height: 50vh;
+    height: 250px;
     min-height: 0;
   }
 
@@ -336,8 +336,14 @@
   font-size: 3em;
   transition: font-size 0.1s ease-in-out;
 
-  &:hover {
-    font-size: 3.25em;
+  @include breakpoint-after('768px') {
+    &:hover {
+      font-size: 3.25em;
+    }
+  }
+
+  @include breakpoint-before('768px') {
+    font-size: 2em;
   }
 }
 

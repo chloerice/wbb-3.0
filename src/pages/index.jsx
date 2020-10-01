@@ -20,12 +20,16 @@ export default function Home({ data }) {
     node.childImageSharp.fluid.src.includes('codenmix')
   )
 
-  const calloutImages = data.allFile.nodes.find(node =>
-    node.childImageSharp.fluid.src.includes('callout')
+  const calloutImageOne = data.allFile.nodes.find(node =>
+    node.childImageSharp.fluid.src.includes('callout-one')
+  )
+
+  const calloutImageTwo = data.allFile.nodes.find(node =>
+    node.childImageSharp.fluid.src.includes('callout-two')
   )
 
   const fullWidthImage = data.allFile.nodes.find(node =>
-    node.childImageSharp.fluid.src.includes('codenmix')
+    node.childImageSharp.fluid.src.includes('callout-three')
   )
 
   const gridImageOne = data.allFile.nodes.find(node =>
@@ -78,10 +82,10 @@ export default function Home({ data }) {
             </p>
           </div>
           <div className={styles.CalloutImageOne}>
-            <img
+            <Img
               className={styles.CalloutImage}
-              src="http://placekitten.com/1800/3200"
-              alt=""
+              fluid={calloutImageOne.childImageSharp.fluid}
+              alt="Candid photo of Mavens I/O 2018 panelists with arms crossed in Wakanda pose"
             />
           </div>
 
@@ -93,10 +97,10 @@ export default function Home({ data }) {
             </p>
           </div>
           <div className={styles.CalloutImageTwo}>
-            <img
+            <Img
               className={styles.CalloutImage}
-              src="http://placekitten.com/1800/3200"
-              alt=""
+              fluid={calloutImageTwo.childImageSharp.fluid}
+              alt="Candid photo of Co-founder Jerome Moore pairing with kids in after school coding program pilot, Ingenious Thought."
             />
           </div>
 

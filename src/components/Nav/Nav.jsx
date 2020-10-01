@@ -97,12 +97,6 @@ export default function Nav() {
       const nextItem = refList[nextItemIndex]
       setActiveSubMenuItemIndex(nextItemIndex)
 
-      console.log(
-        'Focusing next sub-menuitem',
-        `PREV ACTIVE INDEX: ${activeSubMenuItemIndex}`,
-        `NEXT ACTIVE INDEX: ${nextItemIndex}`
-      )
-
       if (nextItem && nextItem.current) {
         nextItem.current.focus()
       }
@@ -143,7 +137,7 @@ export default function Nav() {
   })
 
   useEffect(() => {
-    if (dropdownOpen && !activeSubMenuItemIndex) {
+    if (dropdownOpen && activeSubMenuItemIndex) {
       const refList =
         activeDropdown === 'Get involved' ? getInvolvedRefs : makeAnImpactRefs
 
@@ -151,7 +145,7 @@ export default function Nav() {
 
       if (menuItem && menuItem.current) menuItem.current.focus()
     }
-  }, [activeSubMenuItemIndex, activeDropdown])
+  }, [activeSubMenuItemIndex, activeDropdown, dropdownOpen])
 
   const handleDropdownKeyPress = useCallback(
     event => {
