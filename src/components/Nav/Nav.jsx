@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useRef } from 'react'
+import React, { useCallback, useState, useRef, useEffect } from 'react'
 import { Link, navigate } from 'gatsby'
 import classNames from 'classnames'
 
@@ -11,14 +11,15 @@ export default function Nav() {
   const getInvolvedRef = useRef(null)
   const makeAnImpactRef = useRef(null)
   const donateRef = useRef(null)
-  const eventsRef = useRef(null)
-  const programsRef = useRef(null)
+  const mavensRef = useRef(null)
+  const meetupsRef = useRef(null)
+  const bountyBoardRef = useRef(null)
   const slackRef = useRef(null)
   const hireRef = useRef(null)
   const partnerRef = useRef(null)
   const volunteerRef = useRef(null)
   const navItemRefs = [aboutRef, getInvolvedRef, makeAnImpactRef, donateRef]
-  const getInvolvedRefs = [eventsRef, programsRef, slackRef]
+  const getInvolvedRefs = [mavensRef, meetupsRef, bountyBoardRef, slackRef]
   const makeAnImpactRefs = [hireRef, partnerRef, volunteerRef]
   const [activeMenuItemIndex, setActiveMenuItemIndex] = useState(null)
   const [activeSubMenuItemIndex, setActiveSubMenuItemIndex] = useState(null)
@@ -30,30 +31,6 @@ export default function Nav() {
 
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState('')
-
-  const closeDropdown = useCallback(() => {
-    console.log('closing dropdown')
-
-    setActiveDropdown('')
-    setActiveSubMenuItemIndex(null)
-    setDropdownOpen(false)
-  })
-  const openDropdown = useCallback(name => {
-    setActiveDropdown(name)
-    setDropdownOpen(true)
-  })
-
-  const toggleDropdownMenu = useCallback(
-    name => {
-      if (activeDropdown === name) {
-        return closeDropdown()
-      }
-      if (activeDropdown !== name) {
-        return openDropdown(name)
-      }
-    },
-    [dropdownOpen, activeDropdown]
-  )
 
   const handleFocusMenuItem = useCallback(
     event => {
@@ -97,124 +74,123 @@ export default function Nav() {
   )
 
   const getIndexToFocus = useCallback(
-    direction => (direction === 'up' ? 2 : 0),
+    (direction, lastIndex) => (direction === 'up' ? lastIndex : 0),
     []
   )
-
-  const handleFocusSubNavItem = useCallback(event => {
-    const index = event.target.getAttribute('data-index')
-    setActiveSubMenuItemIndex(Number(index))
-  })
-
-  const focusFirstSubNavItem = useCallback(name => {
-    const refList = name === 'Get involved' ? getInvolvedRefs : makeAnImpactRefs
-    const menuItem = refList[0]
-    if (menuItem && menuItem.current) menuItem.current.focus()
-    setActiveSubMenuItemIndex(0)
-  })
-
-  const focusLastSubNavItem = useCallback(name => {
-    const refList = name === 'Get involved' ? getInvolvedRefs : makeAnImpactRefs
-    const menuItem = refList[2]
-    if (menuItem && menuItem.current) {
-      console.log('FOCUSING SUBNAV ITEM', menuItem.current)
-      menuItem.current.focus()
-      setActiveSubMenuItemIndex(2)
-    }
-  })
-
-  const handleMouseOver = useCallback(event => {
-    const name = event.target.getAttribute('data-navItem')
-    openDropdown(name)
-  })
-
-  const handleMouseLeave = useCallback(() => {
-    closeDropdown()
-  })
 
   const focusNextSubMenuItem = useCallback(
     (name, direction) => {
       const refList =
         name === 'Get involved' ? getInvolvedRefs : makeAnImpactRefs
 
+      const lastIndex = refList.length - 1
       let nextItemIndex = activeSubMenuItemIndex
 
       if (nextItemIndex === null) {
-        nextItemIndex = getIndexToFocus(direction)
+        nextItemIndex = getIndexToFocus(direction, lastIndex)
       } else if (direction === 'up') {
-        nextItemIndex =
-          activeSubMenuItemIndex === 0 ? 2 : activeSubMenuItemIndex - 1
+        nextItemIndex = nextItemIndex === 0 ? lastIndex : nextItemIndex - 1
       } else if (direction === 'down') {
-        nextItemIndex =
-          activeSubMenuItemIndex === 2 ? 0 : activeSubMenuItemIndex + 1
+        nextItemIndex = nextItemIndex === lastIndex ? 0 : nextItemIndex + 1
       }
 
       const nextItem = refList[nextItemIndex]
+      setActiveSubMenuItemIndex(nextItemIndex)
+
+      console.log(
+        'Focusing next sub-menuitem',
+        `PREV ACTIVE INDEX: ${activeSubMenuItemIndex}`,
+        `NEXT ACTIVE INDEX: ${nextItemIndex}`
+      )
 
       if (nextItem && nextItem.current) {
-        console.log(
-          'Focusing sub-menuitem',
-          activeSubMenuItemIndex,
-          nextItemIndex,
-          nextItem.current
-        )
         nextItem.current.focus()
-        setActiveSubMenuItemIndex(nextItemIndex)
       }
     },
-    [activeSubMenuItemIndex, dropdownOpen]
+    [
+      activeSubMenuItemIndex,
+      dropdownOpen,
+      activeDropdown,
+      setActiveSubMenuItemIndex,
+    ]
   )
+
+  const closeDropdown = useCallback(() => {
+    setActiveDropdown('')
+    setActiveSubMenuItemIndex(null)
+    setDropdownOpen(false)
+  })
+  const openDropdown = useCallback(name => {
+    setActiveDropdown(name)
+    setDropdownOpen(true)
+  })
+
+  const toggleDropdownMenu = useCallback(
+    name => {
+      if (activeDropdown === name) {
+        return closeDropdown()
+      }
+      if (activeDropdown !== name) {
+        return openDropdown(name)
+      }
+    },
+    [dropdownOpen, activeDropdown]
+  )
+
+  const handleClickDropdown = useCallback(event => {
+    const name = event.target.getAttribute('data-navItem')
+    toggleDropdownMenu(name)
+  })
+
+  useEffect(() => {
+    if (dropdownOpen && !activeSubMenuItemIndex) {
+      const refList =
+        activeDropdown === 'Get involved' ? getInvolvedRefs : makeAnImpactRefs
+
+      const menuItem = refList[activeSubMenuItemIndex]
+
+      if (menuItem && menuItem.current) menuItem.current.focus()
+    }
+  }, [activeSubMenuItemIndex, activeDropdown])
 
   const handleDropdownKeyPress = useCallback(
     event => {
       const navItem = event.target.getAttribute('data-navItem')
-      const isSubMenuItem = event.target.getAttribute('data-menuItem') !== null
 
       switch (event.key) {
         case 'Enter':
         case 'Space':
-          event.preventDefault()
-          event.stopPropagation()
-          console.log('in dropdown div')
-          return toggleDropdownMenu(navItem)
+          return
 
         case 'ArrowDown':
           event.stopPropagation()
           event.preventDefault()
-          if (!dropdownOpen && isDropdown(navItem) && !isSubMenuItem) {
+          if (!dropdownOpen) {
             console.log('arrow down to open')
             openDropdown(navItem)
-            return focusFirstSubNavItem(navItem)
           }
 
-          if (isSubMenuItem) {
-            console.log('arrow down sub menu item')
-            return focusNextSubMenuItem(navItem, 'down')
-          }
-
+          console.log('focus sub menu item')
+          focusNextSubMenuItem(navItem, 'down')
           break
 
         case 'ArrowUp':
           event.stopPropagation()
           event.preventDefault()
-          if (!dropdownOpen && isDropdown(navItem) && !isSubMenuItem) {
+          if (!dropdownOpen) {
             console.log('arrow up to open')
             openDropdown(navItem)
-            return focusLastSubNavItem(navItem)
           }
 
-          if (isSubMenuItem) {
-            console.log('arrow up sub menu item')
-            return focusNextSubMenuItem(navItem, 'up')
-          }
-
+          console.log('focus sub menu item')
+          focusNextSubMenuItem(navItem, 'up')
           break
 
         default:
           break
       }
     },
-    [dropdownOpen]
+    [dropdownOpen, activeSubMenuItemIndex, activeDropdown]
   )
 
   const focusNextMenuItem = useCallback(
@@ -234,20 +210,18 @@ export default function Nav() {
       }
 
       const nextItem = navItemRefs[nextItemIndex]
-      const name = nextItem.current.getAttribute('data-navItem')
+      const nextItemName = nextItem.current.getAttribute('data-navItem')
+      setActiveMenuItemIndex(nextItemIndex)
 
-      if (nextItem.current) {
-        nextItem.current.focus()
-        setActiveMenuItemIndex(nextItemIndex)
-
-        if (
-          dropdownOpen &&
-          !isDropdown(nextItem.current.getAttribute('data-navItem'))
-        ) {
+      if (nextItem && nextItem.current) {
+        if (dropdownOpen && !isDropdown(nextItemName)) {
           closeDropdown()
-        } else if (dropdownOpen && isDropdown(name)) {
-          toggleDropdownMenu(name)
+        } else if (dropdownOpen && isDropdown(nextItemName)) {
+          closeDropdown()
+          openDropdown(nextItemName)
         }
+
+        nextItem.current.focus()
       }
     },
     [activeMenuItemIndex, dropdownOpen]
@@ -296,8 +270,14 @@ export default function Nav() {
     </button>
   ) : null
 
+  console.log(`ACTIVE SUB MENU ITEM: ${activeSubMenuItemIndex}`)
+
   const menuMarkup = (
-    <ul className={menuClassName} role="menubar" aria-label="Site navigation">
+    <ul
+      className={menuClassName}
+      role="menubar"
+      aria-label="We Build Black Site navigation"
+    >
       <li role="none" className={styles.MenuItem}>
         <button
           type="button"
@@ -318,9 +298,9 @@ export default function Nav() {
       <li role="none" className={getInvolvedClassName}>
         <div
           className={styles.DropdownWrapper}
-          onKeyUp={handleDropdownKeyPress}
-          onMouseEnter={handleMouseOver}
-          onMouseLeave={handleMouseLeave}
+          onKeyDown={handleDropdownKeyPress}
+          // onMouseEnter={handleMouseOver}
+          // onMouseLeave={handleMouseLeave}
         >
           <button
             role="menuitem"
@@ -332,6 +312,7 @@ export default function Nav() {
             aria-controls="get-involved-dropdown"
             aria-expanded={activeDropdown === 'Get involved' && dropdownOpen}
             onFocus={handleFocusMenuItem}
+            onClick={handleClickDropdown}
             ref={getInvolvedRef}
           >
             Get involved
@@ -342,111 +323,20 @@ export default function Nav() {
             role="menu"
           >
             <li role="none" className={styles.DropdownMenuItem}>
-              <div className={styles.SubDropdownWrapper}>
-                <button
-                  type="button"
-                  role="menuitem"
-                  className={styles.DropdownMenuButton}
-                  data-navItem="Get involved"
-                  data-menuItem="Events"
-                  data-index={0}
-                  tabIndex={-1}
-                  ref={eventsRef}
-                  onFocus={handleFocusSubNavItem}
-                >
-                  Events
-                </button>
-                <ul
-                  className={classNames(
-                    styles.DropdownMenu,
-                    styles.SubDropdownMenu
-                  )}
-                  id="get-involved-dropdown"
-                  role="menu"
-                >
-                  <li role="none" className={styles.DropdownMenuItem}>
-                    <button
-                      type="button"
-                      role="menuitem"
-                      className={styles.DropdownMenuButton}
-                      data-navItem="Get involved"
-                      data-menuItem="Events"
-                      data-index={0}
-                      tabIndex={-1}
-                      ref={eventsRef}
-                      data-href="/get-involved/events/mavens-conference"
-                      onClick={handleNavigate}
-                      onFocus={handleFocusSubNavItem}
-                    >
-                      Mavens I/O
-                    </button>
-                  </li>
-                  <li role="none" className={styles.DropdownMenuItem}>
-                    <button
-                      type="button"
-                      role="menuitem"
-                      className={styles.DropdownMenuButton}
-                      data-navItem="Get involved"
-                      data-menuItem="Events"
-                      data-index={1}
-                      tabIndex={-1}
-                      ref={eventsRef}
-                      data-href="/get-involved/events/meetups"
-                      onFocus={handleFocusSubNavItem}
-                      onClick={handleNavigate}
-                    >
-                      Meetups
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li role="none" className={styles.DropdownMenuItem}>
-              <div className={styles.SubDropdownWrapper}>
-                <button
-                  type="button"
-                  role="menuitem"
-                  className={classNames(
-                    styles.DropdownMenuButton,
-                    styles.hasSubMenu
-                  )}
-                  onClick={handleNavigate}
-                  data-navItem="Get involved"
-                  data-menuItem="Programs"
-                  data-index={1}
-                  tabIndex={-1}
-                  ref={programsRef}
-                  onFocus={handleFocusSubNavItem}
-                >
-                  Programs
-                </button>
-                <ul
-                  className={classNames(
-                    styles.DropdownMenu,
-                    styles.SubDropdownMenu
-                  )}
-                  id="get-involved-dropdown"
-                  role="menu"
-                >
-                  <li role="none" className={styles.DropdownMenuItem}>
-                    <button
-                      type="button"
-                      role="menuitem"
-                      className={styles.DropdownMenuButton}
-                      data-navItem="Get involved"
-                      data-menuItem="Events"
-                      data-index={0}
-                      tabIndex={-1}
-                      ref={eventsRef}
-                      data-href="/get-involved/programs/bounty-board"
-                      onFocus={handleFocusSubNavItem}
-                      onClick={handleNavigate}
-                    >
-                      Bounty Board
-                    </button>
-                  </li>
-                </ul>
-              </div>
+              <button
+                type="button"
+                role="menuitem"
+                className={styles.DropdownMenuButton}
+                data-navItem="Get involved"
+                data-index={0}
+                tabIndex={-1}
+                ref={mavensRef}
+                data-href="/get-involved/events/mavens-conference"
+                onClick={handleNavigate}
+                // onFocus={handleFocusSubNavItem}
+              >
+                Mavens I/O
+              </button>
             </li>
             <li role="none" className={styles.DropdownMenuItem}>
               <button
@@ -454,13 +344,44 @@ export default function Nav() {
                 role="menuitem"
                 className={styles.DropdownMenuButton}
                 data-navItem="Get involved"
-                data-menuItem="Slack"
-                data-href="/get-involved/slack"
+                data-index={1}
+                tabIndex={-1}
+                ref={meetupsRef}
+                data-href="/get-involved/events/meetups"
+                // onFocus={handleFocusSubNavItem}
+                onClick={handleNavigate}
+              >
+                Meetups
+              </button>
+            </li>
+            <li role="none" className={styles.DropdownMenuItem}>
+              <button
+                type="button"
+                role="menuitem"
+                className={styles.DropdownMenuButton}
+                data-navItem="Get involved"
                 data-index={2}
+                tabIndex={-1}
+                ref={bountyBoardRef}
+                data-href="/get-involved/programs/bounty-board"
+                // onFocus={handleFocusSubNavItem}
+                onClick={handleNavigate}
+              >
+                Bounty Board
+              </button>
+            </li>
+            <li role="none" className={styles.DropdownMenuItem}>
+              <button
+                type="button"
+                role="menuitem"
+                className={styles.DropdownMenuButton}
+                data-navItem="Get involved"
+                data-href="/get-involved/slack"
+                data-index={3}
                 ref={slackRef}
                 tabIndex={-1}
                 onClick={handleNavigate}
-                onFocus={handleFocusSubNavItem}
+                // onFocus={handleFocusSubNavItem}
               >
                 Slack
               </button>
@@ -472,8 +393,8 @@ export default function Nav() {
         <div
           className={styles.DropdownWrapper}
           onKeyUp={handleDropdownKeyPress}
-          onMouseEnter={handleMouseOver}
-          onMouseLeave={handleMouseLeave}
+          // onMouseEnter={handleMouseOver}
+          // onMouseLeave={handleMouseLeave}
         >
           <button
             type="button"
@@ -484,6 +405,7 @@ export default function Nav() {
             aria-controls="make-an-impact-dropdown"
             aria-expanded={activeDropdown === 'Make an impact' && dropdownOpen}
             onFocus={handleFocusMenuItem}
+            onClick={handleClickDropdown}
             ref={makeAnImpactRef}
             tabIndex={-1}
           >
@@ -506,7 +428,7 @@ export default function Nav() {
                 data-menuItem="Hire"
                 data-index={0}
                 onClick={handleNavigate}
-                onFocus={handleFocusSubNavItem}
+                // onFocus={handleFocusSubNavItem}
               >
                 Hire
               </button>
@@ -523,7 +445,7 @@ export default function Nav() {
                 data-href="/make-an-impact/partner"
                 data-index={1}
                 onClick={handleNavigate}
-                onFocus={handleFocusSubNavItem}
+                // onFocus={handleFocusSubNavItem}
               >
                 Partner
               </button>
@@ -540,7 +462,7 @@ export default function Nav() {
                 data-href="/make-an-impact/volunteer"
                 data-index={2}
                 onClick={handleNavigate}
-                onFocus={handleFocusSubNavItem}
+                // onFocus={handleFocusSubNavItem}
               >
                 Volunteer
               </button>
@@ -582,7 +504,7 @@ export default function Nav() {
   )
 
   return (
-    <nav className={styles.Nav} aria-label="We Build Black">
+    <nav className={styles.Nav} aria-label="We Build Black Site navigation">
       <div className={styles.BrandWrapper}>
         <Link to="/" className={styles.BrandLink} data-navItem="Home">
           <img className={styles.Logo} src={wbbWordmark} alt="We Build Black" />
