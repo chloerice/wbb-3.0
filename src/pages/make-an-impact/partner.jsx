@@ -84,7 +84,7 @@ export default function Partner({ data }) {
               <h2 className={styles.BodyHeading}>What we look for</h2>
 
               <p className={styles.BodyIntro}>
-                {`Diversity isn't a nice-to-have, it's imperative. These benchmarks are signals that help us distinguish the companies setting a higher standard from the companies just talking about it.`}
+                {`Diversity isn't a nice-to-have, it's imperative. These benchmarks are signals that help us distinguish where companies are at on the path toward equity. Use them to identify opportunities to affect systemic change within your business.`}
               </p>
 
               <dl className={styles.BenchmarkList}>
@@ -96,15 +96,15 @@ export default function Partner({ data }) {
                 </dd>
 
                 <dt className={styles.BenchmarkName}>
-                  Dedicated D&I Leader or Team
+                  Dedicated D&I Leadership
                 </dt>
                 <dd className={styles.BenchmarkDescription}>
-                  {`No person should ever be paid for one job and have to do another on top of it. Having a dedicated D&I leader or team ensures that employees can remain focused on their craft. D&I is important work that needs to have a dedicated professional pushing for progress.`}
+                  {`No person should ever be paid for one job and have to do another on top of it. Having a dedicated D&I leader or team ensures that employees can focus on mastering their crafts. Inclusion isn't a side-of-desk task. It's important work that needs to have dedicated professionals pushing for progress.`}
                 </dd>
 
                 <dt className={styles.BenchmarkName}>Black Owned</dt>
                 <dd className={styles.BenchmarkDescription}>
-                  {`Building Black is at the core of our mission. We support Black businesses by hiring and highlighting them. D&I doesn't stop with recruitment. The vendors and services you use every day are also opportunities for change.`}
+                  {`Building Black is at the core of our mission. We support Black businesses by hiring and highlighting them. Inclusion doesn't stop with recruitment. The vendors and services you use every day are also opportunities for change.`}
                 </dd>
 
                 <dt className={styles.BenchmarkName}>
@@ -139,7 +139,7 @@ export default function Partner({ data }) {
                 </dd>
                 <dt className={styles.BenchmarkName}>Mentorship Program</dt>
                 <dd className={styles.BenchmarkDescription}>
-                  {`A big aspect of D&I work is not only hiring but retaining that diverse talent. Mentorship programs give diverse employees a guiding hand in their careers. Successful mentorship leads to promotions, increased morale, and leadership development. Mastering your discipline in the tech field takes practice and support.`}
+                  {`A big aspect of D&I work is not only hiring but retaining that diverse talent. Structured mentorship programs give employees a guiding hand in navigating their careers. Successful mentorship leads to increased morale,  productivity, upward mobility.`}
                 </dd>
               </dl>
             </section>
