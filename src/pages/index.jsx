@@ -16,8 +16,32 @@ export default function Home({ data }) {
     </div>
   )
 
+  const heroImage = data.allFile.nodes.find(node =>
+    node.childImageSharp.fluid.src.includes('codenmix')
+  )
+
+  const calloutImages = data.allFile.nodes.find(node =>
+    node.childImageSharp.fluid.src.includes('callout')
+  )
+
   const fullWidthImage = data.allFile.nodes.find(node =>
     node.childImageSharp.fluid.src.includes('codenmix')
+  )
+
+  const gridImageOne = data.allFile.nodes.find(node =>
+    node.childImageSharp.fluid.src.includes('mavens')
+  )
+
+  const gridImageTwo = data.allFile.nodes.find(node =>
+    node.childImageSharp.fluid.src.includes('meetups')
+  )
+
+  const gridImageThree = data.allFile.nodes.find(node =>
+    node.childImageSharp.fluid.src.includes('bounty-board')
+  )
+
+  const gridImageFour = data.allFile.nodes.find(node =>
+    node.childImageSharp.fluid.src.includes('slack')
   )
 
   return (
@@ -26,7 +50,7 @@ export default function Home({ data }) {
 
       <main className={styles.Main}>
         <Hero
-          imageSrc={fullWidthImage.childImageSharp.fluid}
+          imageSrc={heroImage.childImageSharp.fluid}
           content="We're building the equitable tech industry we wish to see"
         />
         <section className={styles.Intro}>
@@ -90,9 +114,9 @@ export default function Home({ data }) {
           <div className={styles.GridImageWrapper}>
             <Link to="/get-involved/events/mavens-conference">
               <div className={styles.GridImageOverlay}>Mavens I/O</div>
-              <img
+              <Img
                 className={styles.GridImage}
-                src="http://placekitten.com/1600/2400"
+                fluid={gridImageOne.childImageSharp.fluid}
                 alt=""
               />
             </Link>
@@ -100,9 +124,9 @@ export default function Home({ data }) {
           <div className={styles.GridImageWrapper}>
             <Link to="/get-involved/events/meetups">
               <div className={styles.GridImageOverlay}>Meetups</div>
-              <img
+              <Img
                 className={styles.GridImage}
-                src="http://placekitten.com/1400/700"
+                fluid={gridImageTwo.childImageSharp.fluid}
                 alt=""
               />
             </Link>
@@ -110,9 +134,9 @@ export default function Home({ data }) {
           <div className={styles.GridImageWrapper}>
             <Link to="/get-involved/programs/bounty-board">
               <div className={styles.GridImageOverlay}>Bounty Board</div>
-              <img
+              <Img
                 className={styles.GridImage}
-                src="http://placekitten.com/1800/900"
+                fluid={gridImageThree.childImageSharp.fluid}
                 alt=""
               />
             </Link>
@@ -120,9 +144,9 @@ export default function Home({ data }) {
           <div className={styles.GridImageWrapper}>
             <Link to="/get-involved/slack">
               <div className={styles.GridImageOverlay}>Slack</div>
-              <img
+              <Img
                 className={styles.GridImage}
-                src="http://placekitten.com/2000/1000"
+                fluid={gridImageFour.childImageSharp.fluid}
                 alt=""
               />
             </Link>
