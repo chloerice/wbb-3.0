@@ -23,7 +23,7 @@
 
   @include breakpoint-before('600px') {
     flex-direction: column;
-    padding: 2em;
+    padding: 2em 20px;
   }
 }
 
@@ -125,7 +125,7 @@
 
   @include breakpoint(small) {
     flex-direction: column;
-    padding: 1.5em;
+    padding: 1.5em 20px;
     justify-content: center;
 
     .icons {
