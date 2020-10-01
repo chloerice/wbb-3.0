@@ -155,7 +155,7 @@
   box-shadow: 4px 30px 40px 0 rgba(0, 0, 0, 0.46);
 
   @include breakpoint-before('768px') {
-    height: 50vh;
+    height: auto;
   }
 }
 
@@ -166,7 +166,7 @@
   z-index: 100;
 
   @include breakpoint-before('768px') {
-    height: 50vh;
+    height: auto;
   }
 }
 
@@ -212,7 +212,8 @@
   filter: grayscale(100%);
 
   @include breakpoint-before('768px') {
-    display: none;
+    margin-top: 0;
+    height: auto;
   }
 }
 
