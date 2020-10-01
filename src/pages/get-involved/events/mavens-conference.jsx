@@ -6,7 +6,7 @@ import { graphql } from 'gatsby'
 
 import { PageContainer } from '../../../components'
 
-import styles from '../../../assets/scss/detail-layout.module.scss'
+import styles from '../../../assets/scss/mavens.module.scss'
 
 export default function Mavens({ data }) {
   const heroImage = data.allFile.nodes.find(node =>
@@ -55,7 +55,7 @@ export default function Mavens({ data }) {
             <div className={styles.GoalContent}>
               <p>
                 <span className={styles.GoalContentHighlight}>
-                  Amplify the voices of women of color
+                  Amplify the voices of Black women technologists
                 </span>
                 , both up and coming and those at the top of their fields.
               </p>
@@ -75,9 +75,9 @@ export default function Mavens({ data }) {
                 <span className={styles.GoalContentHighlight}>
                   Provide a safe, liberating space
                 </span>{' '}
-                for women to engage each other in honest, meaningful discussions
-                around their experiences navigating education and careers in
-                tech at the intersections of race, gender, and sexuality.
+                to engage in honest, meaningful discussions around navigating
+                education and careers in tech at the intersections of race,
+                gender, and sexuality.
               </p>
             </div>
             <div className={styles.GoalImageWrapper}>
@@ -132,7 +132,7 @@ export default function Mavens({ data }) {
               volunteering
             </a>{' '}
             at or{' '}
-            <a className={styles.Action} href="/make-an-impact/volunteer">
+            <a className={styles.Action} href="/make-an-impact/partner">
               sponsoring
             </a>{' '}
             our virtual 2021 event

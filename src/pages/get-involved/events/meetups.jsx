@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react'
+import React, { useCallback } from 'react'
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
+import classNames from 'classnames'
 
 import { PageContainer } from '../../../components'
 
@@ -19,6 +20,14 @@ export default function Meetups({ data }) {
 
   const bseImage = data.allFile.nodes.find(node =>
     node.childImageSharp.fluid.src.includes('BSE')
+  )
+
+  const handleNavigate = useCallback(meetup => () => {})
+
+  const meetupButtonClassName = classNames(
+    styles.MeetupButton,
+    'button',
+    'special'
   )
 
   return (
@@ -45,9 +54,18 @@ export default function Meetups({ data }) {
           <h2 className={styles.SectionHeading}>WBB Meetups</h2>
 
           <div className={styles.Meetup}>
+            <div className={styles.MeetupImageWrapper}>
+              <Img
+                className={styles.MeetupImage}
+                fluid={sbbImage.childImageSharp.fluid}
+                alt=""
+              />
+            </div>
             <div className={styles.MeetupContent}>
               <p>
                 <a
+                  target="_blank"
+                  rel="noreferrer"
                   href="https://www.meetup.com/She-Builds-Black"
                   className={styles.MeetupContentHighlight}
                 >
@@ -56,20 +74,30 @@ export default function Meetups({ data }) {
                 {`is a network of Black women technologists who come together to
                 support and advance each other's careers.`}
               </p>
-            </div>
-            <div className={styles.MeetupImageWrapper}>
-              <Img
-                className={styles.MeetupImage}
-                fluid={sbbImage.childImageSharp.fluid}
-                alt=""
-              />
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.meetup.com/She-Builds-Black"
+                className={meetupButtonClassName}
+              >
+                Join SBB
+              </a>
             </div>
           </div>
 
           <div className={styles.Meetup}>
+            <div className={styles.MeetupImageWrapper}>
+              <Img
+                className={styles.MeetupImage}
+                fluid={bseImage.childImageSharp.fluid}
+                alt=""
+              />
+            </div>
             <div className={styles.MeetupContent}>
               <p>
                 <a
+                  target="_blank"
+                  rel="noreferrer"
                   href="https://www.meetup.com/black-software-engineers-of-nyc"
                   className={styles.MeetupContentHighlight}
                 >
@@ -78,16 +106,15 @@ export default function Meetups({ data }) {
                 is a space to mix ideas, work on code, get help on projects, and
                 discuss the industry. Anyone is welcome, but the aim and hope of
                 this group is to facilitate the growth of Black developers.
-                Whether it be collaborating on a startup idea or helping a
-                member to clarify their understanding of a library
               </p>
-            </div>
-            <div className={styles.MeetupImageWrapper}>
-              <Img
-                className={styles.MeetupImage}
-                fluid={bseImage.childImageSharp.fluid}
-                alt=""
-              />
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.meetup.com/black-software-engineers-of-nyc"
+                className={meetupButtonClassName}
+              >
+                Join BSENYC
+              </a>
             </div>
           </div>
         </div>

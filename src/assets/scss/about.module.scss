@@ -33,9 +33,10 @@
 /* INTRO SECTION */
 
 .IntroSection {
+  color: _palette(text-light);
   text-align: right;
   padding: 4em 6em;
-  background: _palette(highlight);
+  background: black;
 
   @include breakpoint-before('960px') {
     padding: 6%;
@@ -68,7 +69,7 @@
 
 .IntroHeading {
   margin-bottom: 0.5em;
-  font-size: 4em;
+  font-size: 3.25em;
   font-family: _font(family-display);
   line-height: 1.35;
   width: 40vw;
@@ -79,7 +80,7 @@
 }
 
 .VerticalLine {
-  border-left: solid 2px _palette(accent5);
+  border-left: solid 2px _palette(text-light);
   height: 20vh;
   width: 40vw;
   margin-left: 4em;
@@ -161,7 +162,21 @@
 
 .WhereWereHeadedSection {
   color: _palette(text-light);
-  background: _palette(accent3);
+  background: _palette(bg-dark);
+
+  p {
+    font-size: 1.25em;
+
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+
+  @include breakpoint-before('768px') {
+    p {
+      font-size: 1em;
+    }
+  }
 }
 
 /* TEAM GRID SECTION */
@@ -183,16 +198,22 @@
 .TeamList {
   display: grid;
   grid-auto-rows: auto;
-  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 3rem;
   margin: 0;
   padding: 0;
+
+  // @include breakpoint-before('768px') {
+  //   display: block;
+  // }
 }
 
 .TeamMember {
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: min-content;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .HeadshotWrapper {
@@ -208,9 +229,7 @@
 }
 
 .Info {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  align-self: flex-start;
   padding: 1em 0;
 }
 
@@ -229,4 +248,30 @@
   margin: 0;
 }
 
-/* --- end team styles --- */
+/* Call to action Section */
+
+.ActionSection {
+  padding: 6%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+
+  .SectionHeading {
+    margin: 0;
+  }
+}
+
+.ActionContent {
+  font-size: 2em;
+  margin: 0;
+}
+
+.Action {
+  &:hover,
+  &:focus {
+    font-weight: bolder !important;
+    color: _palette(text-dark) !important;
+  }
+}

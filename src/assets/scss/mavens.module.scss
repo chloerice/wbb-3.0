@@ -33,7 +33,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 9em 6em;
+  padding: 4em 6em;
   background: _palette(text-dark);
   color: _palette(text-light);
 
@@ -128,7 +128,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: 300;
   width: 100%;
 
@@ -201,6 +201,7 @@
 .Action {
   &:hover,
   &:focus {
-    color: _palette(accent4) !important;
+    font-weight: bolder !important;
+    color: _palette(text-dark) !important;
   }
 }
