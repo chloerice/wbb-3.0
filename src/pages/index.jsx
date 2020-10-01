@@ -108,6 +108,7 @@ export default function Home({ data }) {
             <Img
               className={styles.CalloutImage}
               fluid={fullWidthImage.childImageSharp.fluid}
+              alt="Candid photo of Mavens I/O 2019 panel discussion."
             />
           </div>
         </section>
