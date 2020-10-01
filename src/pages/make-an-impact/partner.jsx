@@ -107,9 +107,18 @@ export default function Partner({ data }) {
                   {`Building Black is at the core of our mission. We support Black businesses by hiring and highlighting them. D&I doesn't stop with recruitment. The vendors and services you use every day are also opportunities for change.`}
                 </dd>
 
-                <dt className={styles.BenchmarkName}>Transparent Data</dt>
+                <dt className={styles.BenchmarkName}>
+                  Transparent Demographics
+                </dt>
                 <dd className={styles.BenchmarkDescription}>
                   {`Publishing diversity statistics is a signal that you recognize there is a problem. It lets the public know you're working toward a solution and have a reference for your progress.`}
+                </dd>
+
+                <dt className={styles.BenchmarkName}>
+                  Transparent Salary Bands
+                </dt>
+                <dd className={styles.BenchmarkDescription}>
+                  {`Wage inequality is a long-standing issue across industries, and tech is no exception. Black tech employees earn considerably less than the average salary across technical roles, and the gender pay gap compounds this disparity for Black women. Unless there is salary transparency, efforts to build a more representative workforce will only widen the gap.`}
                 </dd>
 
                 <dt className={styles.BenchmarkName}>External Activism</dt>
