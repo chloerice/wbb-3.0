@@ -3,6 +3,10 @@
 @import '../../assets/scss/libs/mixins';
 @import '../../assets/scss/libs/skel';
 
+.Wrapper {
+  overflow: hidden;
+}
+
 .PageContainer {
   background: _palette(highlight);
   color: _palette(text-dark);

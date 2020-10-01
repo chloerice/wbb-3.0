@@ -129,8 +129,8 @@ export default function Home({ data }) {
             </Link>
           </div>
           <div className={styles.GridImageWrapper}>
-            <Link
-              to="/get-involved/programs/bounty-board"
+            <a
+              href="/get-involved/programs/bounty-board"
               target="_blank"
               rel="noreferrer"
             >
@@ -140,17 +140,17 @@ export default function Home({ data }) {
                 fluid={gridImageThree.childImageSharp.fluid}
                 alt=""
               />
-            </Link>
+            </a>
           </div>
           <div className={styles.GridImageWrapper}>
-            <Link to="/get-involved/slack" target="_blank" rel="noreferrer">
+            <a href="/get-involved/slack" target="_blank" rel="noreferrer">
               <div className={styles.GridImageOverlay}>Slack</div>
               <Img
                 className={styles.GridImage}
                 fluid={gridImageFour.childImageSharp.fluid}
                 alt=""
               />
-            </Link>
+            </a>
           </div>
         </section>
       </main>

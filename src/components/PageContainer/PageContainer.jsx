@@ -6,9 +6,9 @@ import styles from './PageContainer.module.scss'
 
 export default function PageContainer({ children }) {
   return (
-    <div>
+    <div className={styles.Wrapper}>
+      <Nav />
       <div className={styles.PageContainer}>
-        <Nav />
         <div className={styles.PageContent}>
           {children}
           <Footer />
