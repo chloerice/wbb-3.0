@@ -72,8 +72,9 @@ export default function Meetups({ data }) {
                 {`is a network of Black women technologists who come together to
                 support and advance each other's careers. Volunteers from SBB organize the annual`}{' '}
                 <Link to="/get-involved/events/mavens-conference">
-                  Mavens I/O: Black Women in Tech conferernce
-                </Link>
+                  Mavens I/O
+                </Link>{' '}
+                conference.
               </p>
               <a
                 target="_blank"
