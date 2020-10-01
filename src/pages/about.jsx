@@ -23,9 +23,9 @@ export default function About({ data }) {
   )
 
   const { teamMembers } = data.allMarkdownRemark.nodes[0].frontmatter
-  const teamCardMarkup = teamMembers.map(({ name, role, bio }) => {
+  const teamCardMarkup = teamMembers.map(({ name, role, bio, imageName }) => {
     const teamMemberHeadshot = data.allFile.nodes.find(node =>
-      node.childImageSharp.fluid.src.includes(name.split(' ')[0].toLowerCase())
+      node.childImageSharp.fluid.src.includes(imageName)
     )
 
     const headshot =
@@ -142,6 +142,7 @@ export const query = graphql`
             bio
             name
             role
+            imageName
           }
         }
       }

@@ -2,7 +2,7 @@
 import React, { useCallback } from 'react'
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
-import { graphql, navigate } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import classNames from 'classnames'
 
 import { PageContainer } from '../../../components'
@@ -21,8 +21,6 @@ export default function Meetups({ data }) {
   const bseImage = data.allFile.nodes.find(node =>
     node.childImageSharp.fluid.src.includes('BSE')
   )
-
-  const handleNavigate = useCallback(meetup => () => {})
 
   const meetupButtonClassName = classNames(
     styles.MeetupButton,
@@ -72,7 +70,10 @@ export default function Meetups({ data }) {
                   She Builds Black
                 </a>{' '}
                 {`is a network of Black women technologists who come together to
-                support and advance each other's careers.`}
+                support and advance each other's careers. Volunteers from SBB organize the annual`}{' '}
+                <Link to="/get-involved/events/mavens-conference">
+                  Mavens I/O: Black Women in Tech conferernce
+                </Link>
               </p>
               <a
                 target="_blank"
