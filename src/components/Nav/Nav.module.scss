@@ -199,6 +199,7 @@
 .DropdownMenuItem {
   padding-left: 0 !important;
   width: 100%;
+  display: flex;
 
   @include breakpoint-before('960px') {
     width: 100%;

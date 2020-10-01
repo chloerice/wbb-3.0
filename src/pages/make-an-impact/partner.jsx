@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
-import { navigate, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import className from 'classnames'
 
 import { PageContainer } from '../../components'
@@ -16,7 +16,7 @@ export default function Partner({ data }) {
   const partnerLogos = data.allFile.nodes.filter(node =>
     node.childImageSharp.fluid.src.includes('logo')
   )
-  console.log(partnerLogos)
+
   const logoMarkup = partnerLogos
     .sort((a, b) => {
       const img1 = a.childImageSharp.fluid.originalName.toUpperCase()

@@ -160,11 +160,9 @@ export default function Nav() {
           event.stopPropagation()
           event.preventDefault()
           if (!dropdownOpen) {
-            console.log('arrow down to open')
             openDropdown(navItem)
           }
 
-          console.log('focus sub menu item')
           focusNextSubMenuItem(navItem, 'down')
           break
 
@@ -172,11 +170,9 @@ export default function Nav() {
           event.stopPropagation()
           event.preventDefault()
           if (!dropdownOpen) {
-            console.log('arrow up to open')
             openDropdown(navItem)
           }
 
-          console.log('focus sub menu item')
           focusNextSubMenuItem(navItem, 'up')
           break
 
@@ -248,7 +244,6 @@ export default function Nav() {
 
   const handleNavigate = useCallback(event => {
     const url = event.target.getAttribute('data-href')
-    console.log(url)
     navigate(url)
   })
 
@@ -263,8 +258,6 @@ export default function Nav() {
       <span className="fa fa-2x fa-close" />
     </button>
   ) : null
-
-  console.log(`ACTIVE SUB MENU ITEM: ${activeSubMenuItemIndex}`)
 
   const menuMarkup = (
     <ul
@@ -349,8 +342,7 @@ export default function Nav() {
               </button>
             </li>
             <li role="none" className={styles.DropdownMenuItem}>
-              <button
-                type="button"
+              <a
                 role="menuitem"
                 className={styles.DropdownMenuButton}
                 data-navItem="Get involved"
@@ -358,27 +350,28 @@ export default function Nav() {
                 tabIndex={-1}
                 ref={bountyBoardRef}
                 data-href="/get-involved/programs/bounty-board"
-                // onFocus={handleFocusSubNavItem}
+                href="/get-involved/programs/bounty-board"
                 onClick={handleNavigate}
               >
                 Bounty Board
-              </button>
+              </a>
             </li>
             <li role="none" className={styles.DropdownMenuItem}>
-              <button
-                type="button"
+              <a
                 role="menuitem"
                 className={styles.DropdownMenuButton}
                 data-navItem="Get involved"
                 data-href="/get-involved/slack"
+                href="/get-involved/slack"
+                target="_blank"
+                rel="noreferrer"
                 data-index={3}
                 ref={slackRef}
                 tabIndex={-1}
                 onClick={handleNavigate}
-                // onFocus={handleFocusSubNavItem}
               >
                 Slack
-              </button>
+              </a>
             </li>
           </ul>
         </div>
@@ -387,8 +380,6 @@ export default function Nav() {
         <div
           className={styles.DropdownWrapper}
           onKeyUp={handleDropdownKeyPress}
-          // onMouseEnter={handleMouseOver}
-          // onMouseLeave={handleMouseLeave}
         >
           <button
             type="button"
@@ -411,8 +402,7 @@ export default function Nav() {
             role="menu"
           >
             <li role="none" className={styles.DropdownMenuItem}>
-              <button
-                type="button"
+              <a
                 className={styles.DropdownMenuButton}
                 tabIndex={-1}
                 role="menuitem"
@@ -421,15 +411,15 @@ export default function Nav() {
                 data-navItem="Make an impact"
                 data-menuItem="Hire"
                 data-index={0}
-                onClick={handleNavigate}
-                // onFocus={handleFocusSubNavItem}
+                href="/make-an-impact/hire"
+                target="_blank"
+                rel="noreferrer"
               >
                 Hire
-              </button>
+              </a>
             </li>
             <li role="none" className={styles.DropdownMenuItem}>
-              <button
-                type="button"
+              <a
                 className={styles.DropdownMenuButton}
                 tabIndex={-1}
                 role="menuitem"
@@ -438,15 +428,15 @@ export default function Nav() {
                 data-menuItem="Partner"
                 data-href="/make-an-impact/partner"
                 data-index={1}
-                onClick={handleNavigate}
-                // onFocus={handleFocusSubNavItem}
+                href="/make-an-impact/partner"
+                target="_blank"
+                rel="noreferrer"
               >
                 Partner
-              </button>
+              </a>
             </li>
             <li role="none" className={styles.DropdownMenuItem}>
-              <button
-                type="button"
+              <a
                 className={styles.DropdownMenuButton}
                 tabIndex={-1}
                 role="menuitem"
@@ -455,11 +445,12 @@ export default function Nav() {
                 data-menuItem="Volunteer"
                 data-href="/make-an-impact/volunteer"
                 data-index={2}
-                onClick={handleNavigate}
-                // onFocus={handleFocusSubNavItem}
+                href="/make-an-impact/volunteer"
+                target="_blank"
+                rel="noreferrer"
               >
                 Volunteer
-              </button>
+              </a>
             </li>
           </ul>
         </div>
