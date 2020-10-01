@@ -103,14 +103,6 @@ export default function Home({ data }) {
               alt="Candid photo of Co-founder Jerome Moore pairing with kids in after school coding program pilot, Ingenious Thought."
             />
           </div>
-
-          <div className={styles.CalloutImageThree}>
-            <Img
-              className={styles.CalloutImage}
-              fluid={fullWidthImage.childImageSharp.fluid}
-              alt="Candid photo of Mavens I/O 2019 panel discussion."
-            />
-          </div>
         </section>
         <section className={styles.Separator}>
           <h2 className={styles.GetInvolvedHeading}>Get involved</h2>

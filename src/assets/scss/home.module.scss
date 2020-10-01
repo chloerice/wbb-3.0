@@ -249,12 +249,11 @@
 .Separator {
   position: relative;
   text-align: center;
-  padding: 2em 6%;
+  padding: 2em;
   background: _palette(accent6);
-  margin-top: 2px;
 
   @include breakpoint-after('960px') {
-    padding: 2em;
+    padding: 6% 2em 2em;
   }
 }
 
