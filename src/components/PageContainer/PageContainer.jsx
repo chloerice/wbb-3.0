@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { Nav, Footer } from '../../components'
+import { Nav, Footer } from '..'
 
 import styles from './PageContainer.module.scss'
 
 export default function PageContainer({ children }) {
   return (
     <div>
-      <Nav />
       <div className={styles.PageContainer}>
+        <Nav />
         <div className={styles.PageContent}>
           {children}
           <Footer />
