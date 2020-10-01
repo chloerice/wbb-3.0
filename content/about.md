@@ -16,5 +16,5 @@ teamMembers:
   - name: Kris lee
     role: Co-founder
     imageName: kris-headshot.jpg
-    bio: Kris is a Bronx native and proud father of four with over 18 years in computer & network engineering, devoted to community development and technical literacy.
+    bio: Kris is a Bronx native & Systems Engineer with over 20 years experience, 5 years in Cyber Security with a special interest in vulnerability & penetration testing. He's devoted to community development, technical literacy, & wellness.
 ---
