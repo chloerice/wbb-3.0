@@ -6,13 +6,11 @@ import styles from './PageContainer.module.scss'
 
 export default function PageContainer({ children }) {
   return (
-    <div className={styles.Wrapper}>
+    <div className={styles.PageContainer}>
       <Nav />
-      <div className={styles.PageContainer}>
-        <div className={styles.PageContent}>
-          {children}
-          <Footer />
-        </div>
+      <div className={styles.PageContent}>
+        {children}
+        <Footer />
       </div>
     </div>
   )
