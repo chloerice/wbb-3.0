@@ -50,6 +50,21 @@ export default function Mavens({ data }) {
       </header>
       <main className={styles.Main}>
         <div className={styles.GoalSection}>
+          <h2 className={styles.SectionHeading}>The why</h2>
+          <p className={styles.IntroText}>
+            {`Representation matters. We're dedicated to providing a platform for Black women tech innovators and to building new pathways for them into the industry.`}
+          </p>
+
+          <p className={styles.IntroText}>
+            {`Mavens I/O is a conference designed to promote economic advancement
+            and career growth of Black women through panel discussions,
+            technical workshops, job recruitment opportunities, and Black-owned
+            vendors. It's a space to share knowledge, build networks, and
+            showcase Black talent and businesses. Mavens I/O is the leading tech
+            conference for connecting, engaging, hiring, and learning from and
+            with Black women technologists.`}
+          </p>
+
           <h2 className={styles.SectionHeading}>Our vision</h2>
           <div className={styles.Goal}>
             <div className={styles.GoalContent}>

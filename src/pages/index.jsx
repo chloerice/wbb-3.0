@@ -28,10 +28,6 @@ export default function Home({ data }) {
     node.childImageSharp.fluid.src.includes('callout-two')
   )
 
-  const fullWidthImage = data.allFile.nodes.find(node =>
-    node.childImageSharp.fluid.src.includes('callout-three')
-  )
-
   const gridImageOne = data.allFile.nodes.find(node =>
     node.childImageSharp.fluid.src.includes('mavens')
   )

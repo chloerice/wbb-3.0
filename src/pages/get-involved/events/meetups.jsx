@@ -34,9 +34,9 @@ export default function Meetups({ data }) {
       <header className={styles.Hero}>
         <div className={styles.HeroContentBlock}>
           <h1 className={styles.HeroHeading}>Find your people</h1>
-          <p
-            className={styles.HeroText}
-          >{`Looking for someone to pair with, a co-founder, a mentor, or some techie friends? Bring your whole authentic self and connect with the We Build Black community at a meetup event.`}</p>
+          <p className={styles.HeroText}>
+            {`Looking for someone to pair with, a co-founder, a mentor, or some techie friends? Bring your whole authentic self and connect with the We Build Black community at a meetup event.`}
+          </p>
         </div>
         <div className={styles.HeroImageBlock}>
           <div className={styles.HeroImageOverlay} />
@@ -50,6 +50,9 @@ export default function Meetups({ data }) {
       <main className={styles.Main}>
         <div className={styles.MeetupSection}>
           <h2 className={styles.SectionHeading}>WBB Meetups</h2>
+          <p className={styles.SectionIntro}>
+            {`For many years, Black people have fought for a seat at the table in their respective industries, but being the only Black techie in the office or at a meetup is still the norm. The lack of representation has left many Black technologists without mentors or support systems to help them grow. We Build Black started in 2016 as a small meetup group to bring Black technologists together and the community has since grown into a network of thousands. `}
+          </p>
 
           <div className={styles.Meetup}>
             <div className={styles.MeetupImageWrapper}>
@@ -69,8 +72,7 @@ export default function Meetups({ data }) {
                 >
                   She Builds Black
                 </a>{' '}
-                {`is a network of Black women technologists who come together to
-                support and advance each other's careers. Volunteers from SBB organize the annual`}{' '}
+                {`(SBB) is a network of Black women technologists who come together to grow their careers by learning from and supporting their peers. The goal of SBB is to educate, inspire, mentor, foster deep connections, and empower women to embrace the current tech industry as creators and builders. Volunteers from SBB organize the annual`}{' '}
                 <Link to="/get-involved/events/mavens-conference">
                   Mavens I/O
                 </Link>{' '}
@@ -105,9 +107,10 @@ export default function Meetups({ data }) {
                 >
                   Black Software Engineers of NYC
                 </a>{' '}
-                is a space to mix ideas, work on code, get help on projects, and
-                discuss the industry. Anyone is welcome, but the aim and hope of
-                this group is to facilitate the growth of Black developers.
+                (BSENYC) is a space to mix ideas, work on code, get help on
+                projects, and discuss the industry. Anyone is welcome, but the
+                aim and hope of this group is to facilitate the growth of Black
+                developers.
               </p>
               <a
                 target="_blank"

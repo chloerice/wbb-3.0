@@ -75,10 +75,10 @@ export default function About({ data }) {
           <div className={styles.IntroContentWrapper}>
             <div className={styles.IntroTextWrapper}>
               <p className={styles.IntroBody}>
-                {`In November of 2016, Devin Jackson was the only Black software engineer at his job. Sick of feeling isolated, he scoured the web for a local community of other devs like him. None existed, so he created the Black Software Engineers of NYC Meetup. He hosted the group every Saturday afternoon in a small office in Williamsburg. The group's numbers exploded, hitting the 1,000 member mark in its first 6 months. A core crew of members became fast friends, and after a year of building together they wanted to build something bigger.`}
+                {`In the fall of 2016, Devin Jackson was feeling isolated as the only Black software engineer at his company. He scoured the web for a local community of other devs like him, but none existed yet. So he decided to create the Black Software Engineers of NYC Meetup and hosted the group every Saturday afternoon in his small office in Williamsburg. The group's numbers exploded quickly, hitting the 1,000 member mark in its first 6 months. Devin and a core crew of members became fast friends, and after a year of building community together they wanted to create something bigger.`}
               </p>
               <p className={styles.IntroBody}>
-                {`In November of 2017, We Build Black was founded as a 501(c)(3) non-profit organization. Since then, WBB has created the Mavens I/O: Black Women in Tech Conference, taught coding programs in schools, piloted a recidivism program, and connected members to hiring opportunities. In the process, we’ve garnered sponsorship from Google, JP Morgan Chase, Birchbox, The New York Times, and more.`}
+                {`We Build Black was founded as a 501(c)(3) non-profit organization in November 2017. Since then, WBB has created the Mavens I/O: Black Women in Tech Conference, taught coding programs in schools, piloted a recidivism program, and connected members to hiring opportunities. In the process, we’ve garnered sponsorship from Google, JP Morgan Chase, Birchbox, The New York Times, and more.`}
               </p>
             </div>
             <div className={styles.VideoContainer}>
@@ -93,21 +93,14 @@ export default function About({ data }) {
         <section className={wwhSectionClassName}>
           <h2 className={styles.SectionHeading}>{`Where we're headed`}</h2>
           <p className={styles.WhereWereHeadedHeading}>
-            {`We Build Black has explored many avenues for community empowerment through technology over the years. From startup acceleration to criminal justice reform. We learned as much from our failures as we did from our successes.`}
+            {`We Build Black has explored many avenues for community empowerment through technology over the years. From startup acceleration to criminal justice reform. Our goal continues to be to solve the decades old problem of Black underrepresentation in tech by creating dedicated spaces that support Black technologists' economic advancement and career growth. `}
           </p>
           <p className={styles.WhereWereHeadedHeading}>
-            {`As we adjust to a digital-first world, our NYC-based community is
-            expanding to a global one. The scope of our focus is narrowing to
-            career development and inclusion advocacy. Along with planning for
-            Mavens I/O 2021, we're partnering with`}{' '}
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://www.unlock.academy/"
-            >
-              Unlock Academy
-            </a>{' '}
-            {`to pilot an online coding program in NYC middle schools.`}
+            {`As we adjust to a digital-first world, our NYC-based community is expanding to a global one and the scope of our focus is narrowing to career development and inclusion advocacy. Along with planning for`}{' '}
+            <Link to="/get-involved/events/mavens-conference">
+              Mavens I/O 2021
+            </Link>{' '}
+            {`, we're piloting an online coding program for NYC youth.`}
           </p>
         </section>
 
